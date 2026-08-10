@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akademie | Erzählkunst Bayern e.V.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Unterseiten-Kopf */
+.pagehero{background:linear-gradient(rgba(33,46,41,.82),rgba(33,46,41,.88)),
+  radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
+  color:var(--cream);padding:84px 28px 64px}
+.pagehero .inner{max-width:var(--maxw);margin:0 auto}
+.pagehero h1{color:#fff;font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900}
+.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:1.1rem}
+.pagehero .crumb{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:14px}
+.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600}
+.pagehero .crumb a:hover{color:var(--pink)}
+.nextstep{background:var(--sand);padding:64px 28px;text-align:center}
+.nextstep h2{font-size:1.7rem;margin-bottom:10px}
+.nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a class="logo" href="index.html">erzähl<br>kunst<span>Bayern e.V.</span></a>
+    <a class="navlink " href="index.html">Home</a>
+    <a class="navlink active" href="akademie.html">Akademie</a>
+    <a class="navlink " href="projekte.html">Projekte</a>
+    <a class="navlink " href="termine.html">Termine</a>
+    <a class="navlink " href="team.html">Über uns</a>
+    <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
+  </nav>
+</header>
+<section class="pagehero">
+  <div class="inner">
+    <p class="crumb"><a href="index.html">Home</a> / Akademie</p>
+    <h1>Akademie – Künstlerisches Erzählen lernen</h1>
+    <p>Die Grundausbildung 2027/28 in München: 10 aufeinander aufbauende Module, unterrichtet von professionellen Bühnenerzählerinnen. Klick dich durch den Ausbildungs-Faden.</p>
+  </div>
+</section>
+
+<section id="akademie" style="padding-top:70px">
+  <div class="inner">
+    <div class="ak-facts reveal">
+      <div><strong>10</strong>Module à 16 UE</div>
+      <div><strong>Feb 2027</strong>Ausbildungsstart</div>
+      <div><strong>Sa + So</strong>11–18 / 10–17 Uhr</div>
+      <div><strong>6–12</strong>Teilnehmer:innen</div>
+      <div><strong>2200 €</strong>Gesamtkosten</div>
+      <div><strong>München</strong>Kursort</div>
+    </div>
+    <div class="timeline" id="timeline"></div>
+    <div class="ak-konditionen">
+      <article class="reveal">
+        <h3>Noch unsicher?</h3>
+        <p>Lern uns beim <strong>Schnupper-Workshop</strong> kennen: Sa, 24. Oktober 2026 oder Sa, 30. Januar 2027, jeweils 10–15 Uhr. Kosten: 54&nbsp;€.</p>
+        <a class="btn btn--pink" style="margin-top:14px" href="anmeldung.html">Schnupper-Platz sichern</a>
+      </article>
+      <article class="reveal">
+        <h3>Module nachholen</h3>
+        <p>Ehemalige, die noch Module nachholen müssen, zahlen 240&nbsp;€ pro Modul. Für das 10. Modul gewähren wir 50&nbsp;% Nachlass.</p>
+      </article>
+      <article class="reveal">
+        <h3>Einzelcoaching</h3>
+        <p>Auf Anfrage bieten wir Einzelcoachings an: 150&nbsp;€ / 90 Minuten, jede weitere halbe Stunde 50&nbsp;€.</p>
+        <a class="btn btn--ghost" style="margin-top:14px;color:var(--cream);border-color:var(--cream)" href="anmeldung.html">Coaching anfragen</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="nextstep">
+  <h2>Dein nächster Schritt</h2>
+  <p>Melde dich für die Grundausbildung 2027/28 an – oder starte unverbindlich mit dem Schnupper-Workshop.</p>
+  <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
+</div>
+
+<script>
+const module = [
+  {t:"Ankommen im Erzählen", d:"Feb 2027 · Gabi Altenbach", inhalt:"Was macht mündliches Erzählen aus? Erste eigene Geschichten finden, Erzählhaltung entwickeln und die Gruppe kennenlernen.", doz:"Gabi Altenbach, München", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Bilder im Kopf – Erzählen mit inneren Bildern", d:"Apr 2027 · Carola Bambas", inhalt:"Geschichten nicht auswendig lernen, sondern in Bildern denken: die Grundlage des freien Erzählens.", doz:"Carola Bambas, Gauting", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Stimme & Präsenz", d:"Jun 2027 · Ines Honsel", inhalt:"Atem, Stimme, Körper: Wie du den Raum füllst und dein Publikum vom ersten Satz an erreichst.", doz:"Ines Honsel, München", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Märchen & Mythen", d:"Sep 2027 · Bärbel Jogschies", inhalt:"Traditionelle Stoffe erschließen, deuten und für heutige Ohren lebendig machen.", doz:"Bärbel Jogschies, Regensburg", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Dramaturgie & Spannung", d:"Nov 2027 · Cordula Carla Gerndt", inhalt:"Der Bauplan guter Geschichten: Anfang, Wendepunkte, Tempo und der perfekte Schluss.", doz:"Cordula Carla Gerndt, Regensburg", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Persönliche Geschichten", d:"Jan 2028 · Katharina Ritter", inhalt:"Aus dem eigenen Leben schöpfen: Erlebtes verdichten, ohne sich zu entblößen.", doz:"Katharina Ritter, München", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Humor & Improvisation", d:"Mär 2028 · Gabi Altenbach", inhalt:"Vom spontanen Einfall zur Pointe: Leichtigkeit, Timing und der Mut zur Lücke.", doz:"Gabi Altenbach, München", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Erzählen für Kinder & Publikum", d:"Mai 2028 · Gabi Altenbach & Carola Bambas", inhalt:"Zielgruppen lesen, einbeziehen und begeistern – von der Kita bis zum Abendpublikum.", doz:"Gabi Altenbach & Carola Bambas", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Bühne & Auftritt", d:"Sep 2028 · Ines Honsel", inhalt:"Lampenfieber nutzen, Auftritte gestalten, mit Pannen souverän umgehen.", doz:"Ines Honsel, München", kosten:"im Ausbildungspreis enthalten"},
+  {t:"Abschluss & Werkschau", d:"Nov 2028 · Alle Dozentinnen", inhalt:"Dein eigenes Erzählprogramm entsteht – und feiert vor Publikum Premiere. Zertifikatsübergabe!", doz:"Gesamtes Dozentinnen-Team", kosten:"50 % Nachlass für Nachholer:innen"}
+];
+const tl = document.getElementById('timeline');
+module.forEach((m,i)=>{
+  const el = document.createElement('div');
+  el.className = 'mod reveal';
+  el.innerHTML = `
+    <div class="mod__dot" aria-hidden="true">${i+1}</div>
+    <button class="mod__head" aria-expanded="false">
+      Modul ${i+1}: ${m.t}
+      <span class="date">${m.d}</span>
+    </button>
+    <div class="mod__body">
+      <div class="mod__body-inner">
+        <div>
+          <dt>Inhalt</dt><dd>${m.inhalt}</dd>
+          <a class="btn btn--pink" href="anmeldung.html">Für die Ausbildung anmelden</a>
+        </div>
+        <div>
+          <dt>Dozentin</dt><dd>${m.doz}</dd>
+          <dt>Kosten</dt><dd>${m.kosten}</dd>
+        </div>
+      </div>
+    </div>`;
+  tl.appendChild(el);
+});
+tl.addEventListener('click', e=>{
+  const head = e.target.closest('.mod__head');
+  if(!head) return;
+  const mod = head.parentElement;
+  const body = mod.querySelector('.mod__body');
+  const open = mod.classList.toggle('open');
+  head.setAttribute('aria-expanded', open);
+  body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+});
+</script>
+<footer>
+  <div class="inner">
+    <div>
+      <h4>Erzählkunst Bayern e.V.</h4>
+      <p>Ihr Verein für Erzählkunst und Erzählausbildung in München und Bayern. Mitglied im Verband der Erzählerinnen und Erzähler e.V. (VEE).</p>
+      <p style="margin-top:14px"><strong style="color:var(--cream)">Spenden:</strong><br>Stadtsparkasse München<br>IBAN: DE03 7015 0000 1006 4878 29</p>
+    </div>
+    <div>
+      <h4>Schnellzugriff</h4>
+      <ul>
+        <li><a href="akademie.html">Akademie &amp; Module</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
+        <li><a href="termine.html">Termine</a></li>
+        <li><a href="team.html">Über uns</a></li>
+        <li><a href="anmeldung.html">Anmeldung</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">Cookie-Einstellungen</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a></div>
+<script>
+const _sticky=document.getElementById('stickyCta');
+document.addEventListener('scroll',()=>{ _sticky.classList.toggle('visible', document.documentElement.scrollTop>500); },{passive:true});
+const _io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>_io.observe(el));
+</script>
+
+</body>
+</html>
