@@ -62,46 +62,42 @@
 </div>
 
 <script>
-const termine = [
-  {cat:"offen", date:"28. Sep 2026 · 19–21 Uhr", title:"Der Montagsclub", desc:"Monatliches Erzähltraining – offen für alle Geschichten und Erfahrungsstufen.", meta:"Kulturzentrum LUISE, München · 1–5 €", full:false},
-  {cat:"akademie", date:"24. Okt 2026 · 10–15 Uhr", title:"Schnupper-Workshop Erzählen", desc:"Ist Geschichtenerzählen etwas für dich? Finde es heraus – ohne Vorkenntnisse, ohne Druck.", meta:"Ort wird bekannt gegeben · 54 €", full:false},
-  {cat:"offen", date:"26. Okt 2026 · 19–21 Uhr", title:"Der Montagsclub", desc:"Monatliches Erzähltraining – Anmeldung unbedingt erforderlich.", meta:"Kulturzentrum LUISE, München · 1–5 €", full:false},
-  {cat:"offen", date:"9. Nov 2026 · 19–21 Uhr", title:"Der Montagsclub", desc:"Monatliches Erzähltraining – Anmeldung unbedingt erforderlich.", meta:"Kulturzentrum LUISE, München · 1–5 €", full:true},
-  {cat:"offen", date:"7. Dez 2026 · 19–21 Uhr", title:"Der Montagsclub", desc:"Monatliches Erzähltraining – Anmeldung unbedingt erforderlich.", meta:"Kulturzentrum LUISE, München · 1–5 €", full:false},
-  {cat:"akademie", date:"23.–24. Jan 2027", title:"Einen Förderantrag stellen", desc:"Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Ines Honsel.", meta:"Kulturzentrum LUISE, München · 240 €", full:false},
-  {cat:"akademie", date:"30. Jan 2027 · 10–15 Uhr", title:"Schnupper-Workshop Erzählen", desc:"Letzte Chance vor dem Ausbildungsstart: Lern uns und die Ausbildung kennen!", meta:"Kulturzentrum LUISE, München · 54 €", full:false},
-  {cat:"akademie", date:"Feb 2027", title:"Start: Grundausbildung 2027/28", desc:"10 Module Künstlerisches Erzählen – dein Weg auf die Bühne beginnt hier.", meta:"München · 2200 € · max. 12 Plätze", full:false},
-  {cat:"akademie", date:"20.–21. Feb 2027", title:"Fakten in Geschichten wandeln", desc:"Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Bärbel Jogschies.", meta:"Regensburg · 240 €", full:false},
-  {cat:"akademie", date:"13.–14. Mär 2027", title:"Göttinnen und Heldinnen im Mythos", desc:"Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Gabi Altenbach.", meta:"Kulturzentrum LUISE, München · 240 €", full:true},
-  {cat:"akademie", date:"17.–18. Apr 2027", title:"Erzählen für Kinder", desc:"Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Gabi Altenbach & Carola Bambas.", meta:"Kulturzentrum LUISE, München · 240 €", full:false},
-  {cat:"akademie", date:"17.–22. Mai 2027", title:"Erzählreise: Zwischen Berg und See", desc:"6 Tage Fortbildung & Erholung am Millstätter See, Österreich. Dozentinnen: Carola Bambas & Ines Honsel.", meta:"Seeboden, Österreich", full:false}
-];
-const tc = document.getElementById('tcards');
-termine.forEach(t=>{
-  const el = document.createElement('article');
-  el.className = 'tcard reveal' + (t.full ? ' is-full' : '');
-  el.dataset.cat = t.cat;
-  el.innerHTML = `
-    ${t.full ? '<span class="badge-full">Ausgebucht</span>' : ''}
-    <span class="tcard__tag ${t.cat==='akademie'?'tag--akademie':'tag--offen'}">${t.cat==='akademie'?'Akademie / Ausbildung':'Offener Treff'}</span>
-    <span class="tcard__date">${t.date}</span>
-    <h3>${t.title}</h3>
-    <p>${t.desc}</p>
-    <span class="tcard__meta">${t.meta}</span>
-    <a class="btn btn--dark" href="anmeldung.html">${t.full ? 'Ausgebucht' : 'Anmelden'}</a>`;
-  tc.appendChild(el);
-});
-const chips = document.querySelectorAll('.chip');
-function applyFilter(f){
-  chips.forEach(c=>c.classList.toggle('active', c.dataset.filter===f));
-  document.querySelectorAll('.tcard').forEach(card=>{
-    card.classList.toggle('hide', f!=='alle' && card.dataset.cat!==f);
+fetch('data/termine.json')
+  .then(r => r.json())
+  .then(termine => {
+    const tc = document.getElementById('tcards');
+    termine.forEach(t=>{
+      const el = document.createElement('article');
+      el.className = 'tcard reveal' + (t.full ? ' is-full' : '');
+      el.dataset.cat = t.cat;
+      el.innerHTML = `
+        ${t.full ? '<span class="badge-full">Ausgebucht</span>' : ''}
+        <span class="tcard__tag ${t.cat==='akademie'?'tag--akademie':'tag--offen'}">${t.cat==='akademie'?'Akademie / Ausbildung':'Offener Treff'}</span>
+        <span class="tcard__date">${t.date}</span>
+        <h3>${t.title}</h3>
+        <p>${t.desc}</p>
+        <span class="tcard__meta">${t.meta}</span>
+        <a class="btn btn--dark" href="anmeldung.html">${t.full ? 'Ausgebucht' : 'Anmelden'}</a>`;
+      tc.appendChild(el);
+      const io2 = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.12});
+      io2.observe(el);
+    });
+
+    const chips = document.querySelectorAll('.chip');
+    function applyFilter(f){
+      chips.forEach(c=>c.classList.toggle('active', c.dataset.filter===f));
+      document.querySelectorAll('.tcard').forEach(card=>{
+        card.classList.toggle('hide', f!=='alle' && card.dataset.cat!==f);
+      });
+    }
+    chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.filter)));
+    const urlFilter = new URLSearchParams(location.search).get('filter');
+    if(urlFilter && ['akademie','offen'].includes(urlFilter)) applyFilter(urlFilter);
+  })
+  .catch(()=>{
+    document.getElementById('tcards').innerHTML =
+      '<p style="color:#8a2b2b">Termine konnten nicht geladen werden. Bitte data/termine.json prüfen.</p>';
   });
-}
-chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.filter)));
-/* Filter aus URL übernehmen, z. B. termine.html?filter=offen */
-const urlFilter = new URLSearchParams(location.search).get('filter');
-if(urlFilter && ['akademie','offen'].includes(urlFilter)) applyFilter(urlFilter);
 </script>
 <footer>
   <div class="inner">

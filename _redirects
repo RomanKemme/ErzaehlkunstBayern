@@ -1,0 +1,18 @@
+# Netlify-Weiterleitungen: alte Jimdo-URLs → neue Seiten
+# Format: alte-URL   neue-URL   Statuscode (301 = dauerhaft, gut für SEO)
+# WICHTIG: Trage hier die ECHTEN Pfade eurer aktuellen Jimdo-Seiten ein
+# (siehe Phase 0 der Migrations-Checkliste). Die Zeilen unten sind Platzhalter
+# basierend auf typischen Jimdo-Mustern und müssen vor dem Go-Live geprüft werden.
+
+/akademie/            /akademie.html           301
+/unsere-projekte/     /projekte.html           301
+/ueber-uns/           /team.html               301
+/termine/             /termine.html            301
+/kontakt/             /anmeldung.html          301
+
+# Optional: trailing-slash-Varianten ohne führenden Slash am Ende
+/akademie             /akademie.html           301
+/unsere-projekte      /projekte.html           301
+/ueber-uns            /team.html               301
+/termine              /termine.html            301
+/kontakt              /anmeldung.html          301

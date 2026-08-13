@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Wo hochgeladene Bilder aus dem CMS landen (später nutzbar, z. B. für Team-Fotos)
+media_folder: "data/uploads"
+public_folder: "/data/uploads"
+
+# Zeigt eine Vorschau des Live-Deploys nach dem Speichern an (Netlify erkennt das automatisch)
+site_url: https://DEIN-NETLIFY-NAME.netlify.app
+
+collections:
+  - name: "termine"
+    label: "Termine"
+    files:
+      - file: "data/termine.json"
+        label: "Terminliste"
+        name: "termine"
+        fields:
+          - label: "Alle Termine"
+            name: "termine"
+            widget: "list"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - label: "Kategorie"
+                name: "cat"
+                widget: "select"
+                options:
+                  - { label: "Akademie / Ausbildung", value: "akademie" }
+                  - { label: "Offener Treff", value: "offen" }
+              - label: "Datum / Uhrzeit (Anzeigetext)"
+                name: "date"
+                widget: "string"
+                hint: "z. B. „28. Sep 2026 · 19–21 Uhr“"
+              - label: "Titel"
+                name: "title"
+                widget: "string"
+              - label: "Beschreibung"
+                name: "desc"
+                widget: "text"
+              - label: "Ort / Kosten (Anzeigetext)"
+                name: "meta"
+                widget: "string"
+                hint: "z. B. „Kulturzentrum LUISE, München · 1–5 €“"
+              - label: "Ausgebucht?"
+                name: "full"
+                widget: "boolean"
+                default: false
