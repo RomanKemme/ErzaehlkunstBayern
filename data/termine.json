@@ -95,6 +95,14 @@
       "desc": "6 Tage Fortbildung & Erholung am Millstätter See, Österreich. Dozentinnen: Carola Bambas & Ines Honsel.",
       "meta": "Seeboden, Österreich",
       "full": false
+    },
+    {
+      "full": true,
+      "cat": "offen",
+      "date": "27. Sep 2026",
+      "title": "Test-Workshop",
+      "desc": "Das ist ein Test. Melden sie sich nicht an.",
+      "meta": "Bei mir, 1-5 €"
     }
   ]
 }
