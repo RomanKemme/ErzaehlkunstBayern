@@ -78,7 +78,7 @@ fetch('data/termine.json')
         <h3>${t.title}</h3>
         <p>${t.desc}</p>
         <span class="tcard__meta">${t.meta}</span>
-        <a class="btn btn--dark" href="anmeldung.html">${t.full ? 'Ausgebucht' : 'Anmelden'}</a>`;
+        <a class="btn btn--dark" href="anmeldung.html?angebot=${encodeURIComponent(t.title)}">${t.full ? 'Ausgebucht' : 'Anmelden'}</a>`;
       tc.appendChild(el);
       const io2 = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.12});
       io2.observe(el);
