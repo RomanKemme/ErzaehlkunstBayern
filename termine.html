@@ -64,7 +64,8 @@
 <script>
 fetch('data/termine.json')
   .then(r => r.json())
-  .then(termine => {
+  .then(data => {
+    const termine = data.termine;
     const tc = document.getElementById('tcards');
     termine.forEach(t=>{
       const el = document.createElement('article');
@@ -132,6 +133,20 @@ const _sticky=document.getElementById('stickyCta');
 document.addEventListener('scroll',()=>{ _sticky.classList.toggle('visible', document.documentElement.scrollTop>500); },{passive:true});
 const _io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>_io.observe(el));
+</script>
+
+<!-- Netlify Identity: fängt Einladungs-/Bestätigungs-/Reset-Links ab, egal auf welcher Seite sie landen -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
 </script>
 
 </body>

@@ -53,9 +53,13 @@
         <li><strong>Nachricht senden</strong><span>Wir melden uns innerhalb weniger Tage mit allen Details und der verbindlichen Anmeldung.</span></li>
         <li><strong>Loslegen</strong><span>Platz bestätigt – und deine Erzählreise beginnt. Wir freuen uns auf dich!</span></li>
       </ol>
-      <form class="anmelde-form reveal" id="anmeldeForm">
+      <form class="anmelde-form reveal" id="anmeldeForm" name="anmeldung" method="POST" data-netlify="true" data-netlify-honeypot="firma">
+        <input type="hidden" name="form-name" value="anmeldung">
+        <p style="display:none">
+          <label>Firma (bitte freilassen): <input name="firma"></label>
+        </p>
         <label for="f-angebot">Wofür möchtest du dich anmelden?*</label>
-        <select id="f-angebot" required>
+        <select id="f-angebot" name="angebot" required>
           <option value="">Bitte wählen …</option>
           <option>Schnupper-Workshop (24.10.2026 oder 30.01.2027)</option>
           <option>Grundausbildung Künstlerisches Erzählen 2027/28</option>
@@ -67,15 +71,15 @@
         <div class="row">
           <div>
             <label for="f-name">Name*</label>
-            <input id="f-name" type="text" required autocomplete="name">
+            <input id="f-name" name="name" type="text" required autocomplete="name">
           </div>
           <div>
             <label for="f-mail">E-Mail-Adresse*</label>
-            <input id="f-mail" type="email" required autocomplete="email">
+            <input id="f-mail" name="email" type="email" required autocomplete="email">
           </div>
         </div>
         <label for="f-msg">Deine Nachricht (optional)</label>
-        <textarea id="f-msg" rows="4" placeholder="Fragen, Wünsche, Vorerfahrung …"></textarea>
+        <textarea id="f-msg" name="nachricht" rows="4" placeholder="Fragen, Wünsche, Vorerfahrung …"></textarea>
         <button class="btn btn--pink" type="submit">Anmeldung absenden</button>
         <div class="form-ok" id="formOk">✓ Danke! Deine Anfrage ist angekommen – wir melden uns in wenigen Tagen bei dir.</div>
       </form>
@@ -92,10 +96,19 @@
 </section>
 
 <script>
-document.getElementById('anmeldeForm').addEventListener('submit', e=>{
+document.getElementById('anmeldeForm').addEventListener('submit', function(e){
   e.preventDefault();
-  document.getElementById('formOk').style.display = 'block';
-  e.target.querySelector('button').textContent = 'Gesendet ✓';
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const data = new FormData(form);
+  fetch('/', { method: 'POST', body: new URLSearchParams(data).toString(),
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+    .then(()=>{
+      document.getElementById('formOk').style.display = 'block';
+      btn.textContent = 'Gesendet ✓';
+      form.reset();
+    })
+    .catch(()=>{ alert('Senden fehlgeschlagen, bitte versuch es gleich nochmal.'); });
 });
 </script>
 <footer>
@@ -131,6 +144,20 @@ const _sticky=document.getElementById('stickyCta');
 document.addEventListener('scroll',()=>{ _sticky.classList.toggle('visible', document.documentElement.scrollTop>500); },{passive:true});
 const _io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>_io.observe(el));
+</script>
+
+<!-- Netlify Identity: fängt Einladungs-/Bestätigungs-/Reset-Links ab, egal auf welcher Seite sie landen -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
 </script>
 
 </body>
