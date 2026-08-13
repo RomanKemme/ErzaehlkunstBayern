@@ -7,8 +7,7 @@ media_folder: "data/uploads"
 public_folder: "/data/uploads"
 
 # Zeigt eine Vorschau des Live-Deploys nach dem Speichern an (Netlify erkennt das automatisch)
-site_url: https://DEIN-NETLIFY-NAME.netlify.app
-
+site_url: https://erzaehlkunstbayern.netlify.app/
 collections:
   - name: "termine"
     label: "Termine"
