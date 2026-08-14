@@ -7,7 +7,8 @@ media_folder: "data/uploads"
 public_folder: "/data/uploads"
 
 # Zeigt eine Vorschau des Live-Deploys nach dem Speichern an (Netlify erkennt das automatisch)
-site_url: https://erzaehlkunstbayern.netlify.app/
+site_url: https://DEIN-NETLIFY-NAME.netlify.app
+
 collections:
   - name: "termine"
     label: "Termine"
@@ -41,6 +42,11 @@ collections:
                 name: "meta"
                 widget: "string"
                 hint: "z. B. „Kulturzentrum LUISE, München · 1–5 €“"
+              - label: "Bild"
+                name: "img"
+                widget: "image"
+                required: false
+                hint: "Optional: Eigenes Foto hochladen. Ohne Auswahl bleibt die Illustration der Website."
               - label: "Ausgebucht?"
                 name: "full"
                 widget: "boolean"

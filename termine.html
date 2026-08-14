@@ -73,6 +73,7 @@ fetch('data/termine.json')
       el.dataset.cat = t.cat;
       el.innerHTML = `
         ${t.full ? '<span class="badge-full">Ausgebucht</span>' : ''}
+        ${t.img ? `<div class="tcard__img"><img src="${t.img}" alt="" loading="lazy"></div>` : ''}
         <span class="tcard__tag ${t.cat==='akademie'?'tag--akademie':'tag--offen'}">${t.cat==='akademie'?'Akademie / Ausbildung':'Offener Treff'}</span>
         <span class="tcard__date">${t.date}</span>
         <h3>${t.title}</h3>

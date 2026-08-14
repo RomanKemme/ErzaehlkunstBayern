@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#EDE0C8"/>
+  <!-- Berge -->
+  <path d="M0 150 L90 60 L160 150 Z" fill="#2B3A34"/>
+  <path d="M110 150 L210 40 L310 150 Z" fill="#3d4f47"/>
+  <path d="M250 150 L330 80 L400 150 Z" fill="#2B3A34"/>
+  <!-- See -->
+  <rect x="0" y="150" width="400" height="70" fill="#4a6b74"/>
+  <path d="M20 168 Q 60 162 100 168 T 200 168 T 300 168 T 400 168" stroke="#EDE0C8" stroke-width="2" fill="none" opacity=".5"/>
+  <!-- Sonne als roter Fadenknoten -->
+  <circle cx="330" cy="42" r="16" fill="#E23558"/>
+  <path d="M330 42 C 300 60, 260 50, 230 66" stroke="#E23558" stroke-width="2.5" fill="none" stroke-dasharray="6 6"/>
+  <text x="200" y="205" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#EDE0C8" font-style="italic">Zwischen Berg und See</text>
+</svg>

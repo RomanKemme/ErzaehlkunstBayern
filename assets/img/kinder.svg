@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#2B3A34"/>
+  <!-- Drachen als Metapher für Fantasie -->
+  <path d="M200 40 L245 95 L200 150 L155 95 Z" fill="#E23558"/>
+  <path d="M200 40 L200 150 M155 95 L245 95" stroke="#EDE0C8" stroke-width="2.5"/>
+  <path d="M200 150 C 190 175, 220 180, 205 205" stroke="#EDE0C8" stroke-width="2.5" fill="none"/>
+  <g fill="#EDE0C8">
+    <path d="M196 168 l8 -5 l2 9 l-8 4 z"/>
+    <path d="M212 186 l8 -5 l2 9 l-8 4 z"/>
+  </g>
+  <!-- Sterne -->
+  <g fill="#EDE0C8" opacity=".8">
+    <circle cx="110" cy="60" r="3"/><circle cx="300" cy="50" r="3"/><circle cx="320" cy="140" r="3"/>
+    <circle cx="90" cy="150" r="3"/><circle cx="270" cy="180" r="3"/>
+  </g>
+  <text x="200" y="30" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#EDE0C8" font-style="italic" opacity=".85">Fantasie fliegen lassen</text>
+</svg>

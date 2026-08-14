@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#EDE0C8"/>
+  <!-- Tafel -->
+  <rect x="90" y="45" width="220" height="120" rx="8" fill="#2B3A34"/>
+  <rect x="90" y="45" width="220" height="120" rx="8" fill="none" stroke="#c9b891" stroke-width="6"/>
+  <!-- Kreide-Faden auf der Tafel -->
+  <path d="M120 130 C 150 90, 190 140, 220 95 S 270 80, 285 70" stroke="#E23558" stroke-width="3" fill="none"/>
+  <circle cx="285" cy="70" r="5" fill="#E23558"/>
+  <text x="200" y="115" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#EDE0C8" font-style="italic">Es war einmal…</text>
+  <text x="200" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#2B3A34" font-style="italic" opacity=".8">Erzählen in der Schule</text>
+</svg>

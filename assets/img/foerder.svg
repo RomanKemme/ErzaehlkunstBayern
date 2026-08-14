@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#EDE0C8"/>
+  <!-- Dokument -->
+  <rect x="140" y="35" width="120" height="150" rx="6" fill="#fff" stroke="#2B3A34" stroke-width="3"/>
+  <g stroke="#2B3A34" stroke-width="4" stroke-linecap="round" opacity=".6">
+    <path d="M158 65 h84"/><path d="M158 85 h84"/><path d="M158 105 h60"/>
+  </g>
+  <!-- Roter Faden wird zur Unterschrift -->
+  <path d="M158 150 C 175 135, 190 165, 210 148 S 235 140, 242 145" stroke="#E23558" stroke-width="3.5" fill="none"/>
+  <!-- Euro-Knoten -->
+  <circle cx="285" cy="70" r="24" fill="#E23558"/>
+  <text x="285" y="79" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#fff">€</text>
+  <text x="200" y="207" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#2B3A34" font-style="italic" opacity=".8">Förderung sichern</text>
+</svg>
