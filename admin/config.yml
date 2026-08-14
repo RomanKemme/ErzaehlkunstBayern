@@ -51,3 +51,70 @@ collections:
                 name: "full"
                 widget: "boolean"
                 default: false
+
+  - name: "team"
+    label: "Team (Über uns)"
+    files:
+      - file: "data/team.json"
+        label: "Dozentinnen"
+        name: "team"
+        fields:
+          - label: "Alle Dozentinnen"
+            name: "team"
+            widget: "list"
+            summary: "{{name}} ({{ort}})"
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+              - label: "Ort"
+                name: "ort"
+                widget: "string"
+              - label: "Schwerpunkt"
+                name: "fach"
+                widget: "string"
+                hint: "z. B. „Stimme, Präsenz & Bühne“"
+              - label: "Initialen (für Platzhalter ohne Foto)"
+                name: "ini"
+                widget: "string"
+                hint: "z. B. „GA“ – wird angezeigt, solange kein Foto hochgeladen ist"
+              - label: "Audio-Intro-Text"
+                name: "intro"
+                widget: "text"
+                hint: "Kurzer Vorstellungssatz (wird als Demo-Audio vorgelesen)"
+              - label: "Foto"
+                name: "foto"
+                widget: "image"
+                required: false
+                hint: "Porträtfoto hochladen – am besten quadratisch. Ohne Foto erscheinen die Initialen."
+
+  - name: "seiten"
+    label: "Seitenbilder"
+    files:
+      - file: "data/seiten.json"
+        label: "Titelbilder & Impressionen"
+        name: "seiten"
+        fields:
+          - label: "Titelbild Startseite"
+            name: "home_hero"
+            widget: "image"
+            required: false
+            hint: "Großes Bild hinter der Startseiten-Überschrift. Leer = grüner Farbverlauf."
+          - label: "Titelbild „Über uns“"
+            name: "ueberuns_hero"
+            widget: "image"
+            required: false
+            hint: "Großes Bild im Kopf der Über-uns-Seite. Leer = grüner Farbverlauf."
+          - label: "Impressionen (Galerie auf der Startseite)"
+            name: "impressionen"
+            widget: "list"
+            summary: "{{unterschrift}}"
+            fields:
+              - label: "Bild"
+                name: "bild"
+                widget: "image"
+                required: false
+                hint: "Leer lassen = dekorativer Platzhalter"
+              - label: "Bildunterschrift"
+                name: "unterschrift"
+                widget: "string"

@@ -1,0 +1,10 @@
+{
+  "team": [
+    { "name": "Gabi Altenbach", "ort": "München", "fach": "Mythen, Humor & Erzählen für Kinder", "ini": "GA", "intro": "Hallo, ich bin Gabi – und ich liebe es, alte Mythen so zu erzählen, dass sie sich anfühlen wie heute.", "foto": "" },
+    { "name": "Carola Bambas", "ort": "Gauting", "fach": "Innere Bilder & Erzählreisen", "ini": "CB", "intro": "Hi, ich bin Carola. Bei mir lernst du, Geschichten in Bildern zu denken – und nie wieder einen Text auswendig zu lernen.", "foto": "" },
+    { "name": "Cordula Carla Gerndt", "ort": "Regensburg", "fach": "Dramaturgie & Geschichten im Dialog", "ini": "CG", "intro": "Ich bin Cordula. Gute Geschichten haben einen Bauplan – ich zeige dir, wie er funktioniert.", "foto": "" },
+    { "name": "Ines Honsel", "ort": "München", "fach": "Stimme, Präsenz & Bühne", "ini": "IH", "intro": "Hallo, ich bin Ines. Deine Stimme kann mehr, als du denkst – lass es uns gemeinsam herausfinden.", "foto": "" },
+    { "name": "Bärbel Jogschies", "ort": "Regensburg", "fach": "Märchen & Fakten in Geschichten", "ini": "BJ", "intro": "Ich bin Bärbel und verwandle sogar trockene Fakten in Geschichten, die hängen bleiben.", "foto": "" },
+    { "name": "Katharina Ritter", "ort": "München", "fach": "Persönliche Geschichten", "ini": "KR", "intro": "Hallo, ich bin Katharina. Die stärksten Geschichten trägst du schon in dir – ich helfe dir, sie zu erzählen.", "foto": "" }
+  ]
+}

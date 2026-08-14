@@ -363,3 +363,37 @@ footer li{margin-bottom:8px}
 /* Scroll-Reveal */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease, transform .55s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* ---------- Foto-Avatare (CMS-Uploads) ---------- */
+.avatar--foto{overflow:hidden;padding:0}
+.avatar--foto img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- Seitenkopf mit Bild ---------- */
+.pagehero--img{background-size:cover!important;background-position:center!important}
+
+/* ---------- Impressionen-Galerie (Polaroid-Optik) ---------- */
+.impress-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:34px;margin-top:14px;
+}
+.impress{
+  margin:0;background:#fff;padding:14px 14px 10px;
+  border-radius:6px;box-shadow:0 10px 26px rgba(38,48,44,.14);
+  transform:rotate(-1.6deg);transition:transform .25s ease, box-shadow .25s ease;
+}
+.impress:nth-child(2){transform:rotate(1.2deg)}
+.impress:nth-child(3){transform:rotate(-0.7deg)}
+.impress:hover{transform:rotate(0) scale(1.03);box-shadow:0 16px 34px rgba(38,48,44,.2);z-index:1}
+.impress img{width:100%;height:210px;object-fit:cover;display:block;border-radius:3px}
+.impress__ph{
+  height:210px;border-radius:3px;display:flex;align-items:center;justify-content:center;
+  background:
+    repeating-linear-gradient(45deg, rgba(43,58,52,.05) 0 12px, transparent 12px 24px),
+    var(--sand);
+  border:2px dashed rgba(43,58,52,.25);
+}
+.impress__ph span{font-size:2rem;color:var(--pink);opacity:.55}
+.impress figcaption{
+  font-family:var(--serif);font-style:italic;font-size:.95rem;color:#4a544f;
+  text-align:center;padding:10px 4px 4px;
+}
