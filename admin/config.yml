@@ -3,8 +3,11 @@ backend:
   branch: main
 
 # Wo hochgeladene Bilder aus dem CMS landen (später nutzbar, z. B. für Team-Fotos)
+# WICHTIG: bewusst OHNE führenden Schrägstrich, damit die Pfade relativ sind –
+# das funktioniert unabhängig davon, ob die Seite an der Domain-Wurzel liegt
+# (z. B. Netlify) oder unter einer Unteradresse (z. B. github.io/Reponame).
 media_folder: "data/uploads"
-public_folder: "/data/uploads"
+public_folder: "data/uploads"
 
 # Zeigt eine Vorschau des Live-Deploys nach dem Speichern an (Netlify erkennt das automatisch)
 site_url: https://DEIN-NETLIFY-NAME.netlify.app
