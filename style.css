@@ -369,7 +369,7 @@ footer li{margin-bottom:8px}
 .avatar--foto img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ---------- Seitenkopf mit Bild ---------- */
-.pagehero--img{background-size:cover!important;background-position:center!important}
+.pagehero--img{background-size:cover!important;background-position:center}
 
 /* ---------- Impressionen-Galerie (Polaroid-Optik) ---------- */
 .impress-grid{
