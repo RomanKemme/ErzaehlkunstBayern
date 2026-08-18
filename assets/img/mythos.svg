@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#2B3A34"/>
+  <!-- Mond -->
+  <path d="M260 45 a38 38 0 1 0 26 66 a30 30 0 1 1 -26 -66" fill="#EDE0C8"/>
+  <!-- Sternbild als Faden -->
+  <path d="M90 170 L130 120 L180 140 L215 90 L170 60" stroke="#E23558" stroke-width="2.5" fill="none"/>
+  <g fill="#E23558">
+    <circle cx="90" cy="170" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="180" cy="140" r="6"/>
+    <circle cx="215" cy="90" r="6"/><circle cx="170" cy="60" r="6"/>
+  </g>
+  <g fill="#EDE0C8" opacity=".7">
+    <circle cx="60" cy="60" r="2.5"/><circle cx="330" cy="160" r="2.5"/><circle cx="310" cy="185" r="2"/>
+    <circle cx="50" cy="130" r="2"/><circle cx="120" cy="40" r="2"/>
+  </g>
+  <text x="200" y="207" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#EDE0C8" font-style="italic" opacity=".85">Göttinnen &amp; Heldinnen</text>
+</svg>

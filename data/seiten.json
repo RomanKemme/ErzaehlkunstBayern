@@ -1,3 +1,9 @@
 {
-  "home_hero": "/data/uploads/erzählkunst-bayern-ev-über-uns.avif"
+  "home_hero": "/data/uploads/erzählkunst-bayern-ev-über-uns.avif",
+  "ueberuns_hero": "",
+  "impressionen": [
+    { "bild": "", "unterschrift": "Momente aus dem Montagsclub" },
+    { "bild": "", "unterschrift": "Auf der Bühne der GUTEN STUBE" },
+    { "bild": "", "unterschrift": "Unterwegs auf Erzählreise" }
+  ]
 }

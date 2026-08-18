@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#2B3A34"/>
+  <!-- Offenes Buch -->
+  <path d="M110 150 Q 155 128 200 148 Q 245 128 290 150 L290 96 Q 245 74 200 94 Q 155 74 110 96 Z" fill="#EDE0C8"/>
+  <path d="M200 94 L200 148" stroke="#2B3A34" stroke-width="3"/>
+  <!-- Roter Faden steigt aus dem Buch als Pfad mit 10 Knoten -->
+  <path d="M200 94 C 190 70, 230 62, 222 44 S 190 22, 205 10" stroke="#E23558" stroke-width="3" fill="none"/>
+  <g fill="#E23558">
+    <circle cx="200" cy="86" r="4"/><circle cx="196" cy="72" r="4"/><circle cx="210" cy="64" r="4"/>
+    <circle cx="222" cy="55" r="4"/><circle cx="220" cy="44" r="4"/><circle cx="208" cy="34" r="4"/>
+    <circle cx="198" cy="26" r="4"/><circle cx="199" cy="17" r="4"/><circle cx="205" cy="10" r="4"/>
+  </g>
+  <text x="200" y="196" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#EDE0C8" font-style="italic" opacity=".85">Zehn Module, ein Weg</text>
+</svg>

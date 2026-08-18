@@ -36,7 +36,7 @@
     <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
   </nav>
 </header>
-<section class="pagehero">
+<section class="pagehero" id="teamHero">
   <div class="inner">
     <p class="crumb"><a href="index.html">Home</a> / Über uns</p>
     <h1>Sechs Stimmen, eine Leidenschaft</h1>
@@ -47,7 +47,6 @@
 <section id="team" style="padding-top:70px">
   <div class="inner">
     <div class="team-grid" id="teamGrid"></div>
-    <p class="audio-hint">▶︎ Demo-Audios – auf der Live-Website sprechen hier die Dozentinnen selbst.</p>
   </div>
 </section>
 
@@ -66,37 +65,45 @@
 </div>
 
 <script>
-const team = [
-  {name:"Gabi Altenbach", ort:"München", fach:"Mythen, Humor & Erzählen für Kinder", ini:"GA",
-   intro:"Hallo, ich bin Gabi – und ich liebe es, alte Mythen so zu erzählen, dass sie sich anfühlen wie heute."},
-  {name:"Carola Bambas", ort:"Gauting", fach:"Innere Bilder & Erzählreisen", ini:"CB",
-   intro:"Hi, ich bin Carola. Bei mir lernst du, Geschichten in Bildern zu denken – und nie wieder einen Text auswendig zu lernen."},
-  {name:"Cordula Carla Gerndt", ort:"Regensburg", fach:"Dramaturgie & Geschichten im Dialog", ini:"CG",
-   intro:"Ich bin Cordula. Gute Geschichten haben einen Bauplan – ich zeige dir, wie er funktioniert."},
-  {name:"Ines Honsel", ort:"München", fach:"Stimme, Präsenz & Bühne", ini:"IH",
-   intro:"Hallo, ich bin Ines. Deine Stimme kann mehr, als du denkst – lass es uns gemeinsam herausfinden."},
-  {name:"Bärbel Jogschies", ort:"Regensburg", fach:"Märchen & Fakten in Geschichten", ini:"BJ",
-   intro:"Ich bin Bärbel und verwandle sogar trockene Fakten in Geschichten, die hängen bleiben."},
-  {name:"Katharina Ritter", ort:"München", fach:"Persönliche Geschichten", ini:"KR",
-   intro:"Hallo, ich bin Katharina. Die stärksten Geschichten trägst du schon in dir – ich helfe dir, sie zu erzählen."}
-];
-const tg = document.getElementById('teamGrid');
-team.forEach((p,i)=>{
-  const el = document.createElement('div');
-  el.className = 'dozentin reveal';
-  el.innerHTML = `
-    <div class="avatar" aria-hidden="true">${p.ini}</div>
-    <h3>${p.name}</h3>
-    <div class="ort">${p.ort}</div>
-    <div class="fach">${p.fach}</div>
-    <div class="audio-row">
-      <button class="audio-btn" data-i="${i}" aria-label="Audio-Intro von ${p.name} abspielen">▶</button>
-      <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    </div>`;
-  tg.appendChild(el);
+// Titelbild aus zentraler Seitenbilder-Datei (CMS-pflegbar)
+fetch('data/seiten.json').then(r=>r.json()).then(s=>{
+  if(s.ueberuns_hero){
+    document.getElementById('teamHero').style.backgroundImage =
+      `linear-gradient(rgba(33,46,41,.72),rgba(33,46,41,.82)), url('${s.ueberuns_hero}')`;
+    document.getElementById('teamHero').classList.add('pagehero--img');
+  }
+}).catch(()=>{});
+
+let team = [];
+fetch('data/team.json').then(r=>r.json()).then(data=>{
+  team = data.team;
+  const tg = document.getElementById('teamGrid');
+  team.forEach((p,i)=>{
+    const el = document.createElement('div');
+    el.className = 'dozentin reveal';
+    const avatar = p.foto
+      ? `<div class="avatar avatar--foto"><img src="${p.foto}" alt="Porträt von ${p.name}" loading="lazy"></div>`
+      : `<div class="avatar" aria-hidden="true">${p.ini}</div>`;
+    el.innerHTML = `
+      ${avatar}
+      <h3>${p.name}</h3>
+      <div class="ort">${p.ort}</div>
+      <div class="fach">${p.fach}</div>
+      <div class="audio-row">
+        <button class="audio-btn" data-i="${i}" aria-label="Audio-Intro von ${p.name} abspielen">▶</button>
+        <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>`;
+    tg.appendChild(el);
+    const io2 = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.12});
+    io2.observe(el);
+  });
+}).catch(()=>{
+  document.getElementById('teamGrid').innerHTML =
+    '<p style="color:#8a2b2b">Team konnte nicht geladen werden. Bitte data/team.json prüfen.</p>';
 });
+
 let speaking = null;
-tg.addEventListener('click', e=>{
+document.getElementById('teamGrid').addEventListener('click', e=>{
   const btn = e.target.closest('.audio-btn');
   if(!btn) return;
   const card = btn.closest('.dozentin');

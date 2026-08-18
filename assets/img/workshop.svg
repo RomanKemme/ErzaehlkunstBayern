@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#EDE0C8"/>
+  <!-- Bühne -->
+  <rect x="60" y="150" width="280" height="14" rx="4" fill="#2B3A34"/>
+  <!-- Spotlight-Kegel -->
+  <path d="M200 20 L150 150 L250 150 Z" fill="#E23558" opacity=".14"/>
+  <!-- Figur -->
+  <circle cx="200" cy="98" r="16" fill="#2B3A34"/>
+  <path d="M200 114 L200 148 M200 122 L178 136 M200 122 L226 132" stroke="#2B3A34" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <!-- Faden aus der Hand -->
+  <path d="M226 132 C 265 120, 280 85, 320 78" stroke="#E23558" stroke-width="3" fill="none" stroke-dasharray="7 6"/>
+  <circle cx="320" cy="78" r="6" fill="#E23558"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#2B3A34" font-style="italic" opacity=".8">Auf die Bühne</text>
+</svg>
