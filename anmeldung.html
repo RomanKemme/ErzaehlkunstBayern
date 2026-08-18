@@ -95,15 +95,41 @@
 fetch('data/termine.json')
   .then(r => r.json())
   .then(data => {
+    const MONATE = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+    function teile(iso){
+      const [j,m,t] = iso.split('-').map(Number);
+      return { tag:t, monat:MONATE[m-1], jahr:j };
+    }
+    function formatTermin(t){
+      const start = teile(t.datum);
+      let text;
+      if (t.enddatum && t.enddatum !== t.datum) {
+        const ende = teile(t.enddatum);
+        text = (start.monat === ende.monat && start.jahr === ende.jahr)
+          ? `${start.tag}.–${ende.tag}. ${start.monat} ${start.jahr}`
+          : `${start.tag}. ${start.monat} – ${ende.tag}. ${ende.monat} ${ende.jahr}`;
+      } else {
+        text = `${start.tag}. ${start.monat} ${start.jahr}`;
+      }
+      if (t.zeit_von) {
+        text += ` · ${t.zeit_von}`;
+        if (t.zeit_bis) text += `–${t.zeit_bis}`;
+        text += ' Uhr';
+      }
+      return text;
+    }
+
     const select = document.getElementById('f-angebot');
     const hint = select.nextElementSibling;
     const sonstiges = select.querySelector('option[value="Einzelcoaching / Sonstiges"]');
     data.termine
       .filter(t => !t.full)
+      .sort((a,b) => a.datum.localeCompare(b.datum))
       .forEach(t => {
+        const label = t.title + ' — ' + formatTermin(t);
         const opt = document.createElement('option');
-        opt.value = t.title + ' — ' + t.date;
-        opt.textContent = t.title + ' — ' + t.date;
+        opt.value = label;
+        opt.textContent = label;
         select.insertBefore(opt, sonstiges);
       });
     hint.remove();

@@ -2,111 +2,147 @@
   "termine": [
     {
       "cat": "offen",
-      "date": "28. Sep 2026 · 19–21 Uhr",
+      "datum": "2026-09-28",
+      "enddatum": "",
+      "zeit_von": "19:00",
+      "zeit_bis": "21:00",
       "title": "Der Montagsclub",
       "desc": "Monatliches Erzähltraining – offen für alle Geschichten und Erfahrungsstufen.",
       "meta": "Kulturzentrum LUISE, München · 1–5 €",
-      "full": false,
-      "img": "assets/img/montagsclub.svg"
+      "img": "assets/img/montagsclub.svg",
+      "full": false
     },
     {
       "cat": "akademie",
-      "date": "24. Okt 2026 · 10–15 Uhr",
+      "datum": "2026-10-24",
+      "enddatum": "",
+      "zeit_von": "10:00",
+      "zeit_bis": "15:00",
       "title": "Schnupper-Workshop Erzählen",
       "desc": "Ist Geschichtenerzählen etwas für dich? Finde es heraus – ohne Vorkenntnisse, ohne Druck.",
       "meta": "Ort wird bekannt gegeben · 54 €",
-      "full": false,
-      "img": "assets/img/workshop.svg"
+      "img": "assets/img/workshop.svg",
+      "full": false
     },
     {
       "cat": "offen",
-      "date": "26. Okt 2026 · 19–21 Uhr",
+      "datum": "2026-10-26",
+      "enddatum": "",
+      "zeit_von": "19:00",
+      "zeit_bis": "21:00",
       "title": "Der Montagsclub",
       "desc": "Monatliches Erzähltraining – Anmeldung unbedingt erforderlich.",
       "meta": "Kulturzentrum LUISE, München · 1–5 €",
-      "full": false,
-      "img": "assets/img/montagsclub.svg"
+      "img": "assets/img/montagsclub.svg",
+      "full": false
     },
     {
       "cat": "offen",
-      "date": "9. Nov 2026 · 19–21 Uhr",
+      "datum": "2026-11-09",
+      "enddatum": "",
+      "zeit_von": "19:00",
+      "zeit_bis": "21:00",
       "title": "Der Montagsclub",
       "desc": "Monatliches Erzähltraining – Anmeldung unbedingt erforderlich.",
       "meta": "Kulturzentrum LUISE, München · 1–5 €",
-      "full": true,
-      "img": "assets/img/montagsclub.svg"
+      "img": "assets/img/montagsclub.svg",
+      "full": true
     },
     {
       "cat": "offen",
-      "date": "7. Dez 2026 · 19–21 Uhr",
+      "datum": "2026-12-07",
+      "enddatum": "",
+      "zeit_von": "19:00",
+      "zeit_bis": "21:00",
       "title": "Der Montagsclub",
       "desc": "Monatliches Erzähltraining – Anmeldung unbedingt erforderlich.",
       "meta": "Kulturzentrum LUISE, München · 1–5 €",
-      "full": false,
-      "img": "assets/img/montagsclub.svg"
+      "img": "assets/img/montagsclub.svg",
+      "full": false
     },
     {
       "cat": "akademie",
-      "date": "23.–24. Jan 2027",
+      "datum": "2027-01-23",
+      "enddatum": "2027-01-24",
+      "zeit_von": "",
+      "zeit_bis": "",
       "title": "Einen Förderantrag stellen",
       "desc": "Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Ines Honsel.",
       "meta": "Kulturzentrum LUISE, München · 240 €",
-      "full": false,
-      "img": "assets/img/foerder.svg"
+      "img": "assets/img/foerder.svg",
+      "full": false
     },
     {
       "cat": "akademie",
-      "date": "30. Jan 2027 · 10–15 Uhr",
+      "datum": "2027-01-30",
+      "enddatum": "",
+      "zeit_von": "10:00",
+      "zeit_bis": "15:00",
       "title": "Schnupper-Workshop Erzählen",
       "desc": "Letzte Chance vor dem Ausbildungsstart: Lern uns und die Ausbildung kennen!",
       "meta": "Kulturzentrum LUISE, München · 54 €",
-      "full": false,
-      "img": "assets/img/workshop.svg"
+      "img": "assets/img/workshop.svg",
+      "full": false
     },
     {
       "cat": "akademie",
-      "date": "Feb 2027",
+      "datum": "2027-02-01",
+      "enddatum": "",
+      "zeit_von": "",
+      "zeit_bis": "",
       "title": "Start: Grundausbildung 2027/28",
       "desc": "10 Module Künstlerisches Erzählen – dein Weg auf die Bühne beginnt hier.",
       "meta": "München · 2200 € · max. 12 Plätze",
-      "full": false,
-      "img": "assets/img/ausbildung.svg"
+      "img": "assets/img/ausbildung.svg",
+      "full": false
     },
     {
       "cat": "akademie",
-      "date": "20.–21. Feb 2027",
+      "datum": "2027-02-20",
+      "enddatum": "2027-02-21",
+      "zeit_von": "",
+      "zeit_bis": "",
       "title": "Fakten in Geschichten wandeln",
       "desc": "Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Bärbel Jogschies.",
       "meta": "Regensburg · 240 €",
-      "full": false,
-      "img": "assets/img/schule.svg"
+      "img": "assets/img/schule.svg",
+      "full": false
     },
     {
       "cat": "akademie",
-      "date": "13.–14. Mär 2027",
+      "datum": "2027-03-13",
+      "enddatum": "2027-03-14",
+      "zeit_von": "",
+      "zeit_bis": "",
       "title": "Göttinnen und Heldinnen im Mythos",
       "desc": "Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Gabi Altenbach.",
       "meta": "Kulturzentrum LUISE, München · 240 €",
-      "full": true,
-      "img": "assets/img/mythos.svg"
+      "img": "assets/img/mythos.svg",
+      "full": true
     },
     {
       "cat": "akademie",
-      "date": "17.–18. Apr 2027",
+      "datum": "2027-04-17",
+      "enddatum": "2027-04-18",
+      "zeit_von": "",
+      "zeit_bis": "",
       "title": "Erzählen für Kinder",
       "desc": "Workshop für Fortgeschrittene (Aufbaustufe VEE) mit Gabi Altenbach & Carola Bambas.",
       "meta": "Kulturzentrum LUISE, München · 240 €",
-      "full": false,
-      "img": "assets/img/kinder.svg"
+      "img": "assets/img/kinder.svg",
+      "full": false
     },
     {
       "cat": "akademie",
-      "date": "17.–22. Mai 2027",
+      "datum": "2027-05-17",
+      "enddatum": "2027-05-22",
+      "zeit_von": "",
+      "zeit_bis": "",
       "title": "Erzählreise: Zwischen Berg und See",
       "desc": "6 Tage Fortbildung & Erholung am Millstätter See, Österreich. Dozentinnen: Carola Bambas & Ines Honsel.",
       "meta": "Seeboden, Österreich",
-      "full": false,
-      "img": "assets/img/reise.svg"
+      "img": "assets/img/reise.svg",
+      "full": false
     }
   ]
 }

@@ -65,7 +65,32 @@
 fetch('data/termine.json')
   .then(r => r.json())
   .then(data => {
-    const termine = data.termine;
+    const termine = data.termine.slice().sort((a,b) => a.datum.localeCompare(b.datum));
+
+    const MONATE = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+    function teile(iso){
+      const [j,m,t] = iso.split('-').map(Number);
+      return { tag:t, monat:MONATE[m-1], jahr:j };
+    }
+    function formatTermin(t){
+      const start = teile(t.datum);
+      let text;
+      if (t.enddatum && t.enddatum !== t.datum) {
+        const ende = teile(t.enddatum);
+        text = (start.monat === ende.monat && start.jahr === ende.jahr)
+          ? `${start.tag}.–${ende.tag}. ${start.monat} ${start.jahr}`
+          : `${start.tag}. ${start.monat} – ${ende.tag}. ${ende.monat} ${ende.jahr}`;
+      } else {
+        text = `${start.tag}. ${start.monat} ${start.jahr}`;
+      }
+      if (t.zeit_von) {
+        text += ` · ${t.zeit_von}`;
+        if (t.zeit_bis) text += `–${t.zeit_bis}`;
+        text += ' Uhr';
+      }
+      return text;
+    }
+
     const tc = document.getElementById('tcards');
     termine.forEach(t=>{
       const el = document.createElement('article');
@@ -75,7 +100,7 @@ fetch('data/termine.json')
         ${t.full ? '<span class="badge-full">Ausgebucht</span>' : ''}
         ${t.img ? `<div class="tcard__img"><img src="${t.img}" alt="" loading="lazy"></div>` : ''}
         <span class="tcard__tag ${t.cat==='akademie'?'tag--akademie':'tag--offen'}">${t.cat==='akademie'?'Akademie / Ausbildung':'Offener Treff'}</span>
-        <span class="tcard__date">${t.date}</span>
+        <span class="tcard__date">${formatTermin(t)}</span>
         <h3>${t.title}</h3>
         <p>${t.desc}</p>
         <span class="tcard__meta">${t.meta}</span>
