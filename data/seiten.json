@@ -1,8 +1,8 @@
 {
   "home_hero": "data/uploads/erzählkunst-bayern-ev-über-uns.avif",
-  "home_hero_fokus": "top",
+  "home_hero_fokus": "center",
   "ueberuns_hero": "data/uploads/erzählkunst-bayern-ev-über-uns.avif",
-  "ueberuns_hero_fokus": "top",
+  "ueberuns_hero_fokus": "center",
   "impressionen": [
     {
       "bild": "data/uploads/erzählkunst-bayern-ev-über-uns.avif",
