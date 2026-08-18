@@ -33,11 +33,17 @@ collections:
                   - { label: "Offener Treff", value: "offen" }
               - label: "Datum"
                 name: "datum"
-                widget: "date"
+                widget: "datetime"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                picker_utc: true
                 hint: "Startdatum des Termins – über den Kalender auswählen."
               - label: "Enddatum (nur bei mehrtägigen Terminen)"
                 name: "enddatum"
-                widget: "date"
+                widget: "datetime"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                picker_utc: true
                 required: false
                 hint: "Leer lassen bei eintägigen Terminen."
               - label: "Uhrzeit von"
