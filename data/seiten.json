@@ -1,11 +1,20 @@
 {
   "home_hero": "data/uploads/erzählkunst-bayern-ev-über-uns.avif",
-  "home_hero_fokus": "center",
+  "home_hero_fokus": "top",
   "ueberuns_hero": "data/uploads/erzählkunst-bayern-ev-über-uns.avif",
   "ueberuns_hero_fokus": "top",
   "impressionen": [
-    { "bild": "data/uploads/erzählkunst-bayern-ev-über-uns.avif", "unterschrift": "Momente aus dem Montagsclub" },
-    { "bild": "", "unterschrift": "Auf der Bühne der GUTEN STUBE" },
-    { "bild": "", "unterschrift": "Unterwegs auf Erzählreise" }
+    {
+      "bild": "data/uploads/erzählkunst-bayern-ev-über-uns.avif",
+      "unterschrift": "Momente aus dem Montagsclub"
+    },
+    {
+      "bild": "",
+      "unterschrift": "Auf der Bühne der GUTEN STUBE"
+    },
+    {
+      "bild": "",
+      "unterschrift": "Unterwegs auf Erzählreise"
+    }
   ]
 }
