@@ -412,12 +412,30 @@ collections:
             name: "home_hero"
             widget: "image"
             required: false
-            hint: "Großes Bild hinter der Startseiten-Überschrift. Leer = grüner Farbverlauf."
+            hint: "Großes Bild hinter der Startseiten-Überschrift. Empfohlen: sehr breites Querformat (ca. 16:6, z. B. 2000×750 Pixel), damit möglichst wenig zugeschnitten wird. Leer = grüner Farbverlauf."
+          - label: "Bildausschnitt Startseite"
+            name: "home_hero_fokus"
+            widget: "select"
+            default: "center"
+            options:
+              - { label: "Oben (z. B. für Gesichter/Köpfe)", value: "top" }
+              - { label: "Mitte (Standard)", value: "center" }
+              - { label: "Unten", value: "bottom" }
+            hint: "Steuert, welcher Bildbereich sichtbar bleibt, falls das Foto zugeschnitten werden muss."
           - label: "Titelbild „Über uns“"
             name: "ueberuns_hero"
             widget: "image"
             required: false
-            hint: "Großes Bild im Kopf der Über-uns-Seite. Leer = grüner Farbverlauf."
+            hint: "Großes Bild im Kopf der Über-uns-Seite. Empfohlen: sehr breites Querformat (ca. 16:6, z. B. 2000×750 Pixel). Leer = grüner Farbverlauf."
+          - label: "Bildausschnitt „Über uns“"
+            name: "ueberuns_hero_fokus"
+            widget: "select"
+            default: "center"
+            options:
+              - { label: "Oben (z. B. für Gesichter/Köpfe)", value: "top" }
+              - { label: "Mitte (Standard)", value: "center" }
+              - { label: "Unten", value: "bottom" }
+            hint: "Steuert, welcher Bildbereich sichtbar bleibt, falls das Foto zugeschnitten werden muss."
           - label: "Impressionen (Galerie auf der Startseite)"
             name: "impressionen"
             widget: "list"

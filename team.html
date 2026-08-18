@@ -69,9 +69,12 @@
 // Titelbild aus zentraler Seitenbilder-Datei (CMS-pflegbar)
 fetch('data/seiten.json').then(r=>r.json()).then(s=>{
   if(s.ueberuns_hero){
-    document.getElementById('teamHero').style.backgroundImage =
+    const fokus = s.ueberuns_hero_fokus || 'center';
+    const hero = document.getElementById('teamHero');
+    hero.style.backgroundImage =
       `linear-gradient(rgba(33,46,41,.72),rgba(33,46,41,.82)), url('${s.ueberuns_hero}')`;
-    document.getElementById('teamHero').classList.add('pagehero--img');
+    hero.style.backgroundPosition = fokus;
+    hero.classList.add('pagehero--img');
   }
 }).catch(()=>{});
 

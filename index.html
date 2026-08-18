@@ -141,8 +141,9 @@ fetch('data/seiten.json').then(r=>r.json()).then(s=>{
   // Hero-Hintergrundbild (CMS-pflegbar)
   if(s.home_hero){
     const hero = document.getElementById('homeHero');
+    const fokus = s.home_hero_fokus || 'center';
     hero.style.background =
-      `linear-gradient(rgba(33,46,41,.72),rgba(33,46,41,.84)), url('${s.home_hero}') center/cover no-repeat`;
+      `linear-gradient(rgba(33,46,41,.72),rgba(33,46,41,.84)), url('${s.home_hero}') ${fokus}/cover no-repeat`;
   }
   // Impressionen-Galerie: Bild wenn vorhanden, sonst eleganter Platzhalter
   const grid = document.getElementById('impressGrid');
