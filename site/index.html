@@ -16,13 +16,13 @@
   radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
   color:var(--cream);padding:calc(var(--sec-y)*.88) var(--sec-x) calc(var(--sec-y)*.67)}
 .pagehero .inner{max-width:var(--maxw);margin:0 auto}
-.pagehero h1{color:#fff;font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900}
-.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:1.1rem}
-.pagehero .crumb{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
-.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600}
+.pagehero h1{color:#fff;font-size:var(--fs-2xl);font-weight:900}
+.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:var(--fs-base)}
+.pagehero .crumb{font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
+.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600;display:inline-block;padding:14px 6px;margin:-14px -6px}
 .pagehero .crumb a:hover{color:var(--pink-on-dark)}
 .nextstep{background:var(--sand);padding:calc(var(--sec-y)*.67) var(--sec-x);text-align:center}
-.nextstep h2{font-size:1.7rem;margin-bottom:10px}
+.nextstep h2{font-size:var(--fs-xl);margin-bottom:10px}
 .nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
 </style>
 </head>
@@ -55,12 +55,12 @@
   <div class="hero__inner">
     <span class="hero__badge">Neue Grundausbildung – Start Februar 2027 · Jetzt Platz sichern</span>
     <h1>Werde <em>Erzählerin</em>.<br>Werde Erzähler.</h1>
-    <p class="lead">Die Erzählakademie Bayern bildet dich in München zum Künstlerischen Erzählen aus – in 10 aufeinander aufbauenden Modulen, von der ersten Geschichte bis zur Bühne.</p>
+    <p class="lead"><span class="m-hide">Die Erzählakademie Bayern bildet dich in München zum Künstlerischen Erzählen aus – in 10 aufeinander aufbauenden Modulen, von der ersten Geschichte bis zur Bühne.</span><span class="m-only">Künstlerisches Erzählen lernen – in 10 Modulen, mitten in München. Von der ersten Geschichte bis zur Bühne.</span></p>
     <div class="hero__cta">
       <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
       <a class="btn btn--ghost" style="color:var(--cream);border-color:var(--cream)" href="#weg">Wie funktioniert’s?</a>
     </div>
-    <p class="quote">„Neben Nahrung, einem Obdach und Gesellschaft sind es Geschichten, die wir am allermeisten brauchen.“ – Philip Pullman</p>
+    <p class="quote m-hide">„Neben Nahrung, einem Obdach und Gesellschaft sind es Geschichten, die wir am allermeisten brauchen.“ – Philip Pullman</p>
   </div>
 </section>
 
@@ -69,24 +69,24 @@
   <div class="inner">
     <p class="eyebrow">Dein roter Faden</p>
     <h2 class="reveal">In drei Schritten zur Erzählkunst</h2>
-    <p class="section-intro reveal">Egal ob du zum ersten Mal erzählst oder schon auf der Bühne stehst – bei uns weißt du immer, wo du gerade bist und was als Nächstes kommt.</p>
+    <p class="section-intro reveal m-hide">Egal ob du zum ersten Mal erzählst oder schon auf der Bühne stehst – bei uns weißt du immer, wo du gerade bist und was als Nächstes kommt.</p>
     <div class="weg-grid">
       <div class="weg reveal">
         <div class="weg__num">1</div>
         <h3>Schnuppern</h3>
-        <p>Du fragst dich, ob Erzählen etwas für dich ist? Der <strong>Schnupper-Workshop</strong> (54&nbsp;€) gibt dir in ein paar Stunden die Antwort – ohne Vorkenntnisse, ohne Druck. Oder komm einfach zum offenen <strong>Montagsclub</strong>.</p>
+        <p><span class="m-hide">Du fragst dich, ob Erzählen etwas für dich ist? Der <strong>Schnupper-Workshop</strong> (54&nbsp;€) gibt dir in ein paar Stunden die Antwort – ohne Vorkenntnisse, ohne Druck. Oder komm einfach zum offenen <strong>Montagsclub</strong>.</span><span class="m-only">Erst mal reinschnuppern: im <strong>Schnupper-Workshop</strong> (54&nbsp;€) oder beim offenen <strong>Montagsclub</strong> – ohne Vorkenntnisse.</span></p>
         <a class="steplink" href="termine.html?filter=offen">Offene Termine ansehen →</a>
       </div>
       <div class="weg reveal">
         <div class="weg__num">2</div>
         <h3>Ausbilden</h3>
-        <p>Die <strong>Grundausbildung Künstlerisches Erzählen</strong>: 10 Module über 2 Jahre, unterrichtet von professionellen Bühnenerzählerinnen. Nächster Start: <strong>Februar 2027</strong>.</p>
+        <p><span class="m-hide">Die <strong>Grundausbildung Künstlerisches Erzählen</strong>: 10 Module über 2 Jahre, unterrichtet von professionellen Bühnenerzählerinnen. Nächster Start: <strong>Februar 2027</strong>.</span><span class="m-only">Die <strong>Grundausbildung</strong>: 10 Module über 2 Jahre mit professionellen Bühnenerzählerinnen. Start: <strong>Februar 2027</strong>.</span></p>
         <a class="steplink" href="akademie.html">Die 10 Module entdecken →</a>
       </div>
       <div class="weg reveal">
         <div class="weg__num">3</div>
         <h3>Vertiefen</h3>
-        <p>Nach der Ausbildung geht es weiter: <strong>Workshops für Fortgeschrittene</strong> (VEE-Aufbaustufe), Einzelcoachings und Erzählreisen bringen dich auf die Bühne – und darüber hinaus.</p>
+        <p><span class="m-hide">Nach der Ausbildung geht es weiter: <strong>Workshops für Fortgeschrittene</strong> (VEE-Aufbaustufe), Einzelcoachings und Erzählreisen bringen dich auf die Bühne – und darüber hinaus.</span><span class="m-only">Danach: <strong>Workshops für Fortgeschrittene</strong> (VEE-Aufbaustufe), Einzelcoachings und Erzählreisen.</span></p>
         <a class="steplink" href="termine.html?filter=akademie">Aufbau-Workshops ansehen →</a>
       </div>
     </div>
@@ -99,7 +99,7 @@
     <div>
       <p class="eyebrow">Die Akademie</p>
       <h2 class="reveal">10 Module. Ein Weg auf die Bühne.</h2>
-      <p class="section-intro reveal" style="margin-bottom:26px">Von „Ankommen im Erzählen“ bis zur eigenen Werkschau: Unsere Grundausbildung führt dich Schritt für Schritt zum Künstlerischen Erzählen – unterrichtet von sechs professionellen Bühnenerzählerinnen.</p>
+      <p class="section-intro reveal" style="margin-bottom:26px"><span class="m-hide">Von „Ankommen im Erzählen“ bis zur eigenen Werkschau: Unsere Grundausbildung führt dich Schritt für Schritt zum Künstlerischen Erzählen – unterrichtet von sechs professionellen Bühnenerzählerinnen.</span><span class="m-only">Von der ersten Geschichte bis zur eigenen Werkschau – mit sechs professionellen Bühnenerzählerinnen.</span></p>
       <a class="btn btn--pink reveal" href="akademie.html">Zur Akademie &amp; den Modulen</a>
     </div>
     <div class="ak-facts ak-facts--tiles reveal">
@@ -115,21 +115,21 @@
 <section class="sec--compact" style="background:var(--sand)">
   <div class="inner proj-grid">
     <div class="proj reveal">
-      <div class="proj__img"><img src="assets/img/workshop.svg" alt="" loading="lazy"></div>
+      <div class="proj__img m-hide"><img src="assets/img/workshop.svg" alt="" loading="lazy"></div>
       <h3>Nächste Termine</h3>
       <p id="naechsteTermine">Wird geladen …</p>
       <a href="termine.html">Alle Termine →</a>
     </div>
     <div class="proj reveal">
-      <div class="proj__img"><img src="assets/img/montagsclub.svg" alt="" loading="lazy"></div>
+      <div class="proj__img m-hide"><img src="assets/img/montagsclub.svg" alt="" loading="lazy"></div>
       <h3>Das Team kennenlernen</h3>
-      <p>Sechs professionelle Bühnenerzählerinnen aus München, Gauting und Regensburg – hör dir ihre Stimmen an!</p>
+      <p><span class="m-hide">Sechs professionelle Bühnenerzählerinnen aus München, Gauting und Regensburg – hör dir ihre Stimmen an!</span><span class="m-only">Sechs Bühnenerzählerinnen – hör dir ihre Stimmen an!</span></p>
       <a href="team.html">Zum Team →</a>
     </div>
     <div class="proj reveal">
-      <div class="proj__img"><img src="assets/img/stube.svg" alt="" loading="lazy"></div>
+      <div class="proj__img m-hide"><img src="assets/img/stube.svg" alt="" loading="lazy"></div>
       <h3>Unsere Projekte</h3>
-      <p>Vom Montagsclub über die Geschichtenstunde bis zum GUTE STUBE Erzählfestival – Erzählen wirkt überall.</p>
+      <p><span class="m-hide">Vom Montagsclub über die Geschichtenstunde bis zum GUTE STUBE Erzählfestival – Erzählen wirkt überall.</span><span class="m-only">Montagsclub, Geschichtenstunde, GUTE STUBE Festival und mehr.</span></p>
       <a href="projekte.html">Zu den Projekten →</a>
     </div>
   </div>

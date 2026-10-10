@@ -16,13 +16,13 @@
   radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
   color:var(--cream);padding:calc(var(--sec-y)*.88) var(--sec-x) calc(var(--sec-y)*.67)}
 .pagehero .inner{max-width:var(--maxw);margin:0 auto}
-.pagehero h1{color:#fff;font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900}
-.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:1.1rem}
-.pagehero .crumb{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
-.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600}
+.pagehero h1{color:#fff;font-size:var(--fs-2xl);font-weight:900}
+.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:var(--fs-base)}
+.pagehero .crumb{font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
+.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600;display:inline-block;padding:14px 6px;margin:-14px -6px}
 .pagehero .crumb a:hover{color:var(--pink-on-dark)}
 .nextstep{background:var(--sand);padding:calc(var(--sec-y)*.67) var(--sec-x);text-align:center}
-.nextstep h2{font-size:1.7rem;margin-bottom:10px}
+.nextstep h2{font-size:var(--fs-xl);margin-bottom:10px}
 .nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
 </style>
 </head>
@@ -63,9 +63,9 @@
   <div class="inner">
     <div class="anmelde-grid">
       <ol class="anmelde-steps reveal">
-        <li><strong>Angebot wählen</strong><span>Wähle im Formular, wofür du dich interessierst – vom Schnupper-Workshop bis zur Grundausbildung.</span></li>
-        <li><strong>Nachricht senden</strong><span>Wir melden uns innerhalb weniger Tage mit allen Details und der verbindlichen Anmeldung.</span></li>
-        <li><strong>Loslegen</strong><span>Platz bestätigt – und deine Erzählreise beginnt. Wir freuen uns auf dich!</span></li>
+        <li><strong>Angebot wählen</strong><span class="m-hide">Wähle im Formular, wofür du dich interessierst – vom Schnupper-Workshop bis zur Grundausbildung.</span><span class="m-only">Im Formular auswählen, was dich interessiert.</span></li>
+        <li><strong>Nachricht senden</strong><span class="m-hide">Wir melden uns innerhalb weniger Tage mit allen Details und der verbindlichen Anmeldung.</span><span class="m-only">Wir melden uns in wenigen Tagen mit allen Details.</span></li>
+        <li><strong>Loslegen</strong><span class="m-hide">Platz bestätigt – und deine Erzählreise beginnt. Wir freuen uns auf dich!</span><span class="m-only">Platz bestätigt – los geht’s!</span></li>
       </ol>
       <form class="anmelde-form reveal" id="anmeldeForm" name="anmeldung" method="POST" data-netlify="true" data-netlify-honeypot="firma">
         <input type="hidden" name="form-name" value="anmeldung">
@@ -77,7 +77,7 @@
           <option value="">Bitte wählen …</option>
           <option value="Einzelcoaching / Sonstiges">Einzelcoaching / Sonstiges</option>
         </select>
-        <p style="font-size:.85rem;color:#B9C4BC;margin:-14px 0 20px">Termine werden automatisch geladen …</p>
+        <p style="font-size:var(--fs-xs);color:#B9C4BC;margin:-14px 0 20px">Termine werden automatisch geladen …</p>
         <div class="row">
           <div>
             <label for="f-name">Name*</label>
@@ -99,8 +99,8 @@
 
 <section class="sec--compact" style="background:var(--sand)">
   <div class="inner" style="text-align:center">
-    <h2 style="font-size:1.5rem;margin-bottom:8px">Lieber unterstützen statt teilnehmen?</h2>
-    <p style="color:#4a544f;max-width:56ch;margin:0 auto 10px">Unser Verein benötigt Ihre Unterstützung, um zu wachsen. Spenden sind steuerlich absetzbar – ab 201&nbsp;€ erhalten Sie automatisch eine Jahresspendenquittung.</p>
+    <h2 style="font-size:var(--fs-xl);margin-bottom:8px">Lieber unterstützen statt teilnehmen?</h2>
+    <p style="color:#4a544f;max-width:56ch;margin:0 auto 10px"><span class="m-hide">Unser Verein benötigt Ihre Unterstützung, um zu wachsen. </span>Spenden sind steuerlich absetzbar – ab 201&nbsp;€ erhalten Sie automatisch eine Jahresspendenquittung.</p>
     <p style="font-weight:700">Stadtsparkasse München · IBAN: DE03 7015 0000 1006 4878 29</p>
   </div>
 </section>
