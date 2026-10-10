@@ -43,11 +43,13 @@ header{
   display:flex;align-items:center;gap:26px;height:74px;
 }
 .logo{
-  font-family:var(--serif);font-weight:900;font-size:1.35rem;color:var(--pink);
-  line-height:.95;text-decoration:none;letter-spacing:.01em;margin-right:auto;
+  display:flex;align-items:center;margin-right:auto;text-decoration:none;
+  flex:none;
 }
-.logo span{display:block;font-size:.5em;font-family:var(--sans);font-weight:700;
-  letter-spacing:.28em;text-transform:uppercase;color:var(--ink);opacity:.65}
+.logo picture,.logo img{display:block;height:48px;width:auto}
+@media(max-width:600px){
+  .logo picture,.logo img{height:38px}
+}
 .nav a.navlink{
   text-decoration:none;font-weight:600;font-size:.98rem;padding:6px 2px;
   border-bottom:3px solid transparent;transition:border-color .2s,color .2s;

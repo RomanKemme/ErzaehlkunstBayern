@@ -1,0 +1,6 @@
+# Projekt-Detailseiten: hübsche URLs auf das generische Template umleiten
+# Das JS in projekt.html liest den Slug direkt aus dem Pfad
+/unsere-projekte/:slug/  /projekt.html  200
+/unsere-projekte/:slug   /projekt.html  200
+/akademie/:slug/         /projekt.html  200
+/akademie/:slug          /projekt.html  200

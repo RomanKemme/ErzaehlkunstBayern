@@ -1,0 +1,12 @@
+# Abhängigkeiten und Build-Ausgaben (werden per npm install / sanity build neu erzeugt)
+node_modules/
+studio/dist/
+studio/.sanity/
+
+# Lokaler Papierkorb (z. B. altes studio-Git), nicht ins Repo
+_to_delete/
+
+# System
+.DS_Store
+Thumbs.db
+*.log

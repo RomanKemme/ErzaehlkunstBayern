@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="sanity.js"></script>
 <style>
 /* Unterseiten-Kopf */
 .pagehero{background:linear-gradient(rgba(33,46,41,.82),rgba(33,46,41,.88)),
@@ -27,7 +28,12 @@
 <body>
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
-    <a class="logo" href="index.html">erzähl<br>kunst<span>Bayern e.V.</span></a>
+    <a class="logo" href="index.html">
+      <picture>
+        <source srcset="assets/img/logo.avif" type="image/avif">
+        <img src="assets/img/logo.png" alt="Erzählkunst Bayern e.V." height="48">
+      </picture>
+    </a>
     <a class="navlink " href="index.html">Home</a>
     <a class="navlink " href="akademie.html">Akademie</a>
     <a class="navlink " href="projekte.html">Projekte</a>
@@ -67,8 +73,11 @@
 
 <script>
 // Titelbild aus zentraler Seitenbilder-Datei (CMS-pflegbar)
-fetch('data/seiten.json').then(r=>r.json()).then(s=>{
-  if(s.ueberuns_hero){
+sanityQuery(`*[_type=="seiten"][0]{
+  "ueberuns_hero": ueberunsHero.asset->url,
+  "ueberuns_hero_fokus": ueberunsHeroFokus
+}`).then(s=>{
+  if(s && s.ueberuns_hero){
     const fokus = s.ueberuns_hero_fokus || 'center';
     const hero = document.getElementById('teamHero');
     hero.style.backgroundImage =
@@ -79,8 +88,10 @@ fetch('data/seiten.json').then(r=>r.json()).then(s=>{
 }).catch(()=>{});
 
 let team = [];
-fetch('data/team.json').then(r=>r.json()).then(data=>{
-  team = data.team;
+sanityQuery(`*[_type=="teamMitglied"]|order(reihenfolge asc){
+  name, ort, fach, ini, intro, "foto": foto.asset->url
+}`).then(data=>{
+  team = data;
   const tg = document.getElementById('teamGrid');
   team.forEach((p,i)=>{
     const el = document.createElement('div');
@@ -103,7 +114,7 @@ fetch('data/team.json').then(r=>r.json()).then(data=>{
   });
 }).catch(()=>{
   document.getElementById('teamGrid').innerHTML =
-    '<p style="color:#8a2b2b">Team konnte nicht geladen werden. Bitte data/team.json prüfen.</p>';
+    '<p style="color:#8a2b2b">Team konnte nicht geladen werden. Bitte Projekt-ID in sanity.js und CORS-Freigabe prüfen.</p>';
 });
 
 let speaking = null;

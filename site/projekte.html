@@ -27,7 +27,12 @@
 <body>
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
-    <a class="logo" href="index.html">erzähl<br>kunst<span>Bayern e.V.</span></a>
+    <a class="logo" href="index.html">
+      <picture>
+        <source srcset="assets/img/logo.avif" type="image/avif">
+        <img src="assets/img/logo.png" alt="Erzählkunst Bayern e.V." height="48">
+      </picture>
+    </a>
     <a class="navlink " href="index.html">Home</a>
     <a class="navlink " href="akademie.html">Akademie</a>
     <a class="navlink active" href="projekte.html">Projekte</a>
@@ -44,46 +49,46 @@
   </div>
 </section>
 
+<script src="sanity.js"></script>
 <section id="projekte" style="padding-top:70px">
   <div class="inner">
-    <div class="proj-grid">
-      <div class="proj reveal">
-        <div class="proj__img"><img src="assets/img/montagsclub.svg" alt="" loading="lazy"></div>
-        <h3>Der Montagsclub</h3>
-        <p>Das monatliche Erzähltraining im Kulturzentrum LUISE, München. Offen für alles: Märchen, Sagen, persönliche Geschichten, Witze. Erlaubt ist, was erzählt werden will. Zahle, was du kannst (1–5&nbsp;€).</p>
-        <a href="termine.html?filter=offen">Nächste Termine →</a>
-      </div>
-      <div class="proj reveal">
-        <div class="proj__img"><img src="assets/img/schule.svg" alt="" loading="lazy"></div>
-        <h3>Die Geschichtenstunde</h3>
-        <p>Sprache ist Zukunft! Unser nachhaltiges Sprachförderprojekt läuft seit 2021 an drei Münchner Grundschulen und stärkt Imagination, Sprach- und Zuhörkompetenz von Kindern.</p>
-        <a href="anmeldung.html">Projekt unterstützen →</a>
-      </div>
-      <div class="proj reveal">
-        <div class="proj__img"><img src="assets/img/stube.svg" alt="" loading="lazy"></div>
-        <h3>GUTE STUBE Erzählfestival</h3>
-        <p>Das Festival der freien, mündlichen Erzählkunst: Vorstellungen in privaten Wohnzimmern, Theatern, Schulen und Bibliotheken. Seit 2024 auf der Walz – zuletzt in Freising. Hol es in deine Stadt!</p>
-        <a href="anmeldung.html">GUTE STUBE anfragen →</a>
-      </div>
-      <div class="proj reveal">
-        <div class="proj__img"><img src="assets/img/reise.svg" alt="" loading="lazy"></div>
-        <h3>Erzählreisen</h3>
-        <p>Erzählen, Entdecken, Begegnen: 17.–22. Mai 2027, sechs Tage Fortbildung &amp; Erholung in Seeboden am Millstätter See, Österreich – mit Carola Bambas &amp; Ines Honsel.</p>
-        <a href="termine.html?filter=akademie">Zur Reise →</a>
-      </div>
-      <div class="proj reveal">
-        <div class="proj__img"><img src="assets/img/mythos.svg" alt="" loading="lazy"></div>
-        <h3>Abgeschlossen: Geschichten im Dialog</h3>
-        <p>2025 umspielten Cordula Gerndt und Bärbel Jogschies in Regensburg an fünf Abenden fünf Aspekte der GROSSWETTERLAGE – Mythen und Märchen im Gespräch mit Expert:innen.</p>
-      </div>
-      <div class="proj reveal">
-        <div class="proj__img"><img src="assets/img/montagsclub.svg" alt="" loading="lazy"></div>
-        <h3>Abgeschlossen: Bayerisches Erzähler:innen-Treffen</h3>
-        <p>Im November 2023 trafen sich bayerische Erzähler:innen im Kulturzentrum LUISE, München, um einander kennenzulernen und sich über relevante Themen auszutauschen.</p>
-      </div>
-    </div>
+    <h2 class="reveal" style="margin-bottom:24px">Laufende Projekte</h2>
+    <div class="proj-grid" id="projekteLaufend"><p class="ts">Wird geladen …</p></div>
+
+    <h2 class="reveal" style="margin:56px 0 24px">Abgeschlossene Projekte</h2>
+    <div class="proj-grid" id="projekteAbgeschlossen"></div>
   </div>
 </section>
+
+<script>
+sanityQuery(`*[_type=="projekt" && bereich in ["projekte-laufend","projekte-abgeschlossen"]]|order(reihenfolge asc){
+  title, kurzbeschreibung, bereich, "slug": slug.current,
+  "heroBild": heroBild.asset->url
+}`).then(projekte => {
+  const laufend = document.getElementById('projekteLaufend');
+  const abgeschlossen = document.getElementById('projekteAbgeschlossen');
+  laufend.innerHTML = '';
+  projekte.forEach(p => {
+    const target = p.bereich === 'projekte-laufend' ? laufend : abgeschlossen;
+    const el = document.createElement('div');
+    el.className = 'proj reveal';
+    el.innerHTML = `
+      ${p.heroBild ? `<div class="proj__img"><img src="${p.heroBild}" alt="" loading="lazy"></div>` : ''}
+      <h3>${p.title}</h3>
+      <p>${p.kurzbeschreibung || ''}</p>
+      <a href="projekt?slug=${encodeURIComponent(p.slug)}">Mehr erfahren →</a>`;
+    target.appendChild(el);
+    const io2 = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.12});
+    io2.observe(el);
+  });
+  if (!abgeschlossen.children.length) {
+    document.querySelector('h2 + #projekteAbgeschlossen')?.previousElementSibling;
+  }
+}).catch(() => {
+  document.getElementById('projekteLaufend').innerHTML =
+    '<p style="color:#8a2b2b">Projekte konnten nicht geladen werden.</p>';
+});
+</script>
 
 <div class="nextstep">
   <h2>Mitmachen statt zuschauen?</h2>

@@ -27,7 +27,12 @@
 <body>
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
-    <a class="logo" href="index.html">erzähl<br>kunst<span>Bayern e.V.</span></a>
+    <a class="logo" href="index.html">
+      <picture>
+        <source srcset="assets/img/logo.avif" type="image/avif">
+        <img src="assets/img/logo.png" alt="Erzählkunst Bayern e.V." height="48">
+      </picture>
+    </a>
     <a class="navlink " href="index.html">Home</a>
     <a class="navlink active" href="akademie.html">Akademie</a>
     <a class="navlink " href="projekte.html">Projekte</a>
@@ -73,6 +78,33 @@
     </div>
   </div>
 </section>
+
+<script src="sanity.js"></script>
+<section id="akademieProjekte" style="background:var(--sand-light);padding:70px 28px">
+  <div class="inner">
+    <p class="eyebrow">Weiterführend</p>
+    <h2 class="reveal" style="margin-bottom:24px">Vertiefungsangebote der Akademie</h2>
+    <div class="proj-grid" id="akademieProjektGrid"></div>
+  </div>
+</section>
+<script>
+sanityQuery(`*[_type=="projekt" && bereich=="akademie"]|order(reihenfolge asc){
+  title, kurzbeschreibung, "slug": slug.current, "heroBild": heroBild.asset->url
+}`).then(projekte => {
+  const grid = document.getElementById('akademieProjektGrid');
+  if (!projekte.length) { document.getElementById('akademieProjekte').style.display = 'none'; return; }
+  projekte.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'proj reveal';
+    el.innerHTML = `
+      ${p.heroBild ? `<div class="proj__img"><img src="${p.heroBild}" alt="" loading="lazy"></div>` : ''}
+      <h3>${p.title}</h3>
+      <p>${p.kurzbeschreibung || ''}</p>
+      <a href="projekt?slug=${encodeURIComponent(p.slug)}">Mehr erfahren →</a>`;
+    grid.appendChild(el);
+  });
+}).catch(() => { document.getElementById('akademieProjekte').style.display = 'none'; });
+</script>
 
 <div class="nextstep">
   <h2>Dein nächster Schritt</h2>
