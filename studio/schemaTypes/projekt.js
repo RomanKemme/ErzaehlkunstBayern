@@ -27,7 +27,7 @@ const bildMitAlt = (title, description) => ({
 
 export default {
   name: 'projekt',
-  title: 'Projekte',
+  title: 'Projekt',
   type: 'document',
   groups: [
     { name: 'karte', title: 'Übersichtskarte', default: true },

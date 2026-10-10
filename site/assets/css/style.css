@@ -318,7 +318,7 @@ section h2{font-size:var(--fs-xl);font-weight:700;margin-bottom:14px}
 }
 .tag--akademie{background:rgba(226,53,88,.12);color:var(--pink-text)}
 .tag--offen{background:rgba(43,58,52,.1);color:var(--petrol)}
-.tcard .tcard__date{font-family:var(--serif);font-weight:700;font-size:var(--fs-lg);color:var(--ink)}
+.tcard .tcard__date{font-family:var(--sans);font-weight:700;font-size:var(--fs-sm);letter-spacing:.01em;color:var(--ink);font-variant-numeric:tabular-nums}
 .tcard h3{font-size:var(--fs-lg);font-family:var(--sans);font-weight:700}
 .tcard p{font-size:var(--fs-sm);color:#4d5751}
 .tcard .tcard__desc{flex:1}
@@ -486,12 +486,9 @@ footer li{margin-bottom:0}
 .impress img{width:100%;height:210px;object-fit:cover;display:block;border-radius:3px}
 .impress__ph{
   height:210px;border-radius:3px;display:flex;align-items:center;justify-content:center;
-  background:
-    repeating-linear-gradient(45deg, rgba(43,58,52,.05) 0 12px, transparent 12px 24px),
-    var(--sand);
-  border:2px dashed rgba(43,58,52,.25);
+  background:linear-gradient(135deg, var(--petrol) 0%, var(--petrol-deep) 100%);
 }
-.impress__ph span{font-size:2rem;color:var(--pink);opacity:.55}
+.impress__ph span{font-family:var(--serif);font-size:5rem;line-height:1;height:.55em;color:var(--pink-on-dark)}
 .impress figcaption{
   font-family:var(--serif);font-style:italic;font-size:var(--fs-sm);color:#4a544f;
   text-align:center;padding:10px 4px 4px;

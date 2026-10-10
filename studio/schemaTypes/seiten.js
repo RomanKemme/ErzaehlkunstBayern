@@ -33,7 +33,7 @@ export default {
       name: 'impressionen',
       title: 'Impressionen (Galerie auf der Startseite)',
       type: 'array',
-      description: 'Fotos mit kurzer Bildunterschrift. Es erscheinen nur Einträge mit Foto; ohne Fotos wird der Abschnitt ausgeblendet.',
+      description: 'Fotos mit kurzer Bildunterschrift. Einträge mit Foto stehen vorne; ein Eintrag ohne Foto erscheint als grüne Kachel mit seiner Bildunterschrift.',
       of: [
         {
           type: 'object',

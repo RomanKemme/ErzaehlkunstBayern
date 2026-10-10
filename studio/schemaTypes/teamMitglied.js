@@ -1,7 +1,7 @@
 // Teammitglied – erscheint auf der Seite „Über uns“.
 export default {
   name: 'teamMitglied',
-  title: 'Team (Über uns)',
+  title: 'Teammitglied',
   type: 'document',
   fields: [
     {

@@ -16,7 +16,7 @@ function datumText(iso) {
 
 export default {
   name: 'termin',
-  title: 'Termine',
+  title: 'Termin',
   type: 'document',
   fields: [
     {

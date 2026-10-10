@@ -5,12 +5,13 @@ Inhalte wie Termine, Projekte, Team und Akademie werden im Sanity Studio gepfleg
 und von der Website direkt aus Sanity geladen – ohne Build und ohne erneutes Veröffentlichen.
 
 > Ausführliche Dokumentation (Personas, Use Cases, Architekturentscheidungen, Tests)
-> und das Handbuch für den Verein liegen als eigene Dokumente vor (siehe Übergabe).
+> und das Handbuch für den Verein liegen im Ordner [`docs/`](docs/README.md).
 
 ## Ordner
 
 | Ordner | Inhalt |
 |---|---|
+| `docs/` | Dokumentation: Personas, Use Cases, ADRs, Tests, Go-Live, Handbuch |
 | `site/` | Die Website. Wird so, wie sie ist, ausgeliefert. |
 | `site/assets/js/` | `sanity.js` (Datenzugriff), `common.js` (Menü, Datum …), je Seite ein `page-*.js` |
 | `studio/` | Sanity Studio (Redaktionsoberfläche) mit allen Inhaltstypen in `schemaTypes/` |

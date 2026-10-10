@@ -15,12 +15,15 @@
         hero.style.backgroundPosition = s.fokus || 'center';
         hero.classList.add('hero--img');
       }
-      // Nur Einträge mit Foto zeigen – leere Rahmen wirken unfertig
-      var bilder = (s.impressionen || []).filter(function (im) { return im && im.bild; });
-      if (!bilder.length) return; // Abschnitt bleibt ausgeblendet
+      // Einträge mit Foto zuerst; Einträge ohne Foto erscheinen als gestaltete Textkachel
+      var eintraege = (s.impressionen || []).filter(function (im) { return im && (im.bild || im.unterschrift); });
+      if (!eintraege.length) return; // Abschnitt bleibt ausgeblendet
+      eintraege.sort(function (a, b) { return (b.bild ? 1 : 0) - (a.bild ? 1 : 0); });
       var grid = document.getElementById('impressGrid');
-      grid.innerHTML = bilder.map(function (im) {
-        var media = '<img src="' + esc(EKB.imgUrl(im.bild, { w: 640, h: 420 })) + '" alt="' + esc(im.alt || im.unterschrift || '') + '" width="640" height="420" loading="lazy">';
+      grid.innerHTML = eintraege.map(function (im) {
+        var media = im.bild
+          ? '<img src="' + esc(EKB.imgUrl(im.bild, { w: 640, h: 420 })) + '" alt="' + esc(im.alt || im.unterschrift || '') + '" width="640" height="420" loading="lazy">'
+          : '<div class="impress__ph" aria-hidden="true"><span>“</span></div>';
         return '<figure class="impress reveal">' + media +
           (im.unterschrift ? '<figcaption>' + esc(im.unterschrift) + '</figcaption>' : '') + '</figure>';
       }).join('');

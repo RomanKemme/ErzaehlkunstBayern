@@ -1,8 +1,18 @@
-import { defineConfig } from 'sanity'
+import { defineConfig, defineLocaleResourceBundle } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { deDELocale } from '@sanity/locale-de-de'
 import { schemaTypes, SINGLETONS } from './schemaTypes'
 import { structure } from './structure'
+
+// „Neues {{schemaType}}“ passt grammatisch nicht zu „Termin“ – neutral formulieren
+const deutscheTitel = defineLocaleResourceBundle({
+  locale: 'de-DE',
+  namespace: 'structure',
+  resources: {
+    'browser-document-title.new-document': 'Neu: {{schemaType}}',
+    'panes.document-header-title.new.text': 'Neu: {{schemaType}}',
+  },
+})
 
 const singletonTypes = new Set(Object.keys(SINGLETONS))
 // Bei Einzeldokumenten nur Veröffentlichen/Verwerfen erlauben – kein Löschen oder Duplizieren
@@ -16,6 +26,8 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [structureTool({ structure, title: 'Inhalte' }), deDELocale()],
+
+  i18n: { bundles: [deutscheTitel] },
 
   schema: {
     types: schemaTypes,
