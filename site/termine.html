@@ -14,14 +14,14 @@
 /* Unterseiten-Kopf */
 .pagehero{background:linear-gradient(rgba(33,46,41,.82),rgba(33,46,41,.88)),
   radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
-  color:var(--cream);padding:84px 28px 64px}
+  color:var(--cream);padding:calc(var(--sec-y)*.88) var(--sec-x) calc(var(--sec-y)*.67)}
 .pagehero .inner{max-width:var(--maxw);margin:0 auto}
 .pagehero h1{color:#fff;font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900}
 .pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:1.1rem}
 .pagehero .crumb{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
 .pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600}
 .pagehero .crumb a:hover{color:var(--pink-on-dark)}
-.nextstep{background:var(--sand);padding:64px 28px;text-align:center}
+.nextstep{background:var(--sand);padding:calc(var(--sec-y)*.67) var(--sec-x);text-align:center}
 .nextstep h2{font-size:1.7rem;margin-bottom:10px}
 .nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
 </style>
@@ -58,7 +58,7 @@
   </div>
 </section>
 
-<section id="termine" style="padding-top:70px">
+<section id="termine" class="sec--tight-top">
   <div class="inner">
     <div class="filter" role="group" aria-label="Termine filtern">
       <button class="chip active" type="button" aria-pressed="true" data-filter="alle">Alle Termine</button>

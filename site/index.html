@@ -14,14 +14,14 @@
 /* Unterseiten-Kopf */
 .pagehero{background:linear-gradient(rgba(33,46,41,.82),rgba(33,46,41,.88)),
   radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
-  color:var(--cream);padding:84px 28px 64px}
+  color:var(--cream);padding:calc(var(--sec-y)*.88) var(--sec-x) calc(var(--sec-y)*.67)}
 .pagehero .inner{max-width:var(--maxw);margin:0 auto}
 .pagehero h1{color:#fff;font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900}
 .pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:1.1rem}
 .pagehero .crumb{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
 .pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600}
 .pagehero .crumb a:hover{color:var(--pink-on-dark)}
-.nextstep{background:var(--sand);padding:64px 28px;text-align:center}
+.nextstep{background:var(--sand);padding:calc(var(--sec-y)*.67) var(--sec-x);text-align:center}
 .nextstep h2{font-size:1.7rem;margin-bottom:10px}
 .nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
 </style>
@@ -51,7 +51,7 @@
 </header>
 <main id="inhalt" tabindex="-1">
 <!-- HERO -->
-<section class="hero" id="homeHero" style="padding-top:110px">
+<section class="hero" id="homeHero">
   <div class="hero__inner">
     <span class="hero__badge">Neue Grundausbildung – Start Februar 2027 · Jetzt Platz sichern</span>
     <h1>Werde <em>Erzählerin</em>.<br>Werde Erzähler.</h1>
@@ -94,25 +94,25 @@
 </section>
 
 <!-- Teaser Akademie -->
-<section id="akademie" style="padding:80px 28px">
-  <div class="inner" style="display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:center">
+<section id="akademie" class="sec--compact">
+  <div class="inner ak-teaser">
     <div>
       <p class="eyebrow">Die Akademie</p>
       <h2 class="reveal">10 Module. Ein Weg auf die Bühne.</h2>
       <p class="section-intro reveal" style="margin-bottom:26px">Von „Ankommen im Erzählen“ bis zur eigenen Werkschau: Unsere Grundausbildung führt dich Schritt für Schritt zum Künstlerischen Erzählen – unterrichtet von sechs professionellen Bühnenerzählerinnen.</p>
       <a class="btn btn--pink reveal" href="akademie.html">Zur Akademie &amp; den Modulen</a>
     </div>
-    <div class="ak-facts reveal" style="margin:0;display:grid;grid-template-columns:1fr 1fr">
-      <div style="background:var(--petrol);color:var(--cream)"><strong>10</strong>Module à 16 UE</div>
-      <div style="background:var(--petrol);color:var(--cream)"><strong>Feb 2027</strong>Ausbildungsstart</div>
-      <div style="background:var(--petrol);color:var(--cream)"><strong>6–12</strong>Teilnehmer:innen</div>
-      <div style="background:var(--petrol);color:var(--cream)"><strong>München</strong>Kursort</div>
+    <div class="ak-facts ak-facts--tiles reveal">
+      <div><strong>10</strong>Module à 16 UE</div>
+      <div><strong>Feb 2027</strong>Ausbildungsstart</div>
+      <div><strong>6–12</strong>Teilnehmer:innen</div>
+      <div><strong>München</strong>Kursort</div>
     </div>
   </div>
 </section>
 
 <!-- Teaser Termine/Team -->
-<section style="background:var(--sand);padding:80px 28px">
+<section class="sec--compact" style="background:var(--sand)">
   <div class="inner proj-grid">
     <div class="proj reveal">
       <div class="proj__img"><img src="assets/img/workshop.svg" alt="" loading="lazy"></div>
@@ -136,7 +136,7 @@
 </section>
 
 <!-- IMPRESSIONEN -->
-<section id="impressionen" style="background:var(--sand-light);padding:80px 28px">
+<section id="impressionen" class="sec--compact" style="background:var(--sand-light)">
   <div class="inner">
     <p class="eyebrow">Impressionen</p>
     <h2 class="reveal">Augenblicke, die Geschichten erzählen</h2>
