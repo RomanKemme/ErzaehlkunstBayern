@@ -1,6 +1,15 @@
-# Projekt-Detailseiten: hübsche URLs auf das generische Template umleiten
-# Das JS in projekt.html liest den Slug direkt aus dem Pfad
-/unsere-projekte/:slug/  /projekt.html  200
-/unsere-projekte/:slug   /projekt.html  200
-/akademie/:slug/         /projekt.html  200
-/akademie/:slug          /projekt.html  200
+# Weiterleitungen (wirken erst nach Veröffentlichung auf Netlify)
+# Alte Adressen der bisherigen Jimdo-Website → neue Seiten (301 = dauerhaft, gut für Suchmaschinen)
+/akademie              /akademie.html     301
+/akademie/*            /akademie.html     301
+/unsere-projekte       /projekte.html     301
+/unsere-projekte/*     /projekte.html     301
+/ueber-uns             /team.html         301
+/ueber-uns/*           /team.html         301
+/termine               /termine.html      301
+/termine/*             /termine.html      301
+/kontakt               /anmeldung.html    301
+/kontakt/*             /anmeldung.html    301
+# Das alte Decap-CMS gibt es in dieser Version nicht mehr
+/admin                 /index.html        301
+/admin/*               /index.html        301

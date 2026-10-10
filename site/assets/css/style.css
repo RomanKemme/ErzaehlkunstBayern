@@ -1,4 +1,14 @@
-
+/* ==========================================================================
+   Erzählkunst Bayern e.V. – Stylesheet
+   Schriften liegen lokal (assets/fonts), es werden keine Google-Server kontaktiert.
+   ========================================================================== */
+@font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/assistant-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/assistant-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/assistant-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/playfair-display-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/playfair-display-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:900;font-display:swap;src:url(../fonts/playfair-display-latin-900-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:600;font-display:swap;src:url(../fonts/playfair-display-latin-600-italic.woff2) format('woff2')}
 :root{
   --petrol:#2B3A34;
   --petrol-deep:#212E29;
@@ -224,6 +234,7 @@ section h2{font-size:var(--fs-xl);font-weight:700;margin-bottom:14px}
   display:flex;align-items:center;justify-content:center;
 }
 .mod__head{
+  display:block;list-style:none;
   width:100%;text-align:left;background:rgba(244,236,220,.06);
   border:1px solid rgba(244,236,220,.16);border-radius:var(--radius);
   color:var(--cream);font-family:var(--sans);font-size:var(--fs-base);font-weight:700;
@@ -235,24 +246,24 @@ section h2{font-size:var(--fs-xl);font-weight:700;margin-bottom:14px}
   content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);
   font-size:1.5rem;color:var(--pink-on-dark);transition:transform .25s;font-weight:400;
 }
-.mod.open .mod__head{background:rgba(226,53,88,.14);border-color:rgba(226,53,88,.5)}
-.mod.open .mod__head::after{transform:translateY(-50%) rotate(45deg)}
-.mod__body{
-  max-height:0;overflow:hidden;transition:max-height .35s ease;
-}
+.mod__head::-webkit-details-marker{display:none}
+.mod__title{display:block}
+.mod[open] > .mod__head{background:rgba(226,53,88,.14);border-color:rgba(226,53,88,.5);border-radius:var(--radius) var(--radius) 0 0}
+.mod[open] > .mod__head::after{transform:translateY(-50%) rotate(45deg)}
 .mod__body-inner{
   padding:20px 22px 24px;border:1px solid rgba(244,236,220,.14);border-top:none;
   border-radius:0 0 var(--radius) var(--radius);
   background:rgba(33,46,41,.5);
   display:grid;grid-template-columns:1.4fr 1fr;gap:22px;font-size:var(--fs-sm);
 }
-.mod__body dt{font-size:var(--fs-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:4px}
-.mod__body dd{margin:0 0 14px;color:#DCE3DC}
-.mod__body .btn{margin-top:6px;font-size:var(--fs-sm);padding:11px 22px}
+.mod__body-inner dt{font-size:var(--fs-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:4px}
+.mod__body-inner dd{margin:0 0 14px;color:#DCE3DC}
+.mod__body-inner .btn{align-self:start;margin-top:6px;font-size:var(--fs-sm);padding:11px 22px}
 @media(max-width:720px){
   .mod__body-inner{grid-template-columns:1fr}
   .timeline{padding-left:46px}
   .mod__dot{left:-46px;width:38px;height:38px;font-size:var(--fs-sm)}
+  .mod__head{padding:16px 46px 16px 16px}
 }
 .ak-konditionen{
   margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
@@ -307,19 +318,20 @@ section h2{font-size:var(--fs-xl);font-weight:700;margin-bottom:14px}
 }
 .tag--akademie{background:rgba(226,53,88,.12);color:var(--pink-text)}
 .tag--offen{background:rgba(43,58,52,.1);color:var(--petrol)}
-.tcard__date{font-family:var(--serif);font-weight:700;font-size:var(--fs-lg)}
+.tcard .tcard__date{font-family:var(--serif);font-weight:700;font-size:var(--fs-lg);color:var(--ink)}
 .tcard h3{font-size:var(--fs-lg);font-family:var(--sans);font-weight:700}
-.tcard p{font-size:var(--fs-sm);color:#4d5751;flex:1}
-.tcard__meta{font-size:var(--fs-xs);color:var(--muted)}
+.tcard p{font-size:var(--fs-sm);color:#4d5751}
+.tcard .tcard__desc{flex:1}
+.tcard .tcard__meta{font-size:var(--fs-xs);color:var(--muted)}
 .tcard .btn{align-self:flex-start;font-size:var(--fs-sm);padding:10px 22px;margin-top:4px;min-height:44px;display:inline-flex;align-items:center}
+.tcard__tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .badge-full{
-  position:absolute;top:18px;right:18px;background:#C21F1F;color:#fff;
+  background:#B3261E;color:#fff;
   font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  border-radius:6px;padding:5px 11px;transform:rotate(2deg);
-  box-shadow:0 3px 9px rgba(194,31,31,.35);
+  border-radius:999px;padding:4px 12px;
 }
 .tcard.is-full{opacity:.78}
-.tcard.is-full .btn{background:#cfc6b3;color:#6e675a;box-shadow:none;pointer-events:none}
+.btn--disabled{background:#d9d0bd;color:#4f4a40;cursor:not-allowed;box-shadow:none}
 
 /* ---------- Team ---------- */
 #team{background:var(--sand)}
@@ -401,17 +413,14 @@ form.anmelde-form{
 .anmelde-form input,.anmelde-form select,.anmelde-form textarea{
   width:100%;border-radius:10px;border:1px solid rgba(244,236,220,.3);
   background:rgba(33,46,41,.55);color:var(--cream);
-  padding:13px 15px;font-family:var(--sans);font-size:var(--fs-base);margin-bottom:20px;
+  padding:13px 15px;font-family:var(--sans);font-size:var(--fs-base);
 }
 .anmelde-form input:focus,.anmelde-form select:focus,.anmelde-form textarea:focus{
   outline:3px solid var(--pink);outline-offset:1px;border-color:transparent;
 }
 .anmelde-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .anmelde-form .btn{width:100%;font-size:var(--fs-base);padding:15px}
-.form-ok{
-  display:none;background:rgba(46,125,50,.2);border:1px solid #6FBF73;color:#D9F0DA;
-  border-radius:10px;padding:14px 18px;margin-top:18px;font-size:var(--fs-sm);
-}
+
 @media(max-width:880px){.anmelde-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.anmelde-form .row{grid-template-columns:1fr} form.anmelde-form{padding:22px 18px}}
 
@@ -419,7 +428,10 @@ form.anmelde-form{
 footer{background:var(--petrol-deep);color:#9EAAA1;padding:0 var(--sec-x) 60px;font-size:var(--fs-sm)}
 footer .inner{border-top:1px solid rgba(244,236,220,.14);padding-top:44px;
   display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
-footer h4{font-family:var(--serif);color:var(--cream);font-size:var(--fs-base);margin-bottom:12px}
+footer .footer__title{font-family:var(--serif);color:var(--cream);font-size:var(--fs-base);margin-bottom:8px}
+footer .footer__spenden{margin-top:14px}
+footer .footer__spenden strong{color:var(--cream)}
+footer .footer__copy{max-width:var(--maxw);margin:36px auto 0;font-size:var(--fs-xs);color:#9EAAA1}
 footer a{color:#C9D2CB;text-decoration:none;display:inline-block;padding:10px 0}
 footer a:hover{color:var(--pink-on-dark);text-decoration:underline}
 footer ul{list-style:none}
@@ -432,7 +444,6 @@ footer li{margin-bottom:0}
   display:none;
 }
 .sticky-cta.visible{display:block;animation:pop .3s ease}
-/* Auf dem Handy steht „Jetzt anmelden“ schon im Header – kein doppelter Button über dem Inhalt */
 
 @keyframes pop{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
 .sticky-cta .btn{box-shadow:0 10px 26px rgba(226,53,88,.45);padding:15px 30px}
@@ -514,3 +525,121 @@ footer li{margin-bottom:0}
   .impress{flex:0 0 78%;scroll-snap-align:center}
   .impress img,.impress__ph{height:170px}
 }
+
+/* ==========================================================================
+   Seitenkopf der Unterseiten, Abschluss-Box, Fließtext
+   ========================================================================== */
+.pagehero{
+  background:linear-gradient(rgba(33,46,41,.82),rgba(33,46,41,.88)),
+    radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
+  color:var(--cream);padding:calc(var(--sec-y)*.88) var(--sec-x) calc(var(--sec-y)*.67);
+  background-size:cover;background-position:center;
+}
+.pagehero--small{padding-bottom:calc(var(--sec-y)*.45)}
+.pagehero .inner{max-width:var(--maxw);margin:0 auto}
+.pagehero h1{color:#fff;font-size:var(--fs-2xl);font-weight:900;overflow-wrap:anywhere;hyphens:auto}
+.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:var(--fs-base)}
+.pagehero .crumb{font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin:0 0 14px}
+.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600;display:inline-block;padding:14px 6px;margin:-14px -6px}
+.pagehero .crumb a:hover{color:var(--pink-on-dark)}
+.pagehero .zitat{font-family:var(--serif);font-style:italic;font-size:var(--fs-lg);color:#E6DCC6;margin-top:20px;max-width:60ch}
+.pagehero .zitat span{display:block;font-family:var(--sans);font-size:var(--fs-xs);font-style:normal;color:#AAB6AE;margin-top:8px}
+.hero--img{background-size:cover!important}
+.nextstep{background:var(--sand);padding:calc(var(--sec-y)*.67) var(--sec-x);text-align:center}
+.nextstep h2{font-size:var(--fs-xl);margin-bottom:10px}
+.nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
+.sec--sand{background:var(--sand)}
+.sec--dark{background:var(--petrol);color:var(--cream)}
+.h2--spaced{margin-top:56px}
+section h2 + .proj-grid{margin-top:24px}
+
+.prose-wrap{padding:calc(var(--sec-y)*.73) var(--sec-x)}
+.prose{max-width:70ch;margin:0 auto}
+.prose p,.prose li{color:#333c37;font-size:var(--fs-base)}
+.prose p{margin-bottom:20px}
+.prose h3{font-size:var(--fs-lg);margin:36px 0 12px;color:var(--petrol)}
+.prose h3:first-child{margin-top:0}
+.prose ul{margin:0 0 20px 22px}
+.prose li{margin-bottom:8px}
+.prose a{color:var(--pink-text);overflow-wrap:anywhere}
+.rt-figure{margin:24px 0}
+.rt-figure img{width:100%;border-radius:12px}
+.rt-figure figcaption{font-size:var(--fs-xs);color:var(--muted);margin-top:6px}
+.back-link{max-width:70ch;margin:8px auto 0}
+.back-link a{color:var(--pink-text);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.back-link a:hover{text-decoration:underline}
+
+/* ==========================================================================
+   Hinweise, Ladezustände, Hilfsklassen
+   ========================================================================== */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.muted{color:var(--muted)}
+.sec--dark .muted,#akademie .muted{color:#C9D2CB}
+.hint{margin-top:28px;font-size:var(--fs-xs);color:var(--muted)}
+.notice{
+  grid-column:1/-1;background:#fff;border:1px solid rgba(38,48,44,.12);border-left:4px solid var(--petrol);
+  border-radius:10px;padding:16px 18px;color:var(--ink);font-size:var(--fs-sm);
+}
+.notice a{color:var(--pink-text);font-weight:700}
+.notice--error{border-left-color:#B3261E;background:#FFF6F5}
+.todo-box{background:#FFF4D6;border:2px dashed #B7791F;border-radius:10px;padding:14px 16px;color:#5c3d00!important;font-size:var(--fs-sm)!important}
+.linkbtn{background:none;border:none;padding:0;font:inherit;font-weight:700;color:var(--pink-text);text-decoration:underline;cursor:pointer;min-height:44px}
+.filter-status{font-size:var(--fs-xs);color:var(--muted);margin:-20px 0 16px;min-height:1em}
+.link-list{list-style:none;display:grid;gap:4px;max-width:420px}
+.link-list a{display:flex;align-items:center;min-height:44px;color:var(--pink-text);font-weight:700;text-decoration:none;font-size:var(--fs-base)}
+.link-list a:hover{text-decoration:underline}
+a.hero__badge{text-decoration:none}
+a.hero__badge:hover{background:rgba(226,53,88,.26)}
+.btn--on-dark{color:var(--cream);border-color:var(--cream)}
+.btn--on-dark:hover{background:var(--cream);color:var(--ink)}
+.btn--block{width:100%;display:flex;justify-content:center}
+.btn:disabled{opacity:.7;cursor:progress;transform:none}
+
+/* Mini-Terminliste (Startseite) & Schnupper-Termine (Akademie) */
+.mini-termine__list,.schnupper-termine{list-style:none;margin:0 0 4px}
+.mini-termine__list li{font-size:var(--fs-sm);color:#4d5751;padding:3px 0}
+.schnupper-termine{margin:10px 0 16px}
+.schnupper-termine li{font-size:var(--fs-sm);color:#DCE3DC;padding:2px 0 2px 16px;position:relative}
+.schnupper-termine li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--pink-on-dark)}
+.schnupper-termine a{color:var(--pink-on-dark)}
+.mini-badge{display:inline-block;font-size:var(--fs-xs);font-weight:700;color:#B3261E;background:#FDECEA;border-radius:6px;padding:0 6px;margin-left:4px}
+.ak-konditionen .btn{margin-top:14px}
+.proj{position:relative}
+.proj .proj__title-link{text-decoration:none;color:inherit;font-size:inherit;font-weight:inherit;display:inline;min-height:0;margin:0}
+/* Ganze Karte klickbar (große Tippfläche), Link-Text bleibt der Titel */
+.proj__title-link::after{content:"";position:absolute;inset:0;z-index:1}
+.proj__title-link:hover{color:var(--pink-text)}
+.proj__title-link:focus-visible{outline:none}
+.proj:focus-within{outline:3px solid var(--pink);outline-offset:3px}
+.proj:hover{box-shadow:0 12px 26px rgba(38,48,44,.12)}
+.tcard h3,.proj h3,.dozentin h3{overflow-wrap:anywhere}
+.tcard__desc:empty{display:none}
+.mod__body-inner dl{margin:0}
+
+/* Formular */
+.field{margin-bottom:20px}
+.field__hint{font-size:var(--fs-xs);color:#B9C4BC;margin-top:6px}
+.field__error{font-size:var(--fs-sm);color:#FFB4AB;font-weight:600;margin-top:6px}
+.field__error::before{content:"! ";font-weight:700}
+.anmelde-form [aria-invalid="true"]{border-color:#FFB4AB;box-shadow:0 0 0 1px #FFB4AB}
+.anmelde-form .req{color:var(--pink-on-dark)}
+.anmelde-form .opt{font-weight:400;color:#B9C4BC}
+.anmelde-form select option{color:var(--ink);background:#fff}
+.honeypot{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-legal{font-size:var(--fs-xs);color:#B9C4BC;margin:4px 0 18px}
+.form-legal a{color:var(--pink-on-dark)}
+.form-msg{border-radius:10px;padding:14px 18px;margin-top:18px;font-size:var(--fs-sm)}
+.form-msg--ok{background:rgba(46,125,50,.2);border:1px solid #6FBF73;color:#D9F0DA}
+.form-msg--error{background:rgba(179,38,30,.18);border:1px solid #FFB4AB;color:#FFDAD6}
+.form-msg--error a{color:#fff}
+.form-msg:focus{outline:3px solid var(--pink-on-dark);outline-offset:2px}
+#anmeldung{position:relative}
+.spenden{text-align:center}
+.spenden h2{font-size:var(--fs-xl);margin-bottom:8px}
+.spenden p{color:#4a544f;max-width:56ch;margin:0 auto 10px}
+.spenden__konto{font-weight:700;color:var(--ink)!important}
+
+/* Fokus sichtbar für alle Links */
+a:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:4px}
+.sec--dark a:focus-visible,#anmeldung a:focus-visible,footer a:focus-visible,.pagehero a:focus-visible{outline-color:var(--pink-on-dark)}
+

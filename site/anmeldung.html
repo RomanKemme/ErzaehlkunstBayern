@@ -2,38 +2,34 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Anmeldung | Erzählkunst Bayern e.V.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script src="sanity.js"></script>
-<script src="nav.js" defer></script>
-<style>
-/* Unterseiten-Kopf */
-.pagehero{background:linear-gradient(rgba(33,46,41,.82),rgba(33,46,41,.88)),
-  radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
-  color:var(--cream);padding:calc(var(--sec-y)*.88) var(--sec-x) calc(var(--sec-y)*.67)}
-.pagehero .inner{max-width:var(--maxw);margin:0 auto}
-.pagehero h1{color:#fff;font-size:var(--fs-2xl);font-weight:900}
-.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:var(--fs-base)}
-.pagehero .crumb{font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
-.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600;display:inline-block;padding:14px 6px;margin:-14px -6px}
-.pagehero .crumb a:hover{color:var(--pink-on-dark)}
-.nextstep{background:var(--sand);padding:calc(var(--sec-y)*.67) var(--sec-x);text-align:center}
-.nextstep h2{font-size:var(--fs-xl);margin-bottom:10px}
-.nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
-</style>
+<meta name="description" content="Melde dich bei Erzählkunst Bayern e.V. an: Schnupper-Workshop, Grundausbildung Künstlerisches Erzählen, Workshops, Montagsclub oder Einzelcoaching.">
+<!-- @@HEAD -->
+<meta name="theme-color" content="#2B3A34">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Erzählkunst Bayern e.V.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Anmeldung | Erzählkunst Bayern e.V.">
+<meta property="og:description" content="Melde dich bei Erzählkunst Bayern e.V. an: Schnupper-Workshop, Grundausbildung Künstlerisches Erzählen, Workshops, Montagsclub oder Einzelcoaching.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/assistant-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://o1wd66uu.apicdn.sanity.io" crossorigin>
+<link rel="preconnect" href="https://cdn.sanity.io">
+<link rel="stylesheet" href="assets/css/style.css">
+<!-- @@/HEAD -->
 </head>
-<body>
+<body data-page="anmeldung">
+<!-- @@HEADER -->
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
-    <a class="logo" href="index.html">
+    <a class="logo" href="index.html" aria-label="Erzählkunst Bayern e.V. – zur Startseite">
       <picture>
         <source srcset="assets/img/logo.avif" type="image/avif">
-        <img src="assets/img/logo.png" alt="Erzählkunst Bayern e.V." height="48">
+        <img src="assets/img/logo.png" alt="Erzählkunst Bayern e.V." width="90" height="48">
       </picture>
     </a>
     <div class="navlinks" id="hauptmenu">
@@ -43,14 +39,15 @@
       <a class="navlink" href="termine.html">Termine</a>
       <a class="navlink" href="team.html">Über uns</a>
     </div>
-    <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
+    <a class="btn btn--pink nav__cta" href="anmeldung.html" aria-current="page">Jetzt anmelden</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenu" aria-label="Menü öffnen">
       <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
     </button>
   </nav>
 </header>
+<!-- @@/HEADER -->
 <main id="inhalt" tabindex="-1">
-<style>.sticky-cta{display:none!important}</style>
+
 <section class="pagehero">
   <div class="inner">
     <p class="crumb"><a href="index.html">Home</a> / Anmeldung</p>
@@ -59,7 +56,7 @@
   </div>
 </section>
 
-<section id="anmeldung" class="sec--tight-top">
+<section id="anmeldung" class="sec--tight-top sec--darkest">
   <div class="inner">
     <div class="anmelde-grid">
       <ol class="anmelde-steps reveal">
@@ -67,165 +64,100 @@
         <li><strong>Nachricht senden</strong><span class="m-hide">Wir melden uns innerhalb weniger Tage mit allen Details und der verbindlichen Anmeldung.</span><span class="m-only">Wir melden uns in wenigen Tagen mit allen Details.</span></li>
         <li><strong>Loslegen</strong><span class="m-hide">Platz bestätigt – und deine Erzählreise beginnt. Wir freuen uns auf dich!</span><span class="m-only">Platz bestätigt – los geht’s!</span></li>
       </ol>
-      <form class="anmelde-form reveal" id="anmeldeForm" name="anmeldung" method="POST" data-netlify="true" data-netlify-honeypot="firma">
+
+      <form class="anmelde-form" id="anmeldeForm" name="anmeldung" method="POST" action="/anmeldung.html?gesendet=1" data-netlify="true" data-netlify-honeypot="firma" novalidate>
         <input type="hidden" name="form-name" value="anmeldung">
-        <p style="display:none">
-          <label>Firma (bitte freilassen): <input name="firma"></label>
+        <p class="honeypot" aria-hidden="true">
+          <label>Bitte freilassen: <input name="firma" tabindex="-1" autocomplete="off"></label>
         </p>
-        <label for="f-angebot">Wofür möchtest du dich anmelden?*</label>
-        <select id="f-angebot" name="angebot" required>
-          <option value="">Bitte wählen …</option>
-          <option value="Einzelcoaching / Sonstiges">Einzelcoaching / Sonstiges</option>
-        </select>
-        <p style="font-size:var(--fs-xs);color:#B9C4BC;margin:-14px 0 20px">Termine werden automatisch geladen …</p>
+
+        <div class="field">
+          <label for="f-angebot">Wofür möchtest du dich anmelden? <span class="req" aria-hidden="true">*</span></label>
+          <select id="f-angebot" name="angebot" required aria-describedby="f-angebot-hint">
+            <option value="">Bitte wählen …</option>
+            <option value="Grundausbildung Künstlerisches Erzählen (gesamt)">Grundausbildung Künstlerisches Erzählen (gesamt)</option>
+            <option value="Einzelcoaching / Sonstiges">Einzelcoaching / Sonstiges</option>
+          </select>
+          <p class="field__hint" id="f-angebot-hint">Kommende Termine werden geladen …</p>
+          <p class="field__error" id="f-angebot-err" hidden>Bitte wähle aus, wofür du dich anmelden möchtest.</p>
+        </div>
+
         <div class="row">
-          <div>
-            <label for="f-name">Name*</label>
+          <div class="field">
+            <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
             <input id="f-name" name="name" type="text" required autocomplete="name">
+            <p class="field__error" id="f-name-err" hidden>Bitte gib deinen Namen an.</p>
           </div>
-          <div>
-            <label for="f-mail">E-Mail-Adresse*</label>
-            <input id="f-mail" name="email" type="email" required autocomplete="email">
+          <div class="field">
+            <label for="f-mail">E-Mail-Adresse <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-mail" name="email" type="email" required autocomplete="email" inputmode="email">
+            <p class="field__error" id="f-mail-err" hidden>Bitte gib eine gültige E-Mail-Adresse an, z. B. name@beispiel.de.</p>
           </div>
         </div>
-        <label for="f-msg">Deine Nachricht (optional)</label>
-        <textarea id="f-msg" name="nachricht" rows="4" placeholder="Fragen, Wünsche, Vorerfahrung …"></textarea>
-        <button class="btn btn--pink" type="submit">Anmeldung absenden</button>
-        <div class="form-ok" id="formOk">✓ Danke! Deine Anfrage ist angekommen – wir melden uns in wenigen Tagen bei dir.</div>
+
+        <div class="field">
+          <label for="f-tel">Telefon <span class="opt">(optional)</span></label>
+          <input id="f-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel">
+        </div>
+
+        <div class="field">
+          <label for="f-msg">Deine Nachricht <span class="opt">(optional)</span></label>
+          <textarea id="f-msg" name="nachricht" rows="4" placeholder="Fragen, Wünsche, Vorerfahrung …"></textarea>
+        </div>
+
+        <p class="form-legal">Mit dem Absenden werden deine Angaben zur Bearbeitung deiner Anfrage gespeichert. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>. Pflichtfelder sind mit * markiert.</p>
+
+        <button class="btn btn--pink btn--block" type="submit" id="f-submit">Anmeldung absenden</button>
+        <div class="form-msg form-msg--ok" id="formOk" role="status" hidden tabindex="-1">
+          <strong>Danke! Deine Anfrage ist angekommen.</strong> Wir melden uns in den nächsten Tagen per E-Mail bei dir.
+        </div>
+        <div class="form-msg form-msg--error" id="formErr" role="alert" hidden tabindex="-1"></div>
       </form>
     </div>
   </div>
 </section>
 
-<section class="sec--compact" style="background:var(--sand)">
-  <div class="inner" style="text-align:center">
-    <h2 style="font-size:var(--fs-xl);margin-bottom:8px">Lieber unterstützen statt teilnehmen?</h2>
-    <p style="color:#4a544f;max-width:56ch;margin:0 auto 10px"><span class="m-hide">Unser Verein benötigt Ihre Unterstützung, um zu wachsen. </span>Spenden sind steuerlich absetzbar – ab 201&nbsp;€ erhalten Sie automatisch eine Jahresspendenquittung.</p>
-    <p style="font-weight:700">Stadtsparkasse München · IBAN: DE03 7015 0000 1006 4878 29</p>
+<section class="sec--compact sec--sand spenden">
+  <div class="inner">
+    <h2>Lieber unterstützen statt teilnehmen?</h2>
+    <p><span class="m-hide">Unser Verein benötigt Ihre Unterstützung, um zu wachsen. </span>Spenden sind steuerlich absetzbar – ab 201&nbsp;€ erhalten Sie automatisch eine Jahresspendenquittung.</p>
+    <p class="spenden__konto"><span data-verein="bank">Stadtsparkasse München</span> · IBAN: <span data-verein="iban">DE03 7015 0000 1006 4878 29</span></p>
   </div>
 </section>
 
-<script>
-sanityQuery(`*[_type=="termin" && full != true]|order(datum asc){
-    datum, enddatum, "zeit_von": zeitVon, "zeit_bis": zeitBis, title
-  }`)
-  .then(termine => {
-    const data = { termine };
-    const MONATE = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
-    function teile(iso){
-      const [j,m,t] = iso.split('-').map(Number);
-      return { tag:t, monat:MONATE[m-1], jahr:j };
-    }
-    function formatTermin(t){
-      const start = teile(t.datum);
-      let text;
-      if (t.enddatum && t.enddatum !== t.datum) {
-        const ende = teile(t.enddatum);
-        text = (start.monat === ende.monat && start.jahr === ende.jahr)
-          ? `${start.tag}.–${ende.tag}. ${start.monat} ${start.jahr}`
-          : `${start.tag}. ${start.monat} – ${ende.tag}. ${ende.monat} ${ende.jahr}`;
-      } else {
-        text = `${start.tag}. ${start.monat} ${start.jahr}`;
-      }
-      if (t.zeit_von) {
-        text += ` · ${t.zeit_von}`;
-        if (t.zeit_bis) text += `–${t.zeit_bis}`;
-        text += ' Uhr';
-      }
-      return text;
-    }
-
-    const select = document.getElementById('f-angebot');
-    const hint = select.nextElementSibling;
-    const sonstiges = select.querySelector('option[value="Einzelcoaching / Sonstiges"]');
-    data.termine
-      .filter(t => !t.full)
-      .sort((a,b) => a.datum.localeCompare(b.datum))
-      .forEach(t => {
-        const label = t.title + ' — ' + formatTermin(t);
-        const opt = document.createElement('option');
-        opt.value = label;
-        opt.textContent = label;
-        select.insertBefore(opt, sonstiges);
-      });
-    hint.remove();
-
-    // Falls von einer Terminkarte mit ?angebot=... verlinkt wurde, direkt vorauswählen
-    const preselect = new URLSearchParams(location.search).get('angebot');
-    if (preselect) {
-      const match = [...select.options].find(o => o.value.startsWith(preselect));
-      if (match) select.value = match.value;
-    }
-  })
-  .catch(()=>{
-    document.getElementById('f-angebot').nextElementSibling.textContent =
-      'Termine konnten nicht geladen werden – bitte „Einzelcoaching / Sonstiges“ wählen und Wunsch in der Nachricht nennen.';
-  });
-
-document.getElementById('anmeldeForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button');
-  const data = new FormData(form);
-  fetch('/', { method: 'POST', body: new URLSearchParams(data).toString(),
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-    .then(()=>{
-      document.getElementById('formOk').style.display = 'block';
-      btn.textContent = 'Gesendet ✓';
-      form.reset();
-    })
-    .catch(()=>{ alert('Senden fehlgeschlagen, bitte versuch es gleich nochmal.'); });
-});
-</script>
 </main>
+<!-- @@FOOTER -->
 <footer>
   <div class="inner">
     <div>
-      <h4>Erzählkunst Bayern e.V.</h4>
+      <h2 class="footer__title">Erzählkunst Bayern e.V.</h2>
       <p>Ihr Verein für Erzählkunst und Erzählausbildung in München und Bayern. Mitglied im Verband der Erzählerinnen und Erzähler e.V. (VEE).</p>
-      <p style="margin-top:14px"><strong style="color:var(--cream)">Spenden:</strong><br>Stadtsparkasse München<br>IBAN: DE03 7015 0000 1006 4878 29</p>
+      <p class="footer__spenden"><strong>Spenden:</strong><br><span data-verein="bank">Stadtsparkasse München</span><br>IBAN: <span data-verein="iban">DE03 7015 0000 1006 4878 29</span></p>
     </div>
-    <div>
-      <h4>Schnellzugriff</h4>
+    <nav aria-label="Schnellzugriff">
+      <h2 class="footer__title">Schnellzugriff</h2>
       <ul>
         <li><a href="akademie.html">Akademie &amp; Module</a></li>
-        <li><a href="projekte.html">Projekte</a></li>
         <li><a href="termine.html">Termine</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
         <li><a href="team.html">Über uns</a></li>
-        <li><a href="anmeldung.html">Anmeldung</a></li>
+        <li><a href="anmeldung.html">Anmeldung &amp; Kontakt</a></li>
       </ul>
-    </div>
-    <div>
-      <h4>Rechtliches</h4>
+    </nav>
+    <nav aria-label="Rechtliches">
+      <h2 class="footer__title">Rechtliches</h2>
       <ul>
-        <li><a href="#">Impressum</a></li>
-        <li><a href="#">Datenschutz</a></li>
-        <li><a href="#">Cookie-Einstellungen</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li data-verein-wrap hidden><a data-verein="kontaktEmail" href="anmeldung.html">E-Mail</a></li>
       </ul>
-    </div>
+    </nav>
   </div>
+  <p class="footer__copy">© <span id="jahr">2026</span> Erzählkunst Bayern e.V.</p>
 </footer>
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a></div>
-<script>
-const _sticky=document.getElementById('stickyCta');
-document.addEventListener('scroll',()=>{ _sticky.classList.toggle('visible', document.documentElement.scrollTop>500); },{passive:true});
-const _io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>_io.observe(el));
-</script>
-
-<!-- Netlify Identity: fängt Einladungs-/Bestätigungs-/Reset-Links ab, egal auf welcher Seite sie landen -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-
+<!-- @@/FOOTER -->
+<script src="assets/js/sanity.js" defer></script>
+<script src="assets/js/common.js" defer></script>
+<script src="assets/js/page-anmeldung.js" defer></script>
 </body>
 </html>

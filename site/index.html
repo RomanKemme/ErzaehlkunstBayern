@@ -2,38 +2,34 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Erzählkunst Bayern e.V. – Künstlerisches Erzählen lernen in München</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script src="sanity.js"></script>
-<script src="nav.js" defer></script>
-<style>
-/* Unterseiten-Kopf */
-.pagehero{background:linear-gradient(rgba(33,46,41,.82),rgba(33,46,41,.88)),
-  radial-gradient(1000px 400px at 70% 10%, #4a5c52, var(--petrol-deep));
-  color:var(--cream);padding:calc(var(--sec-y)*.88) var(--sec-x) calc(var(--sec-y)*.67)}
-.pagehero .inner{max-width:var(--maxw);margin:0 auto}
-.pagehero h1{color:#fff;font-size:var(--fs-2xl);font-weight:900}
-.pagehero p{max-width:58ch;margin-top:16px;color:#DCE3D8;font-size:var(--fs-base)}
-.pagehero .crumb{font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:14px}
-.pagehero .crumb a{color:#C9D2CB;text-decoration:none;font-weight:600;display:inline-block;padding:14px 6px;margin:-14px -6px}
-.pagehero .crumb a:hover{color:var(--pink-on-dark)}
-.nextstep{background:var(--sand);padding:calc(var(--sec-y)*.67) var(--sec-x);text-align:center}
-.nextstep h2{font-size:var(--fs-xl);margin-bottom:10px}
-.nextstep p{color:#4a544f;max-width:52ch;margin:0 auto 26px}
-</style>
+<meta name="description" content="Erzählkunst Bayern e.V.: Grundausbildung Künstlerisches Erzählen in München, Workshops, Montagsclub und Erzählprojekte in ganz Bayern.">
+<!-- @@HEAD -->
+<meta name="theme-color" content="#2B3A34">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Erzählkunst Bayern e.V.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Erzählkunst Bayern e.V. – Künstlerisches Erzählen lernen in München">
+<meta property="og:description" content="Erzählkunst Bayern e.V.: Grundausbildung Künstlerisches Erzählen in München, Workshops, Montagsclub und Erzählprojekte in ganz Bayern.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/assistant-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://o1wd66uu.apicdn.sanity.io" crossorigin>
+<link rel="preconnect" href="https://cdn.sanity.io">
+<link rel="stylesheet" href="assets/css/style.css">
+<!-- @@/HEAD -->
 </head>
-<body>
+<body data-page="index">
+<!-- @@HEADER -->
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
-    <a class="logo" href="index.html">
+    <a class="logo" href="index.html" aria-label="Erzählkunst Bayern e.V. – zur Startseite">
       <picture>
         <source srcset="assets/img/logo.avif" type="image/avif">
-        <img src="assets/img/logo.png" alt="Erzählkunst Bayern e.V." height="48">
+        <img src="assets/img/logo.png" alt="Erzählkunst Bayern e.V." width="90" height="48">
       </picture>
     </a>
     <div class="navlinks" id="hauptmenu">
@@ -43,28 +39,28 @@
       <a class="navlink" href="termine.html">Termine</a>
       <a class="navlink" href="team.html">Über uns</a>
     </div>
-    <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
+    <a class="btn btn--pink nav__cta" href="anmeldung.html">Jetzt anmelden</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenu" aria-label="Menü öffnen">
       <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
     </button>
   </nav>
 </header>
+<!-- @@/HEADER -->
 <main id="inhalt" tabindex="-1">
-<!-- HERO -->
+
 <section class="hero" id="homeHero">
   <div class="hero__inner">
-    <span class="hero__badge">Neue Grundausbildung – Start Februar 2027 · Jetzt Platz sichern</span>
+    <a class="hero__badge" href="akademie.html"><span>Neue Grundausbildung – Start <span data-akademie="startText">Februar 2027</span> · Jetzt Platz sichern</span></a>
     <h1>Werde <em>Erzählerin</em>.<br>Werde Erzähler.</h1>
     <p class="lead"><span class="m-hide">Die Erzählakademie Bayern bildet dich in München zum Künstlerischen Erzählen aus – in 10 aufeinander aufbauenden Modulen, von der ersten Geschichte bis zur Bühne.</span><span class="m-only">Künstlerisches Erzählen lernen – in 10 Modulen, mitten in München. Von der ersten Geschichte bis zur Bühne.</span></p>
     <div class="hero__cta">
       <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
-      <a class="btn btn--ghost" style="color:var(--cream);border-color:var(--cream)" href="#weg">Wie funktioniert’s?</a>
+      <a class="btn btn--ghost btn--on-dark" href="#weg">Wie funktioniert’s?</a>
     </div>
     <p class="quote m-hide">„Neben Nahrung, einem Obdach und Gesellschaft sind es Geschichten, die wir am allermeisten brauchen.“ – Philip Pullman</p>
   </div>
 </section>
 
-<!-- DEIN WEG -->
 <section id="weg">
   <div class="inner">
     <p class="eyebrow">Dein roter Faden</p>
@@ -72,19 +68,19 @@
     <p class="section-intro reveal m-hide">Egal ob du zum ersten Mal erzählst oder schon auf der Bühne stehst – bei uns weißt du immer, wo du gerade bist und was als Nächstes kommt.</p>
     <div class="weg-grid">
       <div class="weg reveal">
-        <div class="weg__num">1</div>
+        <div class="weg__num" aria-hidden="true">1</div>
         <h3>Schnuppern</h3>
-        <p><span class="m-hide">Du fragst dich, ob Erzählen etwas für dich ist? Der <strong>Schnupper-Workshop</strong> (54&nbsp;€) gibt dir in ein paar Stunden die Antwort – ohne Vorkenntnisse, ohne Druck. Oder komm einfach zum offenen <strong>Montagsclub</strong>.</span><span class="m-only">Erst mal reinschnuppern: im <strong>Schnupper-Workshop</strong> (54&nbsp;€) oder beim offenen <strong>Montagsclub</strong> – ohne Vorkenntnisse.</span></p>
+        <p><span class="m-hide">Du fragst dich, ob Erzählen etwas für dich ist? Der <strong>Schnupper-Workshop</strong> (<span data-akademie="schnupperPreis">54 €</span>) gibt dir in ein paar Stunden die Antwort – ohne Vorkenntnisse, ohne Druck. Oder komm einfach zum offenen <strong>Montagsclub</strong>.</span><span class="m-only">Erst mal reinschnuppern: im <strong>Schnupper-Workshop</strong> (<span data-akademie="schnupperPreis">54 €</span>) oder beim offenen <strong>Montagsclub</strong> – ohne Vorkenntnisse.</span></p>
         <a class="steplink" href="termine.html?filter=offen">Offene Termine ansehen →</a>
       </div>
       <div class="weg reveal">
-        <div class="weg__num">2</div>
+        <div class="weg__num" aria-hidden="true">2</div>
         <h3>Ausbilden</h3>
-        <p><span class="m-hide">Die <strong>Grundausbildung Künstlerisches Erzählen</strong>: 10 Module über 2 Jahre, unterrichtet von professionellen Bühnenerzählerinnen. Nächster Start: <strong>Februar 2027</strong>.</span><span class="m-only">Die <strong>Grundausbildung</strong>: 10 Module über 2 Jahre mit professionellen Bühnenerzählerinnen. Start: <strong>Februar 2027</strong>.</span></p>
+        <p><span class="m-hide">Die <strong>Grundausbildung Künstlerisches Erzählen</strong>: 10 Module über 2 Jahre, unterrichtet von professionellen Bühnenerzählerinnen. Nächster Start: <strong data-akademie="startText">Februar 2027</strong>.</span><span class="m-only">Die <strong>Grundausbildung</strong>: 10 Module über 2 Jahre mit professionellen Bühnenerzählerinnen. Start: <strong data-akademie="startText">Februar 2027</strong>.</span></p>
         <a class="steplink" href="akademie.html">Die 10 Module entdecken →</a>
       </div>
       <div class="weg reveal">
-        <div class="weg__num">3</div>
+        <div class="weg__num" aria-hidden="true">3</div>
         <h3>Vertiefen</h3>
         <p><span class="m-hide">Nach der Ausbildung geht es weiter: <strong>Workshops für Fortgeschrittene</strong> (VEE-Aufbaustufe), Einzelcoachings und Erzählreisen bringen dich auf die Bühne – und darüber hinaus.</span><span class="m-only">Danach: <strong>Workshops für Fortgeschrittene</strong> (VEE-Aufbaustufe), Einzelcoachings und Erzählreisen.</span></p>
         <a class="steplink" href="termine.html?filter=akademie">Aufbau-Workshops ansehen →</a>
@@ -93,41 +89,39 @@
   </div>
 </section>
 
-<!-- Teaser Akademie -->
-<section id="akademie" class="sec--compact">
+<section id="akademie" class="sec--compact sec--dark">
   <div class="inner ak-teaser">
     <div>
       <p class="eyebrow">Die Akademie</p>
       <h2 class="reveal">10 Module. Ein Weg auf die Bühne.</h2>
-      <p class="section-intro reveal" style="margin-bottom:26px"><span class="m-hide">Von „Ankommen im Erzählen“ bis zur eigenen Werkschau: Unsere Grundausbildung führt dich Schritt für Schritt zum Künstlerischen Erzählen – unterrichtet von sechs professionellen Bühnenerzählerinnen.</span><span class="m-only">Von der ersten Geschichte bis zur eigenen Werkschau – mit sechs professionellen Bühnenerzählerinnen.</span></p>
+      <p class="section-intro reveal"><span class="m-hide">Von „Ankommen im Erzählen“ bis zur eigenen Werkschau: Unsere Grundausbildung führt dich Schritt für Schritt zum Künstlerischen Erzählen – unterrichtet von professionellen Bühnenerzählerinnen.</span><span class="m-only">Von der ersten Geschichte bis zur eigenen Werkschau – mit professionellen Bühnenerzählerinnen.</span></p>
       <a class="btn btn--pink reveal" href="akademie.html">Zur Akademie &amp; den Modulen</a>
     </div>
     <div class="ak-facts ak-facts--tiles reveal">
-      <div><strong>10</strong>Module à 16 UE</div>
-      <div><strong>Feb 2027</strong>Ausbildungsstart</div>
-      <div><strong>6–12</strong>Teilnehmer:innen</div>
-      <div><strong>München</strong>Kursort</div>
+      <div><strong>10</strong><span data-akademie="modulUmfang">Module à 16 UE</span></div>
+      <div><strong data-akademie="startKurz">Feb 2027</strong>Ausbildungsstart</div>
+      <div><strong data-akademie="teilnehmende">6–12</strong>Teilnehmer:innen</div>
+      <div><strong data-akademie="kursort">München</strong>Kursort</div>
     </div>
   </div>
 </section>
 
-<!-- Teaser Termine/Team -->
-<section class="sec--compact" style="background:var(--sand)">
+<section class="sec--compact sec--sand">
   <div class="inner proj-grid">
     <div class="proj reveal">
-      <div class="proj__img m-hide"><img src="assets/img/workshop.svg" alt="" loading="lazy"></div>
+      <div class="proj__img m-hide"><img src="assets/img/workshop.svg" alt="" width="400" height="150" loading="lazy"></div>
       <h3>Nächste Termine</h3>
-      <p id="naechsteTermine">Wird geladen …</p>
+      <div id="naechsteTermine" class="mini-termine"><p class="muted">Termine werden geladen …</p></div>
       <a href="termine.html">Alle Termine →</a>
     </div>
     <div class="proj reveal">
-      <div class="proj__img m-hide"><img src="assets/img/montagsclub.svg" alt="" loading="lazy"></div>
+      <div class="proj__img m-hide"><img src="assets/img/montagsclub.svg" alt="" width="400" height="150" loading="lazy"></div>
       <h3>Das Team kennenlernen</h3>
-      <p><span class="m-hide">Sechs professionelle Bühnenerzählerinnen aus München, Gauting und Regensburg – hör dir ihre Stimmen an!</span><span class="m-only">Sechs Bühnenerzählerinnen – hör dir ihre Stimmen an!</span></p>
+      <p><span class="m-hide">Professionelle Bühnenerzählerinnen aus München, Gauting und Regensburg – hör dir ihre Stimmen an!</span><span class="m-only">Unsere Bühnenerzählerinnen – hör dir ihre Stimmen an!</span></p>
       <a href="team.html">Zum Team →</a>
     </div>
     <div class="proj reveal">
-      <div class="proj__img m-hide"><img src="assets/img/stube.svg" alt="" loading="lazy"></div>
+      <div class="proj__img m-hide"><img src="assets/img/stube.svg" alt="" width="400" height="150" loading="lazy"></div>
       <h3>Unsere Projekte</h3>
       <p><span class="m-hide">Vom Montagsclub über die Geschichtenstunde bis zum GUTE STUBE Erzählfestival – Erzählen wirkt überall.</span><span class="m-only">Montagsclub, Geschichtenstunde, GUTE STUBE Festival und mehr.</span></p>
       <a href="projekte.html">Zu den Projekten →</a>
@@ -135,117 +129,54 @@
   </div>
 </section>
 
-<!-- IMPRESSIONEN -->
-<section id="impressionen" class="sec--compact" style="background:var(--sand-light)">
+<section id="impressionen" class="sec--compact" hidden>
   <div class="inner">
     <p class="eyebrow">Impressionen</p>
     <h2 class="reveal">Augenblicke, die Geschichten erzählen</h2>
-    <div class="impress-grid" id="impressGrid"><!-- per JS --></div>
+    <div class="impress-grid" id="impressGrid" tabindex="0" role="region" aria-label="Impressionen – auf dem Handy seitlich wischen"></div>
   </div>
 </section>
 
 <div class="nextstep">
   <h2>Bereit für deine erste Geschichte?</h2>
-  <p>Sichere dir jetzt deinen Platz im Schnupper-Workshop oder der Grundausbildung 2027/28.</p>
+  <p>Sichere dir jetzt deinen Platz im Schnupper-Workshop oder in der Grundausbildung <span data-akademie="jahrgang">2027/28</span>.</p>
   <a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a>
 </div>
 
-<script>
-sanityQuery(`*[_type=="seiten"][0]{
-  "home_hero": homeHero.asset->url,
-  "home_hero_fokus": homeHeroFokus,
-  "impressionen": impressionen[]{ "bild": bild.asset->url, unterschrift }
-}`).then(s=>{
-  if(!s) s = {};
-  // Hero-Hintergrundbild (CMS-pflegbar)
-  if(s.home_hero){
-    const hero = document.getElementById('homeHero');
-    const fokus = s.home_hero_fokus || 'center';
-    hero.style.background =
-      `linear-gradient(rgba(33,46,41,.72),rgba(33,46,41,.84)), url('${s.home_hero}') ${fokus}/cover no-repeat`;
-  }
-  // Impressionen-Galerie: Bild wenn vorhanden, sonst eleganter Platzhalter
-  const grid = document.getElementById('impressGrid');
-  (s.impressionen || []).forEach((im,i)=>{
-    const fig = document.createElement('figure');
-    fig.className = 'impress reveal';
-    fig.innerHTML = im.bild
-      ? `<img src="${im.bild}" alt="${im.unterschrift||''}" loading="lazy"><figcaption>${im.unterschrift||''}</figcaption>`
-      : `<div class="impress__ph" aria-hidden="true"><span>✶</span></div><figcaption>${im.unterschrift||''}</figcaption>`;
-    grid.appendChild(fig);
-    const io3 = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io3.unobserve(e.target)}})},{threshold:.12});
-    io3.observe(fig);
-  });
-}).catch(()=>{});
-
-// Nächste 3 tatsächlich bevorstehenden Termine (heute oder später), nach Datum sortiert
-const MONATE = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
-function formatKurz(iso){
-  const [j,m,t] = iso.split('-').map(Number);
-  return `${t}. ${MONATE[m-1]} ${j}`;
-}
-const heute = new Date().toISOString().slice(0,10);
-sanityQuery(`*[_type=="termin" && datum >= "${heute}"]|order(datum asc)[0...3]{datum, title}`)
-  .then(termine => {
-    const el = document.getElementById('naechsteTermine');
-    if (!termine.length) { el.textContent = 'Aktuell sind keine Termine geplant.'; return; }
-    el.innerHTML = termine
-      .map(t => `<strong>${formatKurz(t.datum)}:</strong> ${t.title}`)
-      .join('<br>');
-  })
-  .catch(() => {
-    document.getElementById('naechsteTermine').textContent = 'Termine konnten nicht geladen werden.';
-  });
-</script>
 </main>
+<!-- @@FOOTER -->
 <footer>
   <div class="inner">
     <div>
-      <h4>Erzählkunst Bayern e.V.</h4>
+      <h2 class="footer__title">Erzählkunst Bayern e.V.</h2>
       <p>Ihr Verein für Erzählkunst und Erzählausbildung in München und Bayern. Mitglied im Verband der Erzählerinnen und Erzähler e.V. (VEE).</p>
-      <p style="margin-top:14px"><strong style="color:var(--cream)">Spenden:</strong><br>Stadtsparkasse München<br>IBAN: DE03 7015 0000 1006 4878 29</p>
+      <p class="footer__spenden"><strong>Spenden:</strong><br><span data-verein="bank">Stadtsparkasse München</span><br>IBAN: <span data-verein="iban">DE03 7015 0000 1006 4878 29</span></p>
     </div>
-    <div>
-      <h4>Schnellzugriff</h4>
+    <nav aria-label="Schnellzugriff">
+      <h2 class="footer__title">Schnellzugriff</h2>
       <ul>
         <li><a href="akademie.html">Akademie &amp; Module</a></li>
-        <li><a href="projekte.html">Projekte</a></li>
         <li><a href="termine.html">Termine</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
         <li><a href="team.html">Über uns</a></li>
-        <li><a href="anmeldung.html">Anmeldung</a></li>
+        <li><a href="anmeldung.html">Anmeldung &amp; Kontakt</a></li>
       </ul>
-    </div>
-    <div>
-      <h4>Rechtliches</h4>
+    </nav>
+    <nav aria-label="Rechtliches">
+      <h2 class="footer__title">Rechtliches</h2>
       <ul>
-        <li><a href="#">Impressum</a></li>
-        <li><a href="#">Datenschutz</a></li>
-        <li><a href="#">Cookie-Einstellungen</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li data-verein-wrap hidden><a data-verein="kontaktEmail" href="anmeldung.html">E-Mail</a></li>
       </ul>
-    </div>
+    </nav>
   </div>
+  <p class="footer__copy">© <span id="jahr">2026</span> Erzählkunst Bayern e.V.</p>
 </footer>
 <div class="sticky-cta" id="stickyCta"><a class="btn btn--pink" href="anmeldung.html">Jetzt anmelden</a></div>
-<script>
-const _sticky=document.getElementById('stickyCta');
-document.addEventListener('scroll',()=>{ _sticky.classList.toggle('visible', document.documentElement.scrollTop>500); },{passive:true});
-const _io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>_io.observe(el));
-</script>
-
-<!-- Netlify Identity: fängt Einladungs-/Bestätigungs-/Reset-Links ab, egal auf welcher Seite sie landen -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-
+<!-- @@/FOOTER -->
+<script src="assets/js/sanity.js" defer></script>
+<script src="assets/js/common.js" defer></script>
+<script src="assets/js/page-home.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+{
+  "name": "erzaehlkunst-tests",
+  "private": true,
+  "description": "Lokale Tests: Mock-Sanity-Server (echte GROQ-Auswertung) für die Website-Tests",
+  "type": "module",
+  "scripts": {
+    "mock": "node mock-sanity.mjs"
+  },
+  "devDependencies": {
+    "groq-js": "^2.0.0"
+  }
+}
