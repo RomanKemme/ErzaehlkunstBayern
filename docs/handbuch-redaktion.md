@@ -23,7 +23,7 @@ Ihr erhaltet von mir eine Einladung per E-Mail. Danach meldet ihr euch immer unt
 
 1. Einladungs-E-Mail von Sanity öffnen und auf den Link klicken.
 2. Mit eurem Google-Konto oder mit E-Mail und Passwort anmelden.
-3. Künftig direkt die Adresse des Redaktionssystems öffnen: **\[Adresse folgt nach der Veröffentlichung, z. B. erzaehlkunst.sanity.studio\]** – am besten als Lesezeichen speichern.
+3. Künftig direkt die Adresse des Redaktionssystems öffnen: **[erzaehlkunst-bayern.sanity.studio](https://erzaehlkunst-bayern.sanity.studio/)** – am besten als Lesezeichen speichern.
 
 **Die Oberfläche hat drei Spalten:**
 
