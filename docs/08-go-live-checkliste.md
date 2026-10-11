@@ -18,7 +18,8 @@ Drei Punkte blockieren die Veröffentlichung, alle drei liegen beim Verein; der 
 - [ ] Netlify Forms: E-Mail-Benachrichtigung für Formular „anmeldung“ an die Vereinsadresse einrichten
 - [ ] Sanity → API → CORS origins: die echte Domain und die Netlify-Adresse hinzufügen (ohne Credentials); `localhost`-Einträge dürfen bleiben
 - [ ] Studio veröffentlichen: `npx sanity deploy` → Adresse `<name>.sanity.studio` an den Verein geben
-- [ ] Vereinsmitglieder in Sanity einladen (sanity.io/manage → Members, Rolle „Editor“)
+- [ ] Vorher Sicherung: im Ordner `studio` `npx sanity dataset export production sicherung.tar.gz`
+- [ ] Vereinsmitglieder in Sanity einladen (sanity.io/manage → Members, Rolle „Administrator“ – im kostenlosen Plan gibt es keine Editor-Rolle; nur das Studio benutzen, nicht sanity.io/manage)
 - [ ] Domain auf Netlify umstellen (DNS) – alte Jimdo-Adressen werden per `_redirects` weitergeleitet
 - [ ] `SITE_URL` in `tools/sync_partials.py` prüfen, Skript ausführen (Sitemap)
 - [ ] Nach dem Go-Live: Testanmeldung über das Formular, Weiterleitungen der alten Adressen stichprobenartig prüfen
