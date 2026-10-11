@@ -341,12 +341,19 @@ section h2{font-size:var(--fs-xl);font-weight:700;margin-bottom:14px}
 .tcard .tcard__meta{font-size:var(--fs-xs);color:var(--muted)}
 .tcard .btn{align-self:flex-start;font-size:var(--fs-sm);padding:10px 22px;margin-top:4px;min-height:44px;display:inline-flex;align-items:center}
 .tcard__tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+/* „Ausgebucht“-Sticker: rotes, leicht schräges Etikett (wie in der ursprünglichen Version) */
 .badge-full{
-  background:#B3261E;color:#fff;
-  font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  border-radius:999px;padding:4px 12px;
+  display:inline-block;background:#B3261E;color:#fff;
+  font-family:var(--sans);font-size:.875rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;line-height:1.2;
+  border-radius:5px;padding:7px 15px;transform:rotate(3deg);
+  box-shadow:0 4px 12px rgba(38,48,44,.28);white-space:nowrap;
 }
-.tcard.is-full{opacity:.78}
+/* Mit Bild: oben rechts auf dem Bild */
+.tcard__img + .badge-full{position:absolute;top:16px;right:16px;z-index:2}
+/* Ohne Bild: in der Zeile mit der Kategorie */
+.tcard__tags .badge-full{margin-left:auto;margin-right:2px}
+/* In Listen (Startseite, Akademie): gleiche Optik, etwas kleiner */
+.badge-full--klein{font-size:.75rem;padding:4px 10px;margin-left:8px;transform:rotate(-2deg);vertical-align:2px;box-shadow:0 2px 6px rgba(38,48,44,.25)}
 .btn--disabled{background:#d9d0bd;color:#4f4a40;cursor:not-allowed;box-shadow:none}
 
 /* ---------- Team ---------- */
@@ -615,7 +622,6 @@ a.hero__badge:hover{background:rgba(226,53,88,.26)}
 .schnupper-termine li{font-size:var(--fs-sm);color:#DCE3DC;padding:2px 0 2px 16px;position:relative}
 .schnupper-termine li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--pink-on-dark)}
 .schnupper-termine a{color:var(--pink-on-dark)}
-.mini-badge{display:inline-block;font-size:var(--fs-xs);font-weight:700;color:#B3261E;background:#FDECEA;border-radius:6px;padding:0 6px;margin-left:4px}
 .ak-konditionen .btn{margin-top:14px}
 .proj{position:relative}
 .proj .proj__title-link{text-decoration:none;color:inherit;font-size:inherit;font-weight:inherit;display:inline;min-height:0;margin:0}

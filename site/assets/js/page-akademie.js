@@ -39,7 +39,7 @@
         return;
       }
       liste.innerHTML = t.map(function (x) {
-        return '<li>' + esc(EKB.formatTermin(x)) + (x.full ? ' <span class="mini-badge">ausgebucht</span>' : '') + '</li>';
+        return '<li>' + esc(EKB.formatTermin(x)) + (x.full ? ' <span class="badge-full badge-full--klein">Ausgebucht</span>' : '') + '</li>';
       }).join('');
       var frei = t.filter(function (x) { return !x.full; })[0];
       if (frei) document.getElementById('schnupperBtn').href = 'anmeldung.html?termin=' + encodeURIComponent(frei._id);

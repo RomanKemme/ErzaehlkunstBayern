@@ -43,10 +43,29 @@
       }
       box.innerHTML = '<ul class="mini-termine__list">' + termine.map(function (t) {
         return '<li><strong>' + esc(EKB.formatTermin(t, { zeit: false, wochentag: false })) + '</strong> ' +
-          esc(t.title) + (t.full ? ' <span class="mini-badge">ausgebucht</span>' : '') + '</li>';
+          esc(t.title) + (t.full ? ' <span class="badge-full badge-full--klein">Ausgebucht</span>' : '') + '</li>';
       }).join('') + '</ul>';
     })
     .catch(function () {
       box.innerHTML = '<p>Die Termine konnten gerade nicht geladen werden.</p>';
     });
+
+  // Teaser „Team“ und „Projekte“: Namen und Orte kommen aus dem CMS, damit nichts veraltet
+  function aufzaehlung(liste) {
+    if (liste.length < 2) return liste.join('');
+    return liste.slice(0, -1).join(', ') + ' und ' + liste[liste.length - 1];
+  }
+  EKB.query('{"projekte": *[_type=="projekt" && bereich=="projekte-laufend" && defined(slug.current)] | order(reihenfolge asc, title asc)[0...3].title,' +
+    ' "orte": *[_type=="teamMitglied" && defined(ort)] | order(reihenfolge asc).ort}')
+    .then(function (d) {
+      if (!d) return;
+      var orte = (d.orte || []).filter(function (o, i, a) { return o && a.indexOf(o) === i; });
+      if (orte.length) document.getElementById('homeTeamOrte').textContent = aufzaehlung(orte);
+      var p = (d.projekte || []).filter(Boolean);
+      if (p.length) {
+        document.getElementById('homeProjekteLang').textContent = 'Aktuell: ' + aufzaehlung(p) + '.';
+        document.getElementById('homeProjekteKurz').textContent = p.join(', ') + ' und mehr.';
+      }
+    })
+    .catch(function () { /* fester Text bleibt stehen */ });
 })(window.EKB, document);

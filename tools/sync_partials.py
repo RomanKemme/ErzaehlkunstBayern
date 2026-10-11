@@ -73,7 +73,7 @@ def head(title: str, desc: str, p: str, page: str = "") -> str:
 <link rel="apple-touch-icon" href="{p}assets/img/apple-touch-icon.png">
 <link rel="preload" href="{p}assets/fonts/assistant-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{p}assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://o1wd66uu.apicdn.sanity.io" crossorigin>
+<link rel="preconnect" href="https://o1wd66uu.api.sanity.io" crossorigin>
 <link rel="preconnect" href="https://cdn.sanity.io">
 <link rel="stylesheet" href="{p}assets/css/style.css">
 """

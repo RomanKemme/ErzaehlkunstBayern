@@ -14,20 +14,22 @@
     apiVersion: '2024-01-01',
   };
 
-  /* apicdn = schnelle, gecachte Auslieferung. Sanity leert diesen Cache
-     automatisch, sobald im Studio etwas veröffentlicht wird. */
-  var BASE = 'https://' + SANITY.projectId + '.apicdn.sanity.io/v' + SANITY.apiVersion +
+  /* Direkte API statt CDN: Jede Seite liest immer den gerade veröffentlichten Stand.
+     (Das CDN und der Browser hielten Antworten bis zu 75 Sekunden vor – dann zeigte z. B.
+     die Startseite einen Termin noch als „ausgebucht“, die Termine-Seite schon nicht mehr.)
+     perspective=published: nur Veröffentlichtes, nie Entwürfe. */
+  var BASE = 'https://' + SANITY.projectId + '.api.sanity.io/v' + SANITY.apiVersion +
     '/data/query/' + SANITY.dataset;
 
   /** GROQ-Abfrage ausführen. params werden sicher als $name übergeben. */
   function sanityQuery(groq, params) {
-    var url = BASE + '?query=' + encodeURIComponent(groq);
+    var url = BASE + '?perspective=published&query=' + encodeURIComponent(groq);
     if (params) {
       Object.keys(params).forEach(function (k) {
         url += '&' + encodeURIComponent('$' + k) + '=' + encodeURIComponent(JSON.stringify(params[k]));
       });
     }
-    return fetch(url, { headers: { Accept: 'application/json' } })
+    return fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
       .then(function (r) {
         if (!r.ok) throw new Error('Sanity-Anfrage fehlgeschlagen (' + r.status + ')');
         return r.json();

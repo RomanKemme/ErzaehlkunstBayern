@@ -19,10 +19,11 @@
     var aktion = t.full
       ? '<span class="btn btn--disabled" aria-disabled="true">Ausgebucht</span>'
       : '<a class="btn btn--dark" href="anmeldung.html?termin=' + encodeURIComponent(t._id) + '">Anmelden<span class="sr-only"> für ' + esc(t.title) + ' am ' + esc(EKB.formatKurz(t.datum)) + '</span></a>';
+    var sticker = t.full ? '<span class="badge-full">Ausgebucht</span>' : '';
     return '<article class="tcard reveal' + (t.full ? ' is-full' : '') + '" data-cat="' + esc(t.cat || 'offen') + '">' +
-      bild +
+      bild + (bild ? sticker : '') +
       '<div class="tcard__tags"><span class="tcard__tag ' + kat.cls + '">' + kat.label + '</span>' +
-      (t.full ? '<span class="badge-full">Ausgebucht</span>' : '') + '</div>' +
+      (bild ? '' : sticker) + '</div>' +
       '<p class="tcard__date">' + esc(EKB.formatTermin(t)) + '</p>' +
       '<h3>' + esc(t.title) + '</h3>' +
       (t.desc ? '<p class="tcard__desc">' + esc(t.desc) + '</p>' : '<p class="tcard__desc"></p>') +

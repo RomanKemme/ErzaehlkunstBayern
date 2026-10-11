@@ -218,6 +218,27 @@ async def content_real(browser):
         ok(f"Termine: {len(titles)} kommende Termine, keine vergangenen")
     await ctx.close()
 
+    # Verknüpfung: derselbe Termin hat überall denselben Status (Fehler aus dem Nutzertest:
+    # Startseite zeigte „ausgebucht“, obwohl der Termin wieder frei war)
+    ctx, page, log = await open_page(browser, "/termine.html", 1366)
+    karten = await page.eval_on_selector_all(".tcard", """els => els.map(e => ({d: e.querySelector('.tcard__date').textContent,
+        t: e.querySelector('h3').textContent, full: e.classList.contains('is-full')}))""")
+    await ctx.close()
+    ctx, page, log = await open_page(browser, "/index.html", 390)
+    mini = await page.eval_on_selector_all("#naechsteTermine li", """els => els.map(e => ({t: e.textContent,
+        full: !!e.querySelector('.badge-full')}))""")
+    team_orte = await page.text_content("#homeTeamOrte")
+    proj_text = await page.text_content("#homeProjekteLang")
+    await ctx.close()
+    ctx, page, log = await open_page(browser, "/anmeldung.html", 390)
+    optionen = await page.eval_on_selector_all("#f-angebot option", "els => els.map(e => e.textContent)")
+    await ctx.close()
+    abweichung = [m["t"] for m, k in zip(mini, karten) if m["full"] != k["full"] or k["t"] not in m["t"]]
+    (ok if not abweichung else fehler)(f"Verknüpfung: nächste Termine auf der Startseite = Termine-Seite (Status ausgebucht) {abweichung}")
+    voll_im_formular = [k["t"] for k in karten if k["full"] and any(k["t"] in o and k["d"].split(" · ")[0] in o for o in optionen)]
+    (ok if not voll_im_formular else fehler)(f"Verknüpfung: ausgebuchte Termine nicht im Formular {voll_im_formular}")
+    (ok if proj_text.startswith("Aktuell:") and team_orte.strip() else fehler)("Verknüpfung: Startseiten-Teaser (Projekte, Team-Orte) aus dem CMS")
+
     # Jedes Projekt: „Mehr erfahren“ muss eine funktionierende Detailseite öffnen (Fehler aus dem Nutzertest)
     ctx, page, log = await open_page(browser, "/projekte.html", 390)
     links = await page.eval_on_selector_all(".proj__more", "els => els.map(e => e.getAttribute('href'))")
@@ -309,7 +330,7 @@ async def content_edge(browser):
     ctx, page, log = await open_page(browser, "/akademie.html", 1366)
     t = await page.text_content("main")
     for k, v in {"Jahrgang aus CMS": "2029/30" in t, "Module aus CMS": "CMS-Modul A" in t and "CMS-Modul <B>" in t,
-                 "Kosten aus CMS": "2400 €" in t, "Schnupper-Termin gelistet": "ausgebucht" in await page.text_content("#schnupperTermine")}.items():
+                 "Kosten aus CMS": "2400 €" in t, "Schnupper-Termin gelistet": "ausgebucht" in (await page.text_content("#schnupperTermine")).lower()}.items():
         (ok if v else fehler)(f"Akademie: {k}")
     href = await page.get_attribute("#schnupperBtn", "href")
     (ok if href.endswith("termin=t-schnupper") else fehler)(f"Akademie: Schnupper-Button verlinkt freien Termin ({href})")
