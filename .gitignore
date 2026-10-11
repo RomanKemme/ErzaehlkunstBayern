@@ -17,3 +17,6 @@ Thumbs.db
 
 # Python
 __pycache__/
+
+# Sanity-Sicherungen (enthalten alle Inhalte, nicht ins öffentliche Repo)
+*.tar.gz
