@@ -73,6 +73,8 @@ edge += [
      "enddatum": f"{heute.year + 1}-01-02", "title": "Über den Jahreswechsel"},
     {"_id": "t-montag-1", "_type": "termin", "cat": "offen", "datum": d(50), "zeitVon": "19:00", "zeitBis": "21:00", "title": "Der Montagsclub"},
     {"_id": "t-montag-2", "_type": "termin", "cat": "offen", "datum": d(78), "zeitVon": "19:00", "zeitBis": "21:00", "title": "Der Montagsclub"},
+    {"_id": "t-ticket", "_type": "termin", "cat": "offen", "datum": d(60), "zeitVon": "19:30", "title": "StoryJam Test",
+     "meta": "Café, Gauting", "ticketLink": "https://eventfrog.de/de/p/test.html"},
 ]
 edge += [
     {"_id": "p-voll", "_type": "projekt", "title": "Projekt mit allem", "slug": {"current": "projekt-mit-allem"},
@@ -104,7 +106,8 @@ edge += [
 ]
 edge += [
     {"_id": "tm-1", "_type": "teamMitglied", "name": "Gabi Altenbach", "ort": "München", "fach": "Mythen & Humor",
-     "intro": "Hallo, ich bin Gabi.", "reihenfolge": 1, "foto": ref(1)},
+     "intro": "Hallo, ich bin Gabi.", "reihenfolge": 1, "foto": ref(1),
+     "bio": "Erster Absatz über Gabi.\n\nZweiter Absatz <b>mit HTML</b>.", "website": "https://example.org/gabi"},
     {"_id": "tm-2", "_type": "teamMitglied", "name": "Nur Name"},
     {"_id": "tm-3", "_type": "teamMitglied", "name": "Maria-Theresia von Langenhausen-Oberwittelsbach", "ort": "Regensburg", "reihenfolge": 3,
      "intro": "Ich erzähle gern."},

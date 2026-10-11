@@ -37,6 +37,9 @@ def match_glob(pattern, path):
 
 
 def find_redirect(path):
+    # Netlify ignoriert einen Schrägstrich am Ende beim Vergleich
+    if len(path) > 1:
+        path = path.rstrip("/")
     for src, dst, code in REDIRECTS:
         rx = "^" + re.sub(r":([a-z]+)", r"(?P<\1>[^/]+)", re.escape(src).replace(r"\*", "(?P<splat>.*)").replace(r"\:", ":")) + "$"
         m = re.match(rx, path)

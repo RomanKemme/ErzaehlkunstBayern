@@ -1,4 +1,4 @@
-// Verein & Rechtliches – Kontakt, Bankverbindung, Impressum und Datenschutz (genau ein Dokument).
+// Verein & Rechtliches – Kontakt, Bankverbindung, Impressum, Datenschutz, AGB, Widerruf (genau ein Dokument).
 const richtext = {
   type: 'array',
   of: [
@@ -41,6 +41,7 @@ export default {
   groups: [
     { name: 'kontakt', title: 'Kontakt & Spenden', default: true },
     { name: 'recht', title: 'Impressum & Datenschutz' },
+    { name: 'agb', title: 'AGB & Widerruf' },
   ],
   fields: [
     {
@@ -75,6 +76,20 @@ export default {
       title: 'Datenschutzerklärung',
       group: 'recht',
       description: 'Leer = die technische Vorlage von der Website wird angezeigt (vor Veröffentlichung prüfen lassen).',
+    },
+    {
+      ...richtext,
+      name: 'agb',
+      title: 'Allgemeine Geschäftsbedingungen (AGB)',
+      group: 'agb',
+      description: 'Bedingungen für Kurse und Workshops: Vertragsschluss, Zahlung, Rücktritt/Storno. Text aus der bisherigen Website hier einfügen (kopieren und einfügen funktioniert).',
+    },
+    {
+      ...richtext,
+      name: 'widerruf',
+      title: 'Widerrufsbelehrung',
+      group: 'agb',
+      description: 'Belehrung über das 14-tägige Widerrufsrecht für Buchungen von Privatpersonen.',
     },
   ],
   preview: { prepare: () => ({ title: 'Verein & Rechtliches' }) },

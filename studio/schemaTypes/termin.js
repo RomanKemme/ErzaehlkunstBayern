@@ -113,6 +113,14 @@ export default {
       initialValue: false,
     },
     {
+      name: 'ticketLink',
+      title: 'Tickets über eine andere Seite (optional)',
+      type: 'url',
+      description:
+        'Nur ausfüllen, wenn es Tickets woanders gibt, z. B. bei Eventfrog: Adresse aus dem Browser kopieren (beginnt mit https://). Dann zeigt die Karte „Tickets“ statt „Anmelden“, und der Termin erscheint nicht im Anmeldeformular.',
+      validation: (Rule) => Rule.uri({ scheme: ['https', 'http'] }),
+    },
+    {
       name: 'img',
       title: 'Bild (optional)',
       type: 'image',

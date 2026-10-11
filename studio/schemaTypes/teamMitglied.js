@@ -43,6 +43,20 @@ export default {
       description: 'Ein bis zwei Sätze in der Ich-Form. Wird vorgelesen, solange keine Audiodatei hochgeladen ist.',
     },
     {
+      name: 'bio',
+      title: 'Über mich (ausführlich, optional)',
+      type: 'text',
+      rows: 6,
+      description: 'Werdegang, Schwerpunkte, Bühnenerfahrung – ein bis zwei Absätze. Erscheint auf „Über uns“ beim Aufklappen „Mehr über …“.',
+    },
+    {
+      name: 'website',
+      title: 'Eigene Website (optional)',
+      type: 'url',
+      description: 'z. B. https://www.carola-bambas.de',
+      validation: (Rule) => Rule.uri({ scheme: ['https', 'http'] }),
+    },
+    {
       name: 'ini',
       title: 'Initialen (optional)',
       type: 'string',

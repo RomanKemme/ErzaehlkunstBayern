@@ -56,6 +56,8 @@ Ein neuer Termin ist in etwa zwei Minuten online. Pflicht sind nur Titel, Katego
 
 **Montagsclub für viele Monate:** Einen bestehenden Termin öffnen, über die drei Punkte (⋯) **„Duplizieren“** wählen, nur das Datum ändern, veröffentlichen.
 
+**Tickets über eine andere Seite (z. B. Eventfrog):** Gibt es für einen Termin Tickets woanders, die Adresse der Ticketseite aus dem Browser kopieren und im Feld **„Tickets über eine andere Seite“** einfügen. Dann steht auf der Terminkarte „Tickets“ statt „Anmelden“, der Knopf öffnet die Ticketseite, und der Termin erscheint nicht im Anmeldeformular.
+
 Wenn etwas nicht passt, zeigt das System eine rote Meldung am Feld, z. B. „Das Enddatum liegt vor dem Startdatum“. Dann lässt sich nicht veröffentlichen, bis es korrigiert ist.
 
 ## Projekte
@@ -95,6 +97,7 @@ Link ändern oder entfernen: auf den unterstrichenen Text klicken, im kleinen Fe
 
 - Neue Dozentin: Links **Team** → **+** → Name, Ort, Schwerpunkt → **Veröffentlichen**.
 - **Foto:** am besten quadratisch. Ohne Foto erscheinen automatisch die Initialen.
+- **Ausführliche Vorstellung und eigene Website (optional):** Im Feld **„Über mich (ausführlich)“** ein bis zwei Absätze zu Werdegang und Schwerpunkten schreiben (Absätze mit einer Leerzeile trennen), bei **„Eigene Website“** die Adresse eintragen. Auf „Über uns“ erscheint dann unter der Person „Mehr über …“ zum Aufklappen.
 - **Hör-Vorstellung:** Jede Dozentin kann ihre Stimme selbst einsprechen und hochladen, niemand muss Dateien herumschicken. Aufnehmen mit der Sprachmemo-App am Handy (iPhone: „Sprachmemos“, Android: „Rekorder“), ruhiger Raum, Handy etwa 20 cm vor dem Mund, 10–20 Sekunden. Die Datei im Studio beim eigenen Teameintrag unter „Hör-Vorstellung“ hochladen (MP3 oder M4A, möglichst unter 2 MB). Nicht als WhatsApp-Sprachnachricht schicken – deren Format spielen nicht alle Geräte ab. Ohne Audiodatei reicht auch nur der **Vorstellungstext** eintragen; dann liest das Handy bzw. der Computer der Besucher den Text vor. Ohne beides gibt es keinen Play-Knopf.
 - **Reihenfolge:** kleinere Zahl = weiter vorne.
 
@@ -118,10 +121,11 @@ Dann **Veröffentlichen**. Beim ersten Öffnen sind alle Felder schon mit dem ak
 
 ## Verein & Rechtliches, Anmeldungen
 
-**Verein & Rechtliches** (links im Menü) hat zwei Reiter:
+**Verein & Rechtliches** (links im Menü) hat drei Reiter:
 
 - **Kontakt & Spenden:** Kontakt-E-Mail (erscheint in der Fußzeile und als Ausweichadresse, wenn das Formular einmal nicht funktioniert), Bank und IBAN des Spendenkontos.
 - **Impressum & Datenschutz:** die Texte der beiden Pflichtseiten. Solange hier nichts steht, zeigt die Website eine Vorlage mit Platzhaltern in eckigen Klammern.
+- **AGB & Widerruf:** die Geschäftsbedingungen für Kurse und Workshops und die Widerrufsbelehrung. Der Text der bisherigen Website lässt sich einfach kopieren und hier einfügen. Beide Seiten sind in der Fußzeile und im Anmeldeformular verlinkt.
 
 **Vor dem Start der Website unbedingt erledigen:** Impressum mit Anschrift, Vorstand, Registergericht und Registernummer eintragen und die Datenschutzerklärung von einer fachkundigen Person prüfen lassen. Ohne Impressum darf die Website nicht online gehen.
 

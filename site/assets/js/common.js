@@ -133,18 +133,8 @@
     if (mq.addEventListener) mq.addEventListener('change', function (e) { if (e.matches) setOpen(false); });
   }
 
-  /* ---------- Anmelde-Leiste ---------- */
-  function initSticky() {
-    var sticky = document.getElementById('stickyCta');
-    if (!sticky) return;
-    function update() { sticky.classList.toggle('visible', window.scrollY > 500); }
-    document.addEventListener('scroll', update, { passive: true });
-    update();
-  }
-
   function init() {
     initNav();
-    initSticky();
     document.querySelectorAll('.reveal').forEach(reveal);
     var y = document.getElementById('jahr');
     if (y) y.textContent = new Date().getFullYear();

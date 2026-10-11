@@ -26,7 +26,7 @@
 
   var tts = 'speechSynthesis' in window;
 
-  EKB.query('*[_type=="teamMitglied"] | order(reihenfolge asc, name asc){name, ort, fach, ini, intro, "foto": foto.asset->url, "fotoAlt": foto.alt, "audio": audio.asset->url}')
+  EKB.query('*[_type=="teamMitglied"] | order(reihenfolge asc, name asc){name, ort, fach, ini, intro, bio, website, "foto": foto.asset->url, "fotoAlt": foto.alt, "audio": audio.asset->url}')
     .then(function (data) {
       team = (data || []).filter(function (p) { return p && p.name; });
       if (!team.length) { grid.innerHTML = '<p class="notice">Die Teamvorstellung folgt in Kürze.</p>'; return; }
@@ -37,7 +37,15 @@
           : '<div class="avatar" aria-hidden="true">' + esc(p.ini || initialen(p.name)) + '</div>';
         var kannHoeren = p.audio || (p.intro && tts);
         if (p.audio) hatAudio = true; else if (p.intro && tts) hatTts = true;
-        return '<article class="dozentin reveal">' + avatar +
+        var web = EKB.safeHref(p.website);
+        var vorname = String(p.name).split(' ')[0];
+        var mehr = (p.bio || web)
+          ? '<details class="dozentin__mehr"><summary>Mehr über ' + esc(vorname) + '</summary>' +
+            (p.bio ? String(p.bio).split(/\n\s*\n/).map(function (abs) { return '<p>' + esc(abs.trim()) + '</p>'; }).join('') : '') +
+            (web && /^https?:/i.test(web) ? '<p><a href="' + esc(web) + '" target="_blank" rel="noopener">Website von ' + esc(vorname) + ' <span aria-hidden="true">↗</span></a></p>' : '') +
+            '</details>'
+          : '';
+        return '<article class="dozentin reveal" id="' + esc(EKB.slugify(p.name)) + '">' + avatar +
           '<h3>' + esc(p.name) + '</h3>' +
           (p.ort ? '<p class="ort">' + esc(p.ort) + '</p>' : '') +
           (p.fach ? '<p class="fach">' + esc(p.fach) + '</p>' : '') +
@@ -46,6 +54,7 @@
               '<span class="audio-btn__icon" aria-hidden="true">▶</span></button>' +
               '<div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>'
             : '') +
+          mehr +
           '</article>';
       }).join('');
       grid.querySelectorAll('.reveal').forEach(EKB.reveal);

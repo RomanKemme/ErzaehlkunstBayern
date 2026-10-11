@@ -34,7 +34,7 @@
 
   // Die nächsten 3 Termine (inkl. laufender mehrtägiger)
   var box = document.getElementById('naechsteTermine');
-  EKB.query('*[_type=="termin" && coalesce(enddatum, datum) >= $heute] | order(datum asc, zeitVon asc)[0...3]{_id, datum, enddatum, title, full}',
+  EKB.query('*[_type=="termin" && coalesce(enddatum, datum) >= $heute && full != true] | order(datum asc, zeitVon asc)[0...3]{_id, datum, enddatum, title, full}',
     { heute: EKB.heute() })
     .then(function (termine) {
       if (!termine || !termine.length) {

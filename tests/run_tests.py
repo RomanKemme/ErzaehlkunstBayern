@@ -26,7 +26,7 @@ SCREENS.mkdir(exist_ok=True)
 SITE_PORT, MOCK_PORT = 8765, 8790
 BASE = f"http://127.0.0.1:{SITE_PORT}"
 AXE = os.environ.get("AXE_JS", "/home/claude/tools-npm/node_modules/axe-core/axe.min.js")
-PAGES = ["index", "akademie", "termine", "projekte", "team", "anmeldung", "impressum", "datenschutz"]
+PAGES = ["index", "akademie", "termine", "projekte", "team", "anmeldung", "impressum", "datenschutz", "agb", "widerruf"]
 WIDTHS = [360, 390, 768, 1366]
 
 # Einfaches JPEG für alle Bild-Anfragen an cdn.sanity.io
@@ -233,8 +233,9 @@ async def content_real(browser):
     ctx, page, log = await open_page(browser, "/anmeldung.html", 390)
     optionen = await page.eval_on_selector_all("#f-angebot option", "els => els.map(e => e.textContent)")
     await ctx.close()
-    abweichung = [m["t"] for m, k in zip(mini, karten) if m["full"] != k["full"] or k["t"] not in m["t"]]
-    (ok if not abweichung else fehler)(f"Verknüpfung: nächste Termine auf der Startseite = Termine-Seite (Status ausgebucht) {abweichung}")
+    freie = [k for k in karten if not k["full"]]
+    abweichung = [m["t"] for m, k in zip(mini, freie) if m["full"] or k["t"] not in m["t"]]
+    (ok if not abweichung and len(mini) == min(3, len(freie)) else fehler)(f"Verknüpfung: Startseite zeigt die nächsten freien Termine der Termine-Seite {abweichung}")
     voll_im_formular = [k["t"] for k in karten if k["full"] and any(k["t"] in o and k["d"].split(" · ")[0] in o for o in optionen)]
     (ok if not voll_im_formular else fehler)(f"Verknüpfung: ausgebuchte Termine nicht im Formular {voll_im_formular}")
     (ok if proj_text.startswith("Aktuell:") and team_orte.strip() else fehler)("Verknüpfung: Startseiten-Teaser (Projekte, Team-Orte) aus dem CMS")
@@ -279,6 +280,8 @@ async def content_edge(browser):
         "Sonderzeichen als Text (kein HTML)": "<script>alert(1)</script>" in txt,
         "Jahreswechsel formatiert": "Dez" in txt and "Jan" in txt,
     }
+    ticket = page.locator(".tcard:has-text('StoryJam Test') a.btn")
+    checks["externer Ticket-Link statt Anmelden"] = (await ticket.get_attribute("href")) == "https://eventfrog.de/de/p/test.html" and (await ticket.get_attribute("target")) == "_blank"
     for k, v in checks.items():
         (ok if v else fehler)(f"Termine: {k}")
     voll = await page.locator(".tcard.is-full a").count()
@@ -373,6 +376,22 @@ async def content_edge(browser):
     (ok if await page.is_visible("footer [data-verein='kontaktEmail']") else fehler)("Fußzeile: Kontakt-E-Mail sichtbar")
     await ctx.close()
 
+    # Startseite: nur freie Termine; Formular: weder ausgebuchte noch Termine mit Fremd-Tickets
+    ctx, page, log = await open_page(browser, "/index.html", 390)
+    mini = await page.text_content("#naechsteTermine")
+    (ok if "Ausgebucht" not in mini and "Schnuppertag Spezial" not in mini else fehler)("Startseite: ausgebuchte Termine nicht unter „Nächste Termine“")
+    await ctx.close()
+    ctx, page, log = await open_page(browser, "/anmeldung.html", 390)
+    opts = " | ".join(await page.eval_on_selector_all("#f-angebot option", "els => els.map(e => e.textContent)"))
+    (ok if "Ausgebuchter Workshop" not in opts and "Schnuppertag Spezial" not in opts and "StoryJam Test" not in opts else fehler)("Anmeldung: keine ausgebuchten und keine Fremd-Ticket-Termine im Formular")
+    await ctx.close()
+    # Team: ausführliche Vorstellung aufklappbar, Website-Link, Anker für alte Adressen
+    ctx, page, log = await open_page(browser, "/team.html", 390)
+    await page.click("#gabi-altenbach .dozentin__mehr summary")
+    t = await page.text_content("#gabi-altenbach .dozentin__mehr")
+    (ok if "Zweiter Absatz <b>mit HTML</b>" in t and await page.get_attribute("#gabi-altenbach .dozentin__mehr a", "href") == "https://example.org/gabi" else fehler)("Team: „Mehr über …“ mit Absätzen und Website-Link")
+    await ctx.close()
+
 
 async def content_empty(browser):
     print("\n[empty] Leeres CMS")
@@ -394,7 +413,10 @@ async def misc(browser):
     await page.keyboard.press("Escape")
     (ok if await page.is_hidden("#hauptmenu") else fehler)("Menü schließt mit Escape")
     await ctx.close()
-    for alt, neu in {"/unsere-projekte/": "/projekte.html", "/ueber-uns/katharina-ritter/": "/team.html", "/kontakt/": "/anmeldung.html", "/admin/": "/index.html"}.items():
+    for alt, neu in {"/unsere-projekte/": "/projekte.html", "/ueber-uns/katharina-ritter/": "/team.html#katharina-ritter",
+                     "/unsere-projekte/der-montagsclub---erzaehltraining/": "/projekt.html?slug=der-montagsclub---erzaehltraining",
+                     "/agb-s/": "/agb.html", "/widerruf/": "/widerruf.html", "/spenden-und-gutes-tun/": "/anmeldung.html#spenden",
+                     "/kontakt/": "/anmeldung.html", "/admin/": "/index.html"}.items():
         ctx, page, log = await open_page(browser, alt, 1366)
         (ok if page.url.endswith(neu) else fehler)(f"Weiterleitung {alt} → {neu} ({page.url})")
         await ctx.close()

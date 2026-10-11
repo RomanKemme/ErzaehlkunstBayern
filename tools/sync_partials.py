@@ -33,7 +33,7 @@ NAV = [
     ("team.html", "Über uns", {"team"}),
 ]
 NO_STICKY = {"anmeldung", "404"}
-SITEMAP_PAGES = ["index.html", "akademie.html", "termine.html", "projekte.html", "team.html", "anmeldung.html"]
+SITEMAP_PAGES = ["index.html", "akademie.html", "termine.html", "projekte.html", "team.html", "anmeldung.html", "agb.html"]
 
 
 # Seiten ohne feste Adresse (404) oder mit Adresse aus dem CMS (projekt) bekommen kein festes canonical
@@ -58,6 +58,8 @@ def head(title: str, desc: str, p: str, page: str = "") -> str:
     ld = ""
     if page == "index":
         ld = '<script type="application/ld+json">' + json.dumps(ORGANISATION_LD, ensure_ascii=False) + "</script>\n"
+        # Bestätigung für die Google Search Console (gleicher Code wie auf der bisherigen Jimdo-Seite)
+        ld += '<meta name="google-site-verification" content="KG0mbt9IxHY6NN67IWULHnbEJ2eTYkj32D9d2J-2JNk">\n'
     return f"""
 <meta name="theme-color" content="#2B3A34">
 {canon}<meta property="og:image" content="{SITE_URL}/assets/img/og-image.jpg">
@@ -111,8 +113,7 @@ def header(page: str, p: str) -> str:
 
 
 def footer(page: str, p: str) -> str:
-    sticky = "" if page in NO_STICKY else f"""
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--pink" href="{p}anmeldung.html">Jetzt anmelden</a></div>"""
+    sticky = ""  # mitwandernde „Jetzt anmelden“-Leiste entfernt (11.10.2026, zu aufdringlich)
     return f"""
 <footer>
   <div class="inner">
@@ -136,6 +137,8 @@ def footer(page: str, p: str) -> str:
       <ul>
         <li><a href="{p}impressum.html">Impressum</a></li>
         <li><a href="{p}datenschutz.html">Datenschutz</a></li>
+        <li><a href="{p}agb.html">AGB</a></li>
+        <li><a href="{p}widerruf.html">Widerrufsbelehrung</a></li>
         <li data-verein-wrap hidden><a data-verein="kontaktEmail" href="{p}anmeldung.html">E-Mail</a></li>
       </ul>
     </nav>

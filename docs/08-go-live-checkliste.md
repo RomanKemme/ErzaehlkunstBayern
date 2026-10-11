@@ -7,6 +7,8 @@ Drei Punkte blockieren die Veröffentlichung, alle drei liegen beim Verein; der 
 - [ ] Impressum im Studio unter „Verein & Rechtliches“ eintragen: Anschrift, vertretungsberechtigter Vorstand, Registergericht und -nummer, Kontakt
 - [ ] Datenschutzerklärung prüfen lassen (Vorlage beschreibt die Technik, ersetzt keine Rechtsberatung) und im Studio veröffentlichen
 - [ ] Kontakt-E-Mail im Studio eintragen
+- [ ] AGB und Widerrufsbelehrung aus der bisherigen Website in „Verein & Rechtliches → AGB & Widerruf“ übernehmen
+- [ ] Inhalte nachtragen, die es nur auf der Jimdo-Seite gibt: Projekt StoryJam und seine Termine (mit Eventfrog-Link im Feld „Tickets über eine andere Seite“), ausführliche Vorstellungen und Websites der Dozentinnen
 
 **Technisch (Roman)**
 

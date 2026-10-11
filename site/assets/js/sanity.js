@@ -149,6 +149,7 @@
   window.EKB.query = sanityQuery;
   window.EKB.esc = esc;
   window.EKB.safeHref = safeHref;
+  window.EKB.slugify = slugify;
   window.EKB.imgUrl = imgUrl;
   window.EKB.portableText = renderPortableText;
 })(window);

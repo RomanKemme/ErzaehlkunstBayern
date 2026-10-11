@@ -16,8 +16,11 @@
     var bild = t.img
       ? '<div class="tcard__img"><img src="' + esc(EKB.imgUrl(t.img, { w: 720, h: 300, name: t.title })) + '" alt="" width="720" height="300" loading="lazy"></div>'
       : '';
+    var ticket = EKB.safeHref(t.ticketLink);
     var aktion = t.full
       ? '<span class="btn btn--disabled" aria-disabled="true">Ausgebucht</span>'
+      : ticket && /^https?:/i.test(ticket)
+      ? '<a class="btn btn--dark" href="' + esc(ticket) + '" target="_blank" rel="noopener">Tickets<span class="sr-only"> für ' + esc(t.title) + ' (öffnet externe Seite)</span> <span aria-hidden="true">↗</span></a>'
       : '<a class="btn btn--dark" href="anmeldung.html?termin=' + encodeURIComponent(t._id) + '">Anmelden<span class="sr-only"> für ' + esc(t.title) + ' am ' + esc(EKB.formatKurz(t.datum)) + '</span></a>';
     var sticker = t.full ? '<span class="badge-full">Ausgebucht</span>' : '';
     return '<article class="tcard reveal' + (t.full ? ' is-full' : '') + (bild ? '' : ' tcard--ohne-bild') + '" data-cat="' + esc(t.cat || 'offen') + '">' +
@@ -91,7 +94,7 @@
   });
 
   EKB.query('*[_type=="termin" && coalesce(enddatum, datum) >= $heute] | order(datum asc, zeitVon asc)' +
-    '{_id, cat, datum, enddatum, zeitVon, zeitBis, title, desc, meta, full, "img": img.asset->url}',
+    '{_id, cat, datum, enddatum, zeitVon, zeitBis, title, desc, meta, full, ticketLink, "img": img.asset->url}',
     { heute: EKB.heute() })
     .then(function (termine) {
       if (!termine || !termine.length) {

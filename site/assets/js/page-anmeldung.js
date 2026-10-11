@@ -17,11 +17,12 @@
   if (params.get('gesendet') === '1') { okBox.hidden = false; }
 
   /* ---------- Termine laden ---------- */
-  EKB.query('*[_type=="termin" && coalesce(enddatum, datum) >= $heute] | order(datum asc, zeitVon asc){_id, title, datum, enddatum, zeitVon, zeitBis, full}',
+  EKB.query('*[_type=="termin" && coalesce(enddatum, datum) >= $heute] | order(datum asc, zeitVon asc){_id, title, datum, enddatum, zeitVon, zeitBis, full, ticketLink}',
     { heute: EKB.heute() })
     .then(function (termine) {
       termine = termine || [];
-      var frei = termine.filter(function (t) { return !t.full; });
+      // Ausgebuchte Termine und Termine mit eigenem Ticketverkauf (z. B. Eventfrog) stehen nicht im Formular
+      var frei = termine.filter(function (t) { return !t.full && !t.ticketLink; });
       frei.forEach(function (t) {
         var label = t.title + ' – ' + EKB.formatTermin(t);
         var opt = document.createElement('option');
@@ -43,7 +44,9 @@
           hint.textContent = 'Wir haben den gewählten Termin schon für dich eingetragen.';
         } else {
           var t = termine.filter(function (x) { return x._id === id; })[0];
-          hint.textContent = t && t.full
+          hint.textContent = t && t.ticketLink && !t.full
+            ? 'Für diesen Termin gibt es Tickets direkt beim Veranstalter – den Link findest du auf der Termine-Seite.'
+            : t && t.full
             ? 'Der gewählte Termin ist leider ausgebucht. Wähle einen anderen Termin oder schreib uns – wir setzen dich gern auf die Warteliste.'
             : 'Der gewählte Termin ist nicht mehr verfügbar. Bitte wähle einen anderen aus.';
         }
