@@ -127,7 +127,7 @@ Dann **Veröffentlichen**. Beim ersten Öffnen sind alle Felder schon mit dem ak
 
 **Anmeldungen empfangen**
 
-Wer das Anmeldeformular ausfüllt, landet nicht im Redaktionssystem. Die Anmeldung kommt als **E-Mail** an die Adresse, die Roman beim Veröffentlichen einrichtet. Die E-Mail enthält: gewähltes Angebot mit Datum, Name, E-Mail, ggf. Telefon und Nachricht. Bitte innerhalb weniger Tage antworten – das verspricht die Website.
+Wer das Anmeldeformular ausfüllt, landet nicht im Redaktionssystem. Die Anmeldung kommt als **E-Mail** an die Adresse, die ich beim Veröffentlichen einrichte. Die E-Mail enthält: gewähltes Angebot mit Datum, Name, E-Mail, ggf. Telefon und Nachricht. Bitte innerhalb weniger Tage antworten – das verspricht die Website.
 
 Ausgebuchte Termine stehen nicht im Formular. Wenn jemand über einen alten Link auf einen ausgebuchten Termin kommt, sieht er den Hinweis, dass ihr gern eine Warteliste führt.
 
@@ -143,7 +143,7 @@ Ausgebuchte Termine stehen nicht im Formular. Wenn jemand über einen alten Link
 | Darf ich Termine oder Projekte löschen? | Möglich, aber selten nötig. Vergangene Termine verschwinden von selbst; beendete Projekte auf „abgeschlossen“ stellen. Gelöscht ist gelöscht. |
 | Können zwei Personen gleichzeitig arbeiten? | Ja. Das System zeigt, wer gerade im selben Eintrag ist, und speichert beides zusammen. |
 | Das Bild sieht abgeschnitten aus. | Im Bildfeld auf das Bild klicken und den wichtigen Bereich festlegen (Ausschnitt/Fokuspunkt). Bei Titelbildern „Bildausschnitt“ auf Oben/Mitte/Unten stellen. |
-| Die Website zeigt „konnte gerade nicht geladen werden“. | Meist eine kurze Störung der Internetverbindung. In ein paar Minuten neu laden. Bleibt es so, Roman Bescheid geben. |
+| Die Website zeigt „konnte gerade nicht geladen werden“. | Meist eine kurze Störung der Internetverbindung. In ein paar Minuten neu laden. Bleibt es so, gebt mir Bescheid. |
 
 ## Goldene Regeln und Hilfe
 
@@ -154,4 +154,4 @@ Ausgebuchte Termine stehen nicht im Formular. Wenn jemand über einen alten Link
 5. **Nur eigene oder freigegebene Fotos** verwenden und kurz beschreiben, was darauf zu sehen ist.
 6. **Formular-Anmeldungen zeitnah beantworten.**
 
-**Hilfe bei technischen Fragen:** Roman Kemme. Was er braucht, um schnell zu helfen: welche Seite, was genau ihr gemacht habt, ein Bildschirmfoto.
+**Hilfe bei technischen Fragen:** Meldet euch bei mir – meine Kontaktdaten stehen im Handbuch, das ihr von mir bekommen habt. Damit ich schnell helfen kann, schickt mir bitte: welche Seite, was genau ihr gemacht habt, ein Bildschirmfoto.
