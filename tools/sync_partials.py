@@ -153,7 +153,7 @@ def module_html(mods) -> str:
         meta = " · ".join(x for x in [e["zeitraum"], name] if x)
         out.append(f"""      <details class="mod">
         <summary class="mod__head"><span class="mod__dot" aria-hidden="true">{i}</span><span class="mod__title">Modul {i}: {e['titel']}</span><span class="date">{meta}</span></summary>
-        <div class="mod__body-inner"><dl><dt>Inhalt</dt><dd>{e['inhalt']}</dd><dt>Dozentin</dt><dd>{e['dozentin']}</dd><dt>Kosten</dt><dd>{e['hinweis']}</dd></dl><a class="btn btn--pink" href="anmeldung.html">Für die Ausbildung anmelden</a></div>
+        <div class="mod__body-inner"><dl><dt>Inhalt</dt><dd>{e['inhalt']}</dd><dt>Dozentin</dt><dd>{e['dozentin']}</dd><dt>Kosten</dt><dd>{e['hinweis']}</dd></dl><a class="mod__cta" href="anmeldung.html">Für die Ausbildung anmelden <span aria-hidden="true">→</span></a></div>
       </details>""")
     return "\n" + "\n".join(out) + "\n"
 

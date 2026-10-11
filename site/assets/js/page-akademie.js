@@ -13,7 +13,7 @@
       (m.inhalt ? '<dt>Inhalt</dt><dd>' + esc(m.inhalt) + '</dd>' : '') +
       (m.dozentin ? '<dt>Dozentin</dt><dd>' + esc(m.dozentin) + '</dd>' : '') +
       (m.hinweis ? '<dt>Kosten</dt><dd>' + esc(m.hinweis) + '</dd>' : '') +
-      '</dl><a class="btn btn--pink" href="anmeldung.html">Für die Ausbildung anmelden</a></div>' +
+      '</dl><a class="mod__cta" href="anmeldung.html">Für die Ausbildung anmelden <span aria-hidden="true">→</span></a></div>' +
       '</details>';
   }
 
