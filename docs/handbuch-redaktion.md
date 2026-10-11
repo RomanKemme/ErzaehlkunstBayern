@@ -19,7 +19,7 @@ Vergangene Termine verschwinden automatisch von der Website. Ihr müsst sie nich
 
 ## Anmelden und zurechtfinden
 
-Ihr erhaltet von Roman eine Einladung per E-Mail. Danach meldet ihr euch immer unter derselben Adresse an.
+Ihr erhaltet von mir eine Einladung per E-Mail. Danach meldet ihr euch immer unter derselben Adresse an.
 
 1. Einladungs-E-Mail von Sanity öffnen und auf den Link klicken.
 2. Mit eurem Google-Konto oder mit E-Mail und Passwort anmelden.
@@ -73,11 +73,21 @@ Jedes Projekt bekommt eine Karte auf der Übersicht und eine eigene Seite. Das F
 7. Reiter **Projektseite**: den Text schreiben. Mit der Werkzeugleiste gibt es Zwischenüberschriften, Aufzählungen, Fett, Links und Bilder.
 8. **Veröffentlichen**.
 
+**Link im Projekttext einfügen**
+
+1. Im Reiter **Projektseite** im Textfeld das Wort oder die Wortgruppe markieren, die zum Link werden soll (mit gedrückter Maustaste darüberziehen).
+2. In der Werkzeugleiste über dem Textfeld auf das **Link-Symbol** (Kettenglied) klicken. Ein kleines Fenster öffnet sich.
+3. Entweder bei **Seite dieser Website** eine Seite aus der Liste wählen (z. B. „Anmeldeformular“ oder „Termine“) – oder bei **Andere Adresse** die Adresse einer fremden Website eintragen: im Browser die Adresszeile kopieren (beginnt mit https://) und einfügen. Für eine E-Mail-Adresse `mailto:` davorschreiben, z. B. `mailto:info@beispiel.de`.
+4. Das Fenster mit einem Klick daneben schließen. Der Text ist jetzt unterstrichen.
+5. **Veröffentlichen**.
+
+Link ändern oder entfernen: auf den unterstrichenen Text klicken, im kleinen Fenster die Angabe ändern oder über das Mülleimer-Symbol den Link löschen (der Text bleibt stehen). Links auf fremde Websites öffnen sich auf der Website automatisch in einem neuen Tab.
+
 **Projekt ist beendet:** Projekt öffnen, bei „Wo soll das Projekt erscheinen?“ auf **abgeschlossenes Projekt** umstellen, veröffentlichen. Es wandert in den Bereich „Abgeschlossene Projekte“.
 
 **Reihenfolge:** Im Feld **Reihenfolge** gilt: kleinere Zahl = weiter vorne.
 
-**Abschluss-Button (optional):** Unten auf jeder Projektseite steht eine Box mit Button, standardmäßig „Interesse geweckt?“ → Anmeldeformular. Überschrift und Ziel lassen sich je Projekt ändern, z. B. auf `termine.html` oder eine E-Mail-Adresse (`mailto:name@beispiel.de`).
+**Abschluss-Button (optional):** Unten auf jeder Projektseite steht eine Box mit Button, standardmäßig „Interesse geweckt?“ → Anmeldeformular. Im Reiter **Projektseite** lässt sich je Projekt die Überschrift ändern und bei **„Wohin führt der Button?“** das Ziel aus einer Liste wählen: Anmeldeformular, Termine, Akademie (Grundausbildung), Projekte (Übersicht), Über uns (Team) oder Startseite. Wer auf eine fremde Website oder eine E-Mail-Adresse verweisen will, wählt **„Andere Adresse“** – dann erscheint darunter ein Feld für die Adresse (https://… oder mailto:…).
 
 ## Team, Akademie und Bilder
 

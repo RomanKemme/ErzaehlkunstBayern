@@ -324,7 +324,8 @@ async def content_edge(browser):
     ctx, page, log = await open_page(browser, "/projekt.html?slug=projekt-mit-allem", 390)
     html = await page.inner_html("#projektInhalt")
     for k, v in {"Liste": "<ul>" in html, "Zwischenüberschrift": "<h3>" in html, "Bild mit Alt-Text": 'alt="Bild im Text"' in html,
-                 "javascript-Link entfernt": "javascript:" not in html, "externer Link": 'href="https://example.org"' in html}.items():
+                 "javascript-Link entfernt": "javascript:" not in html, "externer Link": 'href="https://example.org"' in html,
+                 "Link auf eigene Seite (Auswahlliste)": 'href="akademie.html"' in html}.items():
         (ok if v else fehler)(f"Projektseite: {k}")
     (ok if await page.get_attribute("#ctaButton", "href") == "termine.html" else fehler)("Projektseite: Button-Ziel aus CMS")
     await ctx.close()
@@ -333,6 +334,7 @@ async def content_edge(browser):
     await ctx.close()
     ctx, page, log = await open_page(browser, "/projekt.html?slug=ohne-inhalt", 390)
     (ok if "Nur Kurzbeschreibung" in await page.text_content("#projektInhalt") else fehler)("Projektseite ohne Text zeigt Kurzbeschreibung")
+    (ok if await page.get_attribute("#ctaButton", "href") == "mailto:test@example.org" else fehler)("Projektseite: älteres Button-Ziel (freie Adresse) funktioniert weiter")
     await ctx.close()
 
     # Team

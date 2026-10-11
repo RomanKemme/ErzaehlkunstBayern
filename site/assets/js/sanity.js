@@ -102,7 +102,7 @@
           else {
             var def = defs.filter(function (d) { return d._key === mark; })[0];
             if (def && def._type === 'link') {
-              var href = safeHref(def.href);
+              var href = safeHref(def.seite || def.href);
               if (href) {
                 var ext = /^https?:/i.test(href);
                 text = '<a href="' + esc(href) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + text + '</a>';

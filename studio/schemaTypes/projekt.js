@@ -4,6 +4,15 @@ const BEREICHE = [
   { title: 'Projekte-Seite: abgeschlossenes Projekt', value: 'projekte-abgeschlossen' },
   { title: 'Akademie-Seite: Vertiefungsangebot (z. B. Erzählreise)', value: 'akademie' },
 ]
+// Seiten der Website zum Auswählen – so muss niemand Dateinamen wie „anmeldung.html“ kennen
+export const SEITEN = [
+  { title: 'Anmeldeformular', value: 'anmeldung.html' },
+  { title: 'Termine', value: 'termine.html' },
+  { title: 'Akademie (Grundausbildung)', value: 'akademie.html' },
+  { title: 'Projekte (Übersicht)', value: 'projekte.html' },
+  { title: 'Über uns (Team)', value: 'team.html' },
+  { title: 'Startseite', value: 'index.html' },
+]
 const BEREICH_KURZ = {
   'projekte-laufend': 'Laufend',
   'projekte-abgeschlossen': 'Abgeschlossen',
@@ -123,12 +132,21 @@ export default {
                 type: 'object',
                 fields: [
                   {
+                    name: 'seite',
+                    title: 'Seite dieser Website',
+                    type: 'string',
+                    description: 'Für einen Link auf eine eigene Seite hier auswählen – dann bleibt „Andere Adresse“ leer.',
+                    options: { list: SEITEN },
+                  },
+                  {
                     name: 'href',
-                    title: 'Adresse',
+                    title: 'Andere Adresse',
                     type: 'url',
-                    description: 'z. B. https://… oder mailto:name@beispiel.de',
+                    description: 'Für fremde Websites die Adresse aus dem Browser kopieren (beginnt mit https://). Für eine E-Mail: mailto:name@beispiel.de',
                     validation: (Rule) =>
-                      Rule.uri({ scheme: ['http', 'https', 'mailto', 'tel'], allowRelative: true }),
+                      Rule.uri({ scheme: ['http', 'https', 'mailto', 'tel'], allowRelative: true }).custom((href, ctx) =>
+                        !href && !ctx.parent?.seite ? 'Bitte eine Seite auswählen oder eine Adresse eintragen.' : true,
+                      ),
                   },
                 ],
               },
@@ -153,11 +171,27 @@ export default {
       description: 'Standard: „Interesse geweckt?“',
     },
     {
-      name: 'ctaLink',
-      title: 'Ziel des Buttons in der Abschluss-Box (optional)',
+      name: 'ctaZiel',
+      title: 'Wohin führt der Button in der Abschluss-Box?',
       type: 'string',
       group: 'seite',
-      description: 'Standard: Anmeldeformular. Möglich: anmeldung.html, termine.html, https://… oder mailto:name@beispiel.de',
+      description: 'Standard: Anmeldeformular.',
+      options: { list: [...SEITEN, { title: 'Andere Adresse (fremde Website oder E-Mail)', value: 'eigen' }] },
+    },
+    {
+      name: 'ctaLink',
+      title: 'Andere Adresse für den Button',
+      type: 'string',
+      group: 'seite',
+      description: 'Adresse aus dem Browser kopieren (beginnt mit https://) oder E-Mail als mailto:name@beispiel.de',
+      // Nur sichtbar, wenn „Andere Adresse“ gewählt ist (oder aus älteren Einträgen noch etwas drinsteht)
+      hidden: ({ parent }) => parent?.ctaZiel !== 'eigen' && !(parent?.ctaLink && !parent?.ctaZiel),
+      validation: (Rule) =>
+        Rule.custom((v, ctx) => {
+          if (ctx.parent?.ctaZiel !== 'eigen') return true
+          if (!v) return 'Bitte die Adresse eintragen.'
+          return /^(https?:\/\/|mailto:)/i.test(v.trim()) ? true : 'Die Adresse muss mit https:// oder mailto: beginnen.'
+        }),
     },
   ],
   orderings: [

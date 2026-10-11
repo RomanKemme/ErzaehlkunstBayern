@@ -258,7 +258,7 @@ section h2{font-size:var(--fs-xl);font-weight:700;margin-bottom:14px}
 }
 .mod__body-inner dt{font-size:var(--fs-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--pink-on-dark);font-weight:700;margin-bottom:4px}
 .mod__body-inner dd{margin:0 0 14px;color:#DCE3DC}
-.mod__body-inner .btn{align-self:start;margin-top:6px;font-size:var(--fs-sm);padding:11px 22px}
+.mod__body-inner .btn{align-self:start;justify-self:start;margin-top:6px;font-size:var(--fs-sm);padding:11px 22px}
 @media(max-width:720px){
   /* Handy: Zeitleiste schmaler, Moduldetails kompakt als zweispaltige Liste */
   .timeline{padding-left:36px}

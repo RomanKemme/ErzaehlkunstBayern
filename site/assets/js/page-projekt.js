@@ -30,7 +30,7 @@
   }
   if (!slug) { nichtGefunden(); return; }
 
-  EKB.query('*[_type=="projekt" && slug.current == $slug][0]{title, bereich, zitat, zitatAutor, kurzbeschreibung, ctaText, ctaLink,' +
+  EKB.query('*[_type=="projekt" && slug.current == $slug][0]{title, bereich, zitat, zitatAutor, kurzbeschreibung, ctaText, ctaZiel, ctaLink,' +
     ' "heroBild": heroBild.asset->url, inhalt[]{..., _type == "image" => {"asset": asset->{url}}}}', { slug: slug })
     .then(function (p) {
       if (!p) { nichtGefunden(); return; }
@@ -65,7 +65,7 @@
       var html = EKB.portableText(p.inhalt);
       inhalt.innerHTML = html || (p.kurzbeschreibung ? '<p>' + esc(p.kurzbeschreibung) + '</p>' : '<p>Mehr Informationen folgen in Kürze.</p>');
       if (p.ctaText) document.getElementById('ctaHeading').textContent = p.ctaText;
-      var link = EKB.safeHref(p.ctaLink);
+      var link = EKB.safeHref(p.ctaZiel && p.ctaZiel !== 'eigen' ? p.ctaZiel : p.ctaLink);
       if (link) document.getElementById('ctaButton').setAttribute('href', link);
     })
     .catch(function () {
