@@ -22,7 +22,7 @@
       var grid = document.getElementById('impressGrid');
       grid.innerHTML = eintraege.map(function (im) {
         var media = im.bild
-          ? '<img src="' + esc(EKB.imgUrl(im.bild, { w: 640, h: 420 })) + '" alt="' + esc(im.alt || im.unterschrift || '') + '" width="640" height="420" loading="lazy">'
+          ? '<img src="' + esc(EKB.imgUrl(im.bild, { w: 640, h: 420, name: im.unterschrift || im.alt })) + '" alt="' + esc(im.alt || im.unterschrift || '') + '" width="640" height="420" loading="lazy">'
           : '<div class="impress__ph" aria-hidden="true"><span>“</span></div>';
         return '<figure class="impress reveal">' + media +
           (im.unterschrift ? '<figcaption>' + esc(im.unterschrift) + '</figcaption>' : '') + '</figure>';

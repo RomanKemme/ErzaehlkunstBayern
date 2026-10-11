@@ -14,7 +14,7 @@
   function karte(t) {
     var kat = KAT[t.cat] || KAT.offen;
     var bild = t.img
-      ? '<div class="tcard__img"><img src="' + esc(EKB.imgUrl(t.img, { w: 720, h: 300 })) + '" alt="" width="720" height="300" loading="lazy"></div>'
+      ? '<div class="tcard__img"><img src="' + esc(EKB.imgUrl(t.img, { w: 720, h: 300, name: t.title })) + '" alt="" width="720" height="300" loading="lazy"></div>'
       : '';
     var aktion = t.full
       ? '<span class="btn btn--disabled" aria-disabled="true">Ausgebucht</span>'
@@ -29,6 +29,32 @@
       (t.meta ? '<p class="tcard__meta">' + esc(t.meta) + '</p>' : '') +
       aktion +
       '</article>';
+  }
+
+  // Strukturierte Daten (schema.org/Event), damit Suchmaschinen Termine als Veranstaltungen erkennen
+  function strukturDaten(termine) {
+    var org = { '@type': 'Organization', name: 'Erzählkunst Bayern e.V.', url: window.location.origin + '/' };
+    var events = termine.map(function (t) {
+      var start = t.datum + (t.zeitVon ? 'T' + t.zeitVon : '');
+      var ende = (t.enddatum || t.datum) + (t.zeitBis ? 'T' + t.zeitBis : '');
+      var ort = (t.meta || '').split('·')[0].trim() || 'München';
+      return {
+        '@context': 'https://schema.org', '@type': 'Event', name: t.title,
+        startDate: start, endDate: ende,
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        eventStatus: 'https://schema.org/EventScheduled',
+        location: { '@type': 'Place', name: ort, address: ort },
+        description: t.desc || undefined,
+        image: t.img ? EKB.imgUrl(t.img, { w: 1200, name: t.title }) : undefined,
+        organizer: org,
+        offers: { '@type': 'Offer', url: window.location.origin + '/anmeldung.html?termin=' + encodeURIComponent(t._id),
+          availability: t.full ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock' },
+      };
+    });
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(events);
+    document.head.appendChild(s);
   }
 
   function applyFilter(f) {
@@ -74,6 +100,7 @@
         return;
       }
       tc.innerHTML = termine.map(karte).join('');
+      strukturDaten(termine);
       tc.querySelectorAll('.reveal').forEach(EKB.reveal);
       var f = new URLSearchParams(window.location.search).get('filter');
       applyFilter(f === 'akademie' || f === 'offen' ? f : 'alle');

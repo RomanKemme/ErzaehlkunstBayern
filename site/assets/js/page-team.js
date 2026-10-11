@@ -33,7 +33,7 @@
       var hatTts = false, hatAudio = false;
       grid.innerHTML = team.map(function (p, i) {
         var avatar = p.foto
-          ? '<div class="avatar avatar--foto"><img src="' + esc(EKB.imgUrl(p.foto, { w: 240, h: 240 })) + '" alt="' + esc(p.fotoAlt || ('Porträt von ' + p.name)) + '" width="240" height="240" loading="lazy"></div>'
+          ? '<div class="avatar avatar--foto"><img src="' + esc(EKB.imgUrl(p.foto, { w: 240, h: 240, name: p.name + ' erzaehlkunst bayern' })) + '" alt="' + esc(p.fotoAlt || ('Porträt von ' + p.name)) + '" width="240" height="240" loading="lazy"></div>'
           : '<div class="avatar" aria-hidden="true">' + esc(p.ini || initialen(p.name)) + '</div>';
         var kannHoeren = p.audio || (p.intro && tts);
         if (p.audio) hatAudio = true; else if (p.intro && tts) hatTts = true;

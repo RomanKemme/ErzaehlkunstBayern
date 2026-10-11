@@ -17,4 +17,4 @@ Leitlinie aller Entscheidungen: Der Verein muss die Website ohne Roman betreiben
 | ADR-11 | **Testdaten + Mock-Sanity mit echter GROQ-Auswertung** (`groq-js`) | Die echte API ist aus der Entwicklungsumgebung nicht immer erreichbar; Tests sollen reproduzierbar sein. | Abfragen werden wie bei Sanity ausgewertet; Echtsystem-Test zusätzlich manuell. |
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

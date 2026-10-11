@@ -27,4 +27,4 @@ Im Alltag braucht die Website keine Technik: Der Verein pflegt im Studio, die We
 - Netlify: ohne Build-Schritt und ohne Inhalts-Builds fällt Verbrauch fast nur beim Ausliefern an. Konkrete Netlify-Konditionen vor dem Go-Live im Account prüfen.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

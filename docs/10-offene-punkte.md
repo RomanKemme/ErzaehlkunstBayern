@@ -19,4 +19,4 @@ Grenzen der Lösung:
 - Anmeldungen landen als E-Mail bzw. in Netlify; es gibt keine Teilnehmerverwaltung oder Platzzählung – „Ausgebucht“ setzt der Verein von Hand.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

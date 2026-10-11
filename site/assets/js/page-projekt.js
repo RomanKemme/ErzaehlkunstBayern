@@ -10,9 +10,16 @@
     titel.textContent = 'Projekt nicht gefunden';
     crumb.textContent = 'Nicht gefunden';
     document.title = 'Projekt nicht gefunden | Erzählkunst Bayern e.V.';
+    setMeta('robots', 'noindex');
     inhalt.innerHTML = '<p class="notice">Dieses Projekt gibt es nicht (mehr). Vielleicht wurde es umbenannt. ' +
       '<a href="projekte.html">Hier findest du alle aktuellen Projekte.</a></p>';
     document.getElementById('projektCta').hidden = true;
+  }
+
+  function setMeta(name, content) {
+    var m = document.querySelector('meta[name="' + name + '"]');
+    if (!m) { m = document.createElement('meta'); m.setAttribute('name', name); document.head.appendChild(m); }
+    m.setAttribute('content', content);
   }
 
   // Slug aus ?slug=… (oder aus einer älteren Adresse wie /unsere-projekte/xyz/)
@@ -30,6 +37,11 @@
       document.title = p.title + ' | Erzählkunst Bayern e.V.';
       var desc = document.querySelector('meta[name="description"]');
       if (desc && p.kurzbeschreibung) desc.setAttribute('content', p.kurzbeschreibung);
+      // Eine feste Adresse pro Projekt für Suchmaschinen
+      var canon = document.createElement('link');
+      canon.rel = 'canonical';
+      canon.href = window.location.origin + '/projekt.html?slug=' + encodeURIComponent(slug);
+      document.head.appendChild(canon);
       titel.textContent = p.title;
       crumb.textContent = p.title;
       if (p.bereich === 'akademie') {

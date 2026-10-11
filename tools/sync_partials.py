@@ -36,10 +36,35 @@ NO_STICKY = {"anmeldung", "404"}
 SITEMAP_PAGES = ["index.html", "akademie.html", "termine.html", "projekte.html", "team.html", "anmeldung.html"]
 
 
-def head(title: str, desc: str, p: str) -> str:
+# Seiten ohne feste Adresse (404) oder mit Adresse aus dem CMS (projekt) bekommen kein festes canonical
+CANONICAL_SKIP = {"404", "projekt"}
+
+ORGANISATION_LD = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Erzählkunst Bayern e.V.",
+    "url": SITE_URL + "/",
+    "logo": SITE_URL + "/assets/img/logo.png",
+    "description": "Verein für künstlerisches Erzählen in Bayern: Grundausbildung, Workshops, Montagsclub und Erzählprojekte.",
+    "areaServed": "Bayern",
+}
+
+
+def head(title: str, desc: str, p: str, page: str = "") -> str:
+    url = f"{SITE_URL}/{'' if page == 'index' else page + '.html'}"
+    canon = "" if page in CANONICAL_SKIP else f'''<link rel="canonical" href="{url}">
+<meta property="og:url" content="{url}">
+'''
+    ld = ""
+    if page == "index":
+        ld = '<script type="application/ld+json">' + json.dumps(ORGANISATION_LD, ensure_ascii=False) + "</script>\n"
     return f"""
 <meta name="theme-color" content="#2B3A34">
-<meta property="og:type" content="website">
+{canon}<meta property="og:image" content="{SITE_URL}/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+{ld}<meta property="og:type" content="website">
 <meta property="og:site_name" content="Erzählkunst Bayern e.V.">
 <meta property="og:locale" content="de_DE">
 <meta property="og:title" content="{title}">
@@ -149,7 +174,7 @@ def main():
         title = html.unescape(re.search(r"<title[^>]*>(.*?)</title>", t, re.S).group(1)).strip()
         dm = re.search(r'<meta name="description" content="([^"]*)"', t)
         desc = html.unescape(dm.group(1)) if dm else ""
-        t = replace_block(t, "HEAD", head(html.escape(title), html.escape(desc), p))
+        t = replace_block(t, "HEAD", head(html.escape(title), html.escape(desc), p, page))
         t = replace_block(t, "HEADER", header(page, p))
         t = replace_block(t, "FOOTER", footer(page, p))
         t = replace_block(t, "MODULE", module_html(mods))

@@ -25,4 +25,4 @@ Drei Punkte blockieren die Veröffentlichung, alle drei liegen beim Verein; der 
 **Danach aufräumen:** alte Decap-Reste (Netlify Identity, Git Gateway) in Netlify deaktivieren.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

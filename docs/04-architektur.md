@@ -27,4 +27,4 @@ Die Website liest nur, sie hat keinen Schlüssel und kann nichts verändern. Ges
 | Tests | `tests/` | Testserver wie Netlify, Mock-Sanity, Testdaten, Testlauf |
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

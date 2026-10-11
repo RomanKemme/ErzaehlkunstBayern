@@ -14,4 +14,4 @@ Sechs Inhaltstypen, alle mit deutschen Feldnamen, Hilfetexten und Prüfregeln (S
 **Studio-Struktur (linke Spalte):** Termine (Kommende · Vergangene · ohne Datum) → Projekte (Laufend · Abgeschlossen · Akademie) → Team → Akademie → Seitenbilder & Impressionen → Verein & Rechtliches. Neue Projekte erhalten den Bereich der Liste, aus der sie angelegt werden. Einzeldokumente lassen sich nicht löschen oder doppelt anlegen. Oberfläche auf Deutsch (`@sanity/locale-de-de`), das Entwickler-Werkzeug „Vision“ ist ausgeblendet.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

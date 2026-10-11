@@ -42,6 +42,21 @@ Seitengewicht 157–214 kB bei 14–19 Anfragen, Gerüst lokal in unter 0,1 s fe
 
 **Echtsystem-Test gegen das Sanity-Projekt:** am 10.10.2026 auf dem Laptop gegen das echte Sanity-Projekt durchgeführt. Website: 8 Seiten × 3 Breiten (375, 768, 1280 px) ohne JS-Fehler, ohne seitliches Überlaufen, ohne „undefined“-Texte; 26 interne Links und alle 7 Projekt-Detailseiten erreichbar; 11 kommende Termine, Vorauswahl im Anmeldeformular korrekt. Studio: Test-Termin über die Oberfläche angelegt und veröffentlicht, per API mit allen Feldern bestätigt; Test-Projekt legt Roman selbst nach Handbuch an. Gefunden und behoben: „Neues Termine/Projekte“ im Studio (jetzt „Neu: Termin“), Impressionen ohne Foto blendeten den ganzen Abschnitt aus (jetzt Textkachel), Datum auf Terminkarten zu groß und in Zierschrift (jetzt Fließtextschrift, 15 px), react/react-dom-Versionskonflikt beim Studio-Start (Versionen fest auf 19.2.8).
 
+**SEO-Check (11.10.2026):** Grundlagen waren vorhanden; fünf Lücken wurden geschlossen.
+
+| Prüfpunkt | Vorher | Jetzt |
+| --- | --- | --- |
+| Titel und Beschreibung je Seite | vorhanden, Akademie-Titel 76 Zeichen | alle unter 70 Zeichen |
+| Eine H1 je Seite, `lang="de"`, Alt-Texte | erfüllt | erfüllt |
+| Canonical-Adresse | fehlte | je Seite, Projektseiten per Skript |
+| Vorschaubild beim Teilen (Open Graph, Twitter) | fehlte | `og-image.jpg` 1200 × 630 |
+| Strukturierte Daten | fehlten | Organisation auf der Startseite, jeder Termin als `Event` |
+| Bild-Dateinamen | Zufallskennung von Sanity | sprechender Name aus Titel/Bildunterschrift (Vanity Filename) |
+| Nicht gefundenes Projekt | indexierbar | `noindex` |
+| sitemap.xml, robots.txt | vorhanden (6 Seiten) | unverändert; Projektseiten findet Google über die Links der Projekte-Seite |
+
+Nach dem Go-Live: Domain in der Google Search Console anmelden, Sitemap einreichen, Rich-Results-Test für die Termine-Seite laufen lassen.
+
 ## Selbstbewertung
 
 Die Website ist technisch bereit für den Go-Live; offen sind nur Inhalte, die der Verein liefern muss (Impressum, Datenschutz, Fotos). Bewertung nach dem Ziel „keine Fehler nach diesem Run“:
@@ -60,4 +75,4 @@ Die Website ist technisch bereit für den Go-Live; offen sind nur Inhalte, die d
 Selbstkritisch: Die automatischen Tests liefen gegen nachgebaute Daten; drei Fehler (Impressionen, Datumsschrift, Studio-Beschriftung) fielen erst im Echtsystem-Test auf. Echte Inhalte und echte Nutzer finden Dinge, die Testdaten nicht abbilden – deshalb vor dem Go-Live ein kurzer Durchlauf mit dem Verein.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

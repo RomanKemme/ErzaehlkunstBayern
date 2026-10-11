@@ -13,4 +13,4 @@ Die neue Website von Erzählkunst Bayern e.V. ist technisch bereit zur Veröffen
 Vor dem Go-Live fehlen nur Angaben, die der Verein liefern muss: Impressumsdaten (Anschrift, Vorstand, Vereinsregister), eine Kontakt-E-Mail und die Prüfung der Datenschutzerklärung. Details stehen in der Go-Live-Checkliste.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

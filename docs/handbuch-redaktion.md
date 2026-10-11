@@ -1,6 +1,6 @@
 # Handbuch für Erzählkunst Bayern e.V. – Website pflegen
 
-Stand: 10.10.2026 · Roman Kemme
+Stand: 11.10.2026 · Roman Kemme
 
 ## So funktioniert eure Website
 
@@ -85,7 +85,7 @@ Jedes Projekt bekommt eine Karte auf der Übersicht und eine eigene Seite. Das F
 
 - Neue Dozentin: Links **Team** → **+** → Name, Ort, Schwerpunkt → **Veröffentlichen**.
 - **Foto:** am besten quadratisch. Ohne Foto erscheinen automatisch die Initialen.
-- **Hör-Vorstellung:** Entweder eine kurze Audiodatei (MP3, ca. 15 Sekunden) hochladen – oder nur den **Vorstellungstext** eintragen; dann liest das Handy bzw. der Computer der Besucher den Text vor. Ohne beides gibt es keinen Play-Knopf.
+- **Hör-Vorstellung:** Jede Dozentin kann ihre Stimme selbst einsprechen und hochladen, niemand muss Dateien herumschicken. Aufnehmen mit der Sprachmemo-App am Handy (iPhone: „Sprachmemos“, Android: „Rekorder“), ruhiger Raum, Handy etwa 20 cm vor dem Mund, 10–20 Sekunden. Die Datei im Studio beim eigenen Teameintrag unter „Hör-Vorstellung“ hochladen (MP3 oder M4A, möglichst unter 2 MB). Nicht als WhatsApp-Sprachnachricht schicken – deren Format spielen nicht alle Geräte ab. Ohne Audiodatei reicht auch nur der **Vorstellungstext** eintragen; dann liest das Handy bzw. der Computer der Besucher den Text vor. Ohne beides gibt es keinen Play-Knopf.
 - **Reihenfolge:** kleinere Zahl = weiter vorne.
 
 **Akademie (neuer Ausbildungsjahrgang)**
@@ -104,6 +104,7 @@ Dann **Veröffentlichen**. Beim ersten Öffnen sind alle Felder schon mit dem ak
 - **Impressionen:** Fotos mit kurzer Bildunterschrift für die Galerie auf der Startseite. Einträge mit Foto stehen vorne. Ein Eintrag ohne Foto erscheint als dunkelgrüne Kachel mit seiner Bildunterschrift – sobald ihr ein Foto ergänzt, ersetzt es die Kachel.
 - **Bildbeschreibung:** Bei Fotos gibt es ein Feld „Bildbeschreibung“. Ein kurzer Satz, was zu sehen ist, hilft blinden Menschen und Suchmaschinen.
 - **Bildrechte:** Nur Fotos verwenden, die ihr nutzen dürft, und bei erkennbaren Personen deren Einverständnis haben.
+- **Dateinamen:** Wie die Datei auf eurem Computer heißt, ist egal. Die Website gibt jedem Bild automatisch einen sprechenden Namen aus Titel oder Bildunterschrift (gut für Google). Wichtig für Suchmaschinen sind die **Bildbeschreibung** und die **Bildunterschrift** – die bitte ausfüllen.
 
 ## Verein & Rechtliches, Anmeldungen
 

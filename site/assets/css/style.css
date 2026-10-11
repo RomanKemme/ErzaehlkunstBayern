@@ -260,10 +260,19 @@ section h2{font-size:var(--fs-xl);font-weight:700;margin-bottom:14px}
 .mod__body-inner dd{margin:0 0 14px;color:#DCE3DC}
 .mod__body-inner .btn{align-self:start;margin-top:6px;font-size:var(--fs-sm);padding:11px 22px}
 @media(max-width:720px){
-  .mod__body-inner{grid-template-columns:1fr}
-  .timeline{padding-left:46px}
-  .mod__dot{left:-46px;width:38px;height:38px;font-size:var(--fs-sm)}
-  .mod__head{padding:16px 46px 16px 16px}
+  /* Handy: Zeitleiste schmaler, Moduldetails kompakt als zweispaltige Liste */
+  .timeline{padding-left:36px}
+  .timeline::before{left:13px;width:3px}
+  .mod{margin-bottom:10px}
+  .mod__dot{left:-36px;top:12px;width:30px;height:30px;border-width:2px;font-size:var(--fs-xs)}
+  .mod__head{padding:13px 42px 13px 14px;font-size:var(--fs-sm)}
+  .mod__head::after{right:14px}
+  .mod__body-inner{grid-template-columns:1fr;gap:10px;padding:12px 14px 14px;font-size:var(--fs-sm);line-height:1.5}
+  .mod__body-inner dl{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:baseline}
+  .mod__body-inner dt{letter-spacing:.06em;margin:0;font-size:.6875rem}
+  .mod__body-inner dd{margin:0}
+  /* Anmelde-Button steckt auf dem Handy schon in der festen Leiste unten */
+  .mod__body-inner .btn{display:none}
 }
 .ak-konditionen{
   margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;

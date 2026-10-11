@@ -64,7 +64,23 @@
     if (opts.h) p.push('h=' + opts.h);
     if (opts.w && opts.h) p.push('fit=crop');
     if (opts.q) p.push('q=' + opts.q);
+    // Sprechender Dateiname für Suchmaschinen („Vanity Filename“ von Sanity):
+    // …/abc123-800x600.jpg/erzaehlerin-carola.jpg – wird aus Titel/Bildunterschrift erzeugt,
+    // die Redaktion muss Dateien vor dem Hochladen also nicht umbenennen.
+    var name = slugify(opts.name);
+    if (name && url.indexOf('?') === -1) {
+      var ext = (url.match(/\.(jpe?g|png|webp|gif|svg|avif)$/i) || [])[1];
+      if (ext) url += '/' + name + '.' + ext.toLowerCase();
+    }
     return url + (url.indexOf('?') === -1 ? '?' : '&') + p.join('&');
+  }
+
+  function slugify(t) {
+    if (!t) return '';
+    return String(t).toLowerCase()
+      .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60).replace(/-+$/, '');
   }
 
   /** Sanity „Portable Text“ (Rich-Text) in HTML umwandeln.
@@ -104,7 +120,7 @@
         closeList();
         var url = block.asset && block.asset.url;
         if (url) {
-          html += '<figure class="rt-figure"><img src="' + esc(imgUrl(url, { w: 1200 })) + '" alt="' +
+          html += '<figure class="rt-figure"><img src="' + esc(imgUrl(url, { w: 1200, name: block.alt || block.caption })) + '" alt="' +
             esc(block.alt || '') + '" loading="lazy">' +
             (block.caption ? '<figcaption>' + esc(block.caption) + '</figcaption>' : '') + '</figure>';
         }

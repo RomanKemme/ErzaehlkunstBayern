@@ -12,4 +12,4 @@ Vier Personas leiten alle Entscheidungen: drei Besuchergruppen, die meist mit de
 Sekundär: Schulen und Veranstalter, die eine Geschichtenstunde oder die GUTE STUBE anfragen, sowie Spender:innen, die die Bankverbindung suchen.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

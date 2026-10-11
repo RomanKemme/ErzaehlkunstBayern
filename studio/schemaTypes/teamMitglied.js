@@ -31,7 +31,8 @@ export default {
       name: 'audio',
       title: 'Hör-Vorstellung als Audiodatei (optional)',
       type: 'file',
-      description: 'Eine kurze MP3- oder M4A-Datei (ca. 15 Sekunden). Wenn leer, wird der Text darunter von der Sprachausgabe des Geräts vorgelesen.',
+      description:
+        'So geht’s: mit der Sprachmemo-App am Handy in einem ruhigen Raum 10–20 Sekunden aufnehmen (Handy ca. 20 cm vor dem Mund), Datei hier hochladen. MP3 oder M4A, möglichst unter 2 MB. Wenn leer, liest die Sprachausgabe des Geräts den Vorstellungstext vor.',
       options: { accept: 'audio/*' },
     },
     {

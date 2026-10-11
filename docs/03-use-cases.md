@@ -18,4 +18,4 @@ Zehn Anwendungsfälle decken den Kern ab; die Akzeptanzkriterien sind die Grundl
 Ausnahmefälle für alle Use Cases: Sanity nicht erreichbar → verständliche Meldung statt endloser Ladeanzeige; leeres CMS → Hinweistexte statt leerer Flächen.
 
 ---
-Teil der [technischen Dokumentation](README.md) · Stand: 10.10.2026
+Teil der [technischen Dokumentation](README.md) · Stand: 11.10.2026

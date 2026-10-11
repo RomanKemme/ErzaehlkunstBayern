@@ -1,6 +1,6 @@
 # Dokumentation – Erzählkunst Bayern Website
 
-Stand: 10.10.2026. Die Website läuft bisher nur lokal; veröffentlicht wird erst nach Romans Freigabe.
+Stand: 11.10.2026. Die Website läuft bisher nur lokal; veröffentlicht wird erst nach Romans Freigabe.
 
 ## Für den Verein
 
@@ -16,7 +16,7 @@ Stand: 10.10.2026. Die Website läuft bisher nur lokal; veröffentlicht wird ers
 | 4 | [Architektur](04-architektur.md) | Bausteine, Datenfluss (Mermaid-Diagramm), Dateien |
 | 5 | [Architekturentscheidungen (ADR)](05-adr.md) | ADR-01 bis ADR-11 |
 | 6 | [Inhaltsmodell](06-inhaltsmodell.md) | Sechs Inhaltstypen in Sanity, Studio-Struktur |
-| 7 | [Qualitätssicherung & Selbstbewertung](07-qualitaetssicherung.md) | Teststrategie, 55 Prüfungen, Usability, Echtsystem-Test |
+| 7 | [Qualitätssicherung & Selbstbewertung](07-qualitaetssicherung.md) | Teststrategie, 55 Prüfungen, Usability, Echtsystem-Test, SEO-Check |
 | 8 | [Go-Live-Checkliste](08-go-live-checkliste.md) | Was vor dem Veröffentlichen erledigt sein muss |
 | 9 | [Betrieb & Wartung](09-betrieb-und-wartung.md) | Lokal entwickeln, wo man was ändert, Kosten |
 | 10 | [Offene Punkte, Risiken, Grenzen](10-offene-punkte.md) | Offene Aufgaben mit Verantwortlichen |
