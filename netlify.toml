@@ -7,6 +7,9 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    # VORSCHAU-PHASE: Suchmaschinen sollen die Testversion nicht aufnehmen.
+    # Vor dem Go-Live diese Zeile löschen (siehe docs/08-go-live-checkliste.md).
+    X-Robots-Tag = "noindex, nofollow"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"

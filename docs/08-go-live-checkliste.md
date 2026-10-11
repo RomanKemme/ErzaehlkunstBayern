@@ -10,6 +10,7 @@ Drei Punkte blockieren die Veröffentlichung, alle drei liegen beim Verein; der 
 
 **Technisch (Roman)**
 
+- [ ] In `netlify.toml` die Zeile `X-Robots-Tag = "noindex, nofollow"` (Vorschau-Phase) löschen
 - [ ] `studio`: `npm install` (neue Pakete: deutsche Oberfläche, Icons), dann `npm run dev` prüfen
 - [ ] Im Studio „Akademie“, „Seitenbilder“ und „Verein & Rechtliches“ öffnen und einmal veröffentlichen
 - [ ] Branch `uiux-test` → `sanity` → `main` zusammenführen (Pull Request auf GitHub)
