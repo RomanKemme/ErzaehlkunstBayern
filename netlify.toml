@@ -22,6 +22,19 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/img/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+# Skripte und Design: Dateinamen tragen eine Versionsnummer (?v=…, siehe tools/sync_partials.py),
+# zusätzlich fragt der Browser bei jedem Laden kurz nach, ob es eine neue Fassung gibt.
+# So passen nach einem Deploy nie alte und neue Dateien zusammen.
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

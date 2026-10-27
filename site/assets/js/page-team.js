@@ -45,7 +45,7 @@
             (web && /^https?:/i.test(web) ? '<p><a href="' + esc(web) + '" target="_blank" rel="noopener">Website von ' + esc(vorname) + ' <span aria-hidden="true">↗</span></a></p>' : '') +
             '</details>'
           : '';
-        return '<article class="dozentin reveal" id="' + esc(EKB.slugify(p.name)) + '">' + avatar +
+        return '<article class="dozentin reveal" id="' + esc(EKB.slugify ? EKB.slugify(p.name) : '') + '">' + avatar +
           '<h3>' + esc(p.name) + '</h3>' +
           (p.ort ? '<p class="ort">' + esc(p.ort) + '</p>' : '') +
           (p.fach ? '<p class="fach">' + esc(p.fach) + '</p>' : '') +

@@ -6,7 +6,7 @@ Im Alltag braucht die Website keine Technik: Der Verein pflegt im Studio, die We
 
 1. Website: im Ordner `site` → `python -m http.server 8080` → http://localhost:8080 (die Adresse muss in Sanity unter CORS freigegeben sein)
 2. Studio: im Ordner `studio` → `npm install` (einmalig) → `npm run dev` → http://localhost:3333
-3. Menü, Fußzeile oder vorinstallierte Module geändert → `python tools/sync_partials.py`
+3. Menü, Fußzeile, vorinstallierte Module **oder irgendeine Datei in `site/assets/js` bzw. `site/assets/css`** geändert → `python tools/sync_partials.py` (setzt auch die Versionsnummern `?v=…`, damit Browser nach dem Deploy sicher die neue Fassung laden)
 4. Vor jedem Commit: `python tests/make_fixtures.py` und `python tests/run_tests.py` (alle Prüfungen müssen bestehen)
 
 **Wo ändere ich was?**

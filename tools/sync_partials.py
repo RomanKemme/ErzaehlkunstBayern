@@ -15,6 +15,7 @@ Keine Abhängigkeiten außer Python 3.
 """
 import html
 import json
+import os
 import re
 from pathlib import Path
 
@@ -168,6 +169,29 @@ def replace_block(text: str, name: str, content: str) -> str:
     return pat.sub(lambda m: m.group(1) + content + m.group(2), text)
 
 
+def schreiben(pfad, text: str) -> None:
+    """Datei über eine Zwischendatei ersetzen (robust gegen gesperrte Dateirechte unter Windows)."""
+    tmp = pfad.with_name(pfad.name + ".neu")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, pfad)
+
+
+def versionen(text: str) -> str:
+    """Hängt an Skripte und Stylesheet eine Versionsnummer aus dem Dateiinhalt (?v=…).
+    Ändert sich eine Datei, ändert sich die Adresse – der Browser lädt dann sicher die neue Fassung."""
+    import hashlib
+
+    def ersetzen(m):
+        pfad = m.group(2)
+        datei = SITE / pfad
+        if not datei.exists():
+            return m.group(0)
+        h = hashlib.sha1(datei.read_bytes()).hexdigest()[:8]
+        return f'{m.group(1)}{pfad}?v={h}"'
+
+    return re.sub(r'((?:src|href)="/?)(assets/(?:js/[\w-]+\.js|css/style\.css))(?:\?v=\w+)?"', ersetzen, text)
+
+
 def main():
     mods = json.loads((ROOT / "tools" / "module_defaults.json").read_text(encoding="utf-8"))
     for f in sorted(SITE.glob("*.html")):
@@ -181,7 +205,8 @@ def main():
         t = replace_block(t, "HEADER", header(page, p))
         t = replace_block(t, "FOOTER", footer(page, p))
         t = replace_block(t, "MODULE", module_html(mods))
-        f.write_text(t, encoding="utf-8")
+        t = versionen(t)
+        schreiben(f, t)
         print("aktualisiert:", f.name)
 
     # Vorbelegung der Module im Sanity Studio (gleiche Quelle wie die Website)
@@ -189,14 +214,14 @@ def main():
         items = [dict(_key=f"modul{i}", _type="modul", **m) for i, m in enumerate(mods, 1)]
         js = ("// Automatisch erzeugt von tools/sync_partials.py aus tools/module_defaults.json – nicht von Hand ändern.\n"
               "export const MODULE_DEFAULTS = " + json.dumps(items, ensure_ascii=False, indent=2) + "\n")
-        (STUDIO / "akademieDefaults.js").write_text(js, encoding="utf-8")
+        schreiben(STUDIO / "akademieDefaults.js", js)
         print("aktualisiert: studio/schemaTypes/akademieDefaults.js")
 
     urls = "\n".join(f"  <url><loc>{SITE_URL}/{'' if u == 'index.html' else u}</loc></url>" for u in SITEMAP_PAGES)
-    (SITE / "sitemap.xml").write_text(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + urls + "\n</urlset>\n", encoding="utf-8")
-    (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
+    schreiben(SITE / "sitemap.xml",
+              '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+              + urls + "\n</urlset>\n")
+    schreiben(SITE / "robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
     print("aktualisiert: sitemap.xml, robots.txt")
 
 
